@@ -22,7 +22,7 @@ const Home = () => {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <p>Hello, Next-js World!</p>
+          <p>Hello, next-js World!</p>
         </div>
       </main>
     </>
