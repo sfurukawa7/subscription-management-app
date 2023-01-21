@@ -33,4 +33,18 @@
 
 ## 使い方
 
+## 開発手順
+
+### 1. Issueを立てる
+- Issue名：XX画面
+
+### 2. Issue番号に基づいてBranchを切る
+- Branch名：`feature/#<Issue番号>_<画面名>`
+
+### 3. 2で切ったBranchで開発する
+- その都度，commit&push
+
+### 4. Figmaの画面通りに開発完了できればPull Request
+- 問題なければMergeして，IssueをClose
+
 ## その他
