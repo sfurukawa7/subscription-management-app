@@ -36,7 +36,7 @@
 ## 開発手順
 
 ### 1. Issueを立てる
-- Issue名：XX画面
+- Issue名：XX画面（<PC|スマホ>）
 
 ### 2. Issue番号に基づいてBranchを切る
 - Branch名：`feature/#<Issue番号>_<画面名>`
