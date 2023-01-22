@@ -1,6 +1,8 @@
 import Head from "next/head";
 
-import styles from "./login.module.css";
+import LoginInput from "@molecules/loginInput";
+
+import styles from "./styles.module.css";
 
 const Home = () => {
   return (
@@ -21,10 +23,31 @@ const Home = () => {
         />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>Hello, next-js World!</p>
-        </div>
+        <EmailInput />
+        <PasswordInput />
       </main>
+    </>
+  );
+};
+const EmailInput = () => {
+  return (
+    <>
+      <LoginInput
+        iconPrefix="fas"
+        iconName="user"
+        placeholder="E-Mail"
+      />
+    </>
+  );
+};
+const PasswordInput = () => {
+  return (
+    <>
+      <LoginInput
+        iconPrefix="fas"
+        iconName="lock"
+        placeholder="Password"
+      />
     </>
   );
 };
