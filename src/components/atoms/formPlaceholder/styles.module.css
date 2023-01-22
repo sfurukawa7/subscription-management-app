@@ -1,0 +1,18 @@
+.formPlaceholder {
+  position: absolute;
+  width: 44px;
+  height: 26px;
+  left: 98px;
+  top: 340px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 159% */
+  display: flex;
+  align-items: center;
+
+  color: #cccccc;
+}
