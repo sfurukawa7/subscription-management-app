@@ -3,9 +3,12 @@ import SmallText from "@atoms/smallText";
 import Title from "@atoms/title";
 import LoginInput from "@molecules/loginInput";
 
+import { useLogin } from "./hooks";
 import styles from "./styles.module.css";
 
 const LoginForm = () => {
+  const { register, handleFormSubmit } = useLogin();
+
   return (
     <div className={styles.container}>
       <Title
@@ -13,17 +16,19 @@ const LoginForm = () => {
         className={styles.title}
       />
       <TopLine />
-      <EmailInput />
-      <PasswordInput />
+      <form onSubmit={handleFormSubmit}>
+        <EmailInput register={register} />
+        <PasswordInput register={register} />
+        <LoginButton />
+      </form>
       <ResetPasswordLink />
-      <LoginButton />
       <BottomLine />
       <SignUpLink />
     </div>
   );
 };
 
-const EmailInput = () => {
+const EmailInput = (props: { register: any }) => {
   return (
     <>
       <LoginInput
@@ -31,12 +36,14 @@ const EmailInput = () => {
         iconName="user"
         placeholder="E-Mail"
         className={styles.emailInput}
+        label="email"
+        register={props.register}
       />
     </>
   );
 };
 
-const PasswordInput = () => {
+const PasswordInput = (props: { register: any }) => {
   return (
     <>
       <LoginInput
@@ -44,6 +51,8 @@ const PasswordInput = () => {
         iconName="lock"
         placeholder="Password"
         className={styles.passwordInput}
+        label="password"
+        register={props.register}
       />
     </>
   );
@@ -54,8 +63,9 @@ const LoginButton = () => {
     <>
       <RoundedRectangleButton
         content="Login"
-        handleClick={() => console.log("Hello")}
+        handleClick={() => {}}
         className={styles.loginButton}
+        type="submit"
       />
     </>
   );

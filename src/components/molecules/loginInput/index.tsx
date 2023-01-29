@@ -10,12 +10,18 @@ type LoginInputProps = {
   iconName: IconName;
   placeholder: string;
   className: string;
+  label: string;
+  register: any;
 };
 
 const LoginInput = (props: LoginInputProps) => {
   return (
     <div className={`${styles.loginInput} ${props.className}`}>
-      <FormInput placeholder={props.placeholder} />
+      <FormInput
+        placeholder={props.placeholder}
+        register={props.register}
+        label={props.label}
+      />
       <FormIcon
         iconPrefix={props.iconPrefix}
         iconName={props.iconName}
