@@ -7,6 +7,7 @@ const FormInput = (props: FormInputProps) => {
     <>
       <label htmlFor={props.label} />
       <input
+        type={props.label === "password" ? "password" : "text"}
         id={props.label}
         className={styles.formInput}
         placeholder={props.placeholder}
