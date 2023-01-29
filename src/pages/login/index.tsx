@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-import LoginInput from "@molecules/loginInput";
+import LoginForm from "@organisms/loginForm";
 
 import styles from "./styles.module.css";
 
-const Home = () => {
+const Login = () => {
   return (
     <>
       <Head>
@@ -23,33 +23,10 @@ const Home = () => {
         />
       </Head>
       <main className={styles.main}>
-        <EmailInput />
-        <PasswordInput />
+        <LoginForm />
       </main>
     </>
   );
 };
-const EmailInput = () => {
-  return (
-    <>
-      <LoginInput
-        iconPrefix="fas"
-        iconName="user"
-        placeholder="E-Mail"
-      />
-    </>
-  );
-};
-const PasswordInput = () => {
-  return (
-    <>
-      <LoginInput
-        iconPrefix="fas"
-        iconName="lock"
-        placeholder="Password"
-      />
-    </>
-  );
-};
 
-export default Home;
+export default Login;

@@ -34,10 +34,11 @@ module.exports = {
     ],
     "padding-line-between-statements": [
       "error",
+      { blankLine: "never", prev: "const", next: "const" },
       { blankLine: "always", prev: "import", next: "const" },
+      { blankLine: "always", prev: "multiline-const", next: "multiline-const" },
       { blankLine: "always", prev: "*", next: "export" },
       { blankLine: "always", prev: "*", next: "return" },
-      { blankLine: "never", prev: "const", next: "const" },
     ],
     "import/order": [
       "error",

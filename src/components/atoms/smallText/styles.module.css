@@ -1,0 +1,12 @@
+.smallText {
+  width: 100%;
+  height: 26px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+
+  color: #000000;
+}
