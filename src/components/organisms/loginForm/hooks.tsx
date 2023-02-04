@@ -16,8 +16,7 @@ export const useLogin = () => {
   const router = useRouter();
   const authorize = async (email: string, password: string) => {
     await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
+      .then(() => {
         router.push("/home");
       })
       .catch((error) => {

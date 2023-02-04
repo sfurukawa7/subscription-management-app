@@ -18,8 +18,7 @@ export const useSignupForm = (onAfterSignup: () => void) => {
 
   const createUser = async (email: string, password: string) => {
     await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log("ユーザー登録成功", userCredential.user);
+      .then(() => {
         onAfterSignup();
       })
       .catch((error) => {
