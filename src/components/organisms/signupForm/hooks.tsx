@@ -11,6 +11,7 @@ export type SignupForm = {
 export const useSignupForm = (onAfterSignup: () => void) => {
   const {
     control,
+    setError,
     formState: { errors },
     handleSubmit,
   } = useForm<SignupForm>();
@@ -22,10 +23,30 @@ export const useSignupForm = (onAfterSignup: () => void) => {
         onAfterSignup();
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            setError("email", {
+              type: "manual",
+              message: "This e-mail is already in use",
+            });
+            break;
+          case "auth/invalid-email":
+            setError("email", {
+              type: "manual",
+              message: "Invalid e-mail address",
+            });
+            break;
+          default:
+            setError("email", {
+              type: "manual",
+              message: "Unexpected Error",
+            });
+            setError("password", {
+              type: "manual",
+              message: "Unexpected Error",
+            });
+            break;
+        }
       });
   };
 

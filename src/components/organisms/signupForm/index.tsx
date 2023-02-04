@@ -31,7 +31,7 @@ const SignupForm = (props: SignupFormOProps) => {
             required: "E-mail is required",
             pattern: {
               value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-              message: "Invalid email address",
+              message: "Invalid e-mail address",
             },
           }}
           render={({ field }) => (

@@ -9,6 +9,7 @@ import { auth } from "@utils/configureFirebase";
 export const useLogin = () => {
   const {
     control,
+    setError,
     formState: { errors },
     handleSubmit,
   } = useForm<LoginForms>();
@@ -20,10 +21,30 @@ export const useLogin = () => {
         router.push("/home");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        switch (error.code) {
+          case "auth/invalid-email":
+            setError("email", {
+              type: "manual",
+              message: "Invalid e-mail address",
+            });
+            break;
+          case "auth/wrong-password":
+            setError("password", {
+              type: "manual",
+              message: "Your password is incorrect",
+            });
+            break;
+          default:
+            setError("email", {
+              type: "manual",
+              message: error.message,
+            });
+            setError("password", {
+              type: "manual",
+              message: error.message,
+            });
+            break;
+        }
       });
   };
   const handleFormSubmit = handleSubmit((data: LoginForms) => authorize(data.email, data.password));
