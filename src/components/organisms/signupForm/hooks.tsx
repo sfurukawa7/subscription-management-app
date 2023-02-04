@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 
@@ -11,7 +9,12 @@ export type SignupForm = {
 };
 
 export const useSignupForm = (onAfterSignup: () => void) => {
-  const { register, handleSubmit } = useForm<SignupForm>();
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<SignupForm>();
+
   const createUser = async (email: string, password: string) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -30,5 +33,5 @@ export const useSignupForm = (onAfterSignup: () => void) => {
     createUser(data.email, data.password)
   );
 
-  return { register, handleFormSubmit };
+  return { control, errors, handleFormSubmit };
 };

@@ -1,6 +1,7 @@
 .smallText {
-  width: 100%;
+  width: auto;
   height: 26px;
+  white-space: nowrap;
 
   font-style: normal;
   font-weight: 400;

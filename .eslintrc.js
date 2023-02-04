@@ -51,7 +51,7 @@ module.exports = {
             position: "before",
           },
           {
-            pattern: "{@atoms/**,@molecules/**,@organisms/**,@pages/**,@utils/**,@types/**}",
+            pattern: "{@atoms/**,@molecules/**,@organisms/**,@pages/**,@utils/**}",
             group: "parent",
             position: "before",
           },

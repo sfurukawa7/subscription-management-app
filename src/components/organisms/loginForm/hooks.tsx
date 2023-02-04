@@ -1,17 +1,17 @@
 import { useRouter } from "next/router";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { LoginForms } from "loginForms";
 import { useForm } from "react-hook-form";
 
 import { auth } from "@utils/configureFirebase";
 
-export type LoginForm = {
-  email: string;
-  password: string;
-};
-
 export const useLogin = () => {
-  const { register, handleSubmit } = useForm<LoginForm>();
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<LoginForms>();
   const router = useRouter();
   const authorize = async (email: string, password: string) => {
     await signInWithEmailAndPassword(auth, email, password)
@@ -26,7 +26,7 @@ export const useLogin = () => {
         console.log(errorMessage);
       });
   };
-  const handleFormSubmit = handleSubmit((data: LoginForm) => authorize(data.email, data.password));
+  const handleFormSubmit = handleSubmit((data: LoginForms) => authorize(data.email, data.password));
 
-  return { register, handleFormSubmit };
+  return { control, errors, handleFormSubmit };
 };

@@ -3,7 +3,7 @@
   box-sizing: border-box;
 
   width: 355px;
-  height: 365px;
+  height: 386px;
 
   background: #efeef5;
   border: 1px solid #ffffff;
@@ -36,13 +36,13 @@
 .passwordInput {
   position: absolute;
   left: 20px;
-  top: 141px;
+  top: 156px;
 }
 
 .signupButton {
   position: absolute;
   left: 20px;
-  top: 227px;
+  top: 252px;
 }
 
 .bottomLine {
@@ -50,7 +50,19 @@
   width: 355px;
   height: 0px;
   left: -1px;
-  top: 295.51px;
+  bottom: 69.49px;
 
   border: 3px solid #ffffff;
+}
+
+.emailErrorMessage {
+  position: absolute;
+  left: 37px;
+  top: 140px;
+}
+
+.passwordErrorMessage {
+  position: absolute;
+  left: 37px;
+  top: 206px;
 }

@@ -1,6 +1,10 @@
+import { Controller } from "react-hook-form";
+
+import ErrorMessage from "@atoms/errorMessage";
 import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
-import SignupInput from "@molecules/loginInput";
+import EmailInput from "@organisms/emailInput";
+import PasswordInput from "@organisms/passwordInput";
 
 import { useSignupForm } from "./hooks";
 import styles from "./styles.module.css";
@@ -10,7 +14,7 @@ type SignupFormOProps = {
 };
 
 const SignupForm = (props: SignupFormOProps) => {
-  const { register, handleFormSubmit } = useSignupForm(props.onAfterSignup);
+  const { control, errors, handleFormSubmit } = useSignupForm(props.onAfterSignup);
 
   return (
     <div className={styles.container}>
@@ -20,42 +24,56 @@ const SignupForm = (props: SignupFormOProps) => {
       />
       <TopLine />
       <form onSubmit={handleFormSubmit}>
-        <EmailInput register={register} />
-        <PasswordInput register={register} />
+        <Controller
+          name="email"
+          control={control}
+          rules={{
+            required: "E-mail is required",
+            pattern: {
+              value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              message: "Invalid email address",
+            },
+          }}
+          render={({ field }) => (
+            <EmailInput
+              field={field}
+              className={styles.emailInput}
+            />
+          )}
+        />
+        {errors.email && (
+          <ErrorMessage
+            content={errors.email.message ?? ""}
+            className={styles.emailErrorMessage}
+          />
+        )}
+        <Controller
+          name="password"
+          control={control}
+          rules={{
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password must have at least 6 characters",
+            },
+          }}
+          render={({ field }) => (
+            <PasswordInput
+              field={field}
+              className={styles.passwordInput}
+            />
+          )}
+        />
+        {errors.password && (
+          <ErrorMessage
+            content={errors.password.message ?? ""}
+            className={styles.passwordErrorMessage}
+          />
+        )}
         <SignupButton />
       </form>
       <BottomLine />
     </div>
-  );
-};
-
-const EmailInput = (props: { register: any }) => {
-  return (
-    <>
-      <SignupInput
-        iconPrefix="fas"
-        iconName="user"
-        placeholder="E-Mail"
-        className={styles.emailInput}
-        label="email"
-        register={props.register}
-      />
-    </>
-  );
-};
-
-const PasswordInput = (props: { register: any }) => {
-  return (
-    <>
-      <SignupInput
-        iconPrefix="fas"
-        iconName="lock"
-        placeholder="Password"
-        className={styles.passwordInput}
-        label="password"
-        register={props.register}
-      />
-    </>
   );
 };
 
@@ -64,7 +82,9 @@ const SignupButton = () => {
     <>
       <RoundedRectangleButton
         content="Sign up"
-        handleClick={() => {}}
+        handleClick={() => {
+          return;
+        }}
         className={styles.signupButton}
         type="submit"
       />

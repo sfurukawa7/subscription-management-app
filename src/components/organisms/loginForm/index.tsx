@@ -1,13 +1,17 @@
+import { Controller } from "react-hook-form";
+
+import ErrorMessage from "@atoms/errorMessage";
 import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import SmallText from "@atoms/smallText";
 import Title from "@atoms/title";
-import LoginInput from "@molecules/loginInput";
+import EmailInput from "@organisms/emailInput";
+import PasswordInput from "@organisms/passwordInput";
 
 import { useLogin } from "./hooks";
 import styles from "./styles.module.css";
 
 const LoginForm = () => {
-  const { register, handleFormSubmit } = useLogin();
+  const { control, errors, handleFormSubmit } = useLogin();
 
   return (
     <div className={styles.container}>
@@ -17,8 +21,42 @@ const LoginForm = () => {
       />
       <TopLine />
       <form onSubmit={handleFormSubmit}>
-        <EmailInput register={register} />
-        <PasswordInput register={register} />
+        <Controller
+          name="email"
+          control={control}
+          rules={{
+            required: "E-mail is required",
+          }}
+          render={({ field }) => (
+            <EmailInput
+              field={field}
+              className={styles.emailInput}
+            />
+          )}
+        />
+        {errors.email && (
+          <ErrorMessage
+            content={errors.email.message ?? ""}
+            className={styles.emailErrorMessage}
+          />
+        )}
+        <Controller
+          name="password"
+          control={control}
+          rules={{ required: "Password is required" }}
+          render={({ field }) => (
+            <PasswordInput
+              field={field}
+              className={styles.passwordInput}
+            />
+          )}
+        />
+        {errors.password && (
+          <ErrorMessage
+            content={errors.password.message ?? ""}
+            className={styles.passwordErrorMessage}
+          />
+        )}
         <LoginButton />
       </form>
       <ResetPasswordLink />
@@ -28,42 +66,14 @@ const LoginForm = () => {
   );
 };
 
-const EmailInput = (props: { register: any }) => {
-  return (
-    <>
-      <LoginInput
-        iconPrefix="fas"
-        iconName="user"
-        placeholder="E-Mail"
-        className={styles.emailInput}
-        label="email"
-        register={props.register}
-      />
-    </>
-  );
-};
-
-const PasswordInput = (props: { register: any }) => {
-  return (
-    <>
-      <LoginInput
-        iconPrefix="fas"
-        iconName="lock"
-        placeholder="Password"
-        className={styles.passwordInput}
-        label="password"
-        register={props.register}
-      />
-    </>
-  );
-};
-
 const LoginButton = () => {
   return (
     <>
       <RoundedRectangleButton
         content="Login"
-        handleClick={() => {}}
+        handleClick={() => {
+          return;
+        }}
         className={styles.loginButton}
         type="submit"
       />
