@@ -1,29 +1,26 @@
 import RoundedRectangleButton from "@atoms/roundedRectangleButton";
-import SmallText from "@atoms/smallText";
 import Title from "@atoms/title";
-import LoginInput from "@molecules/loginInput";
+import SignupInput from "@molecules/loginInput";
 
-import { useLogin } from "./hooks";
+import { useSignup } from "./hooks";
 import styles from "./styles.module.css";
 
-const LoginForm = () => {
-  const { register, handleFormSubmit } = useLogin();
+const SignupForm = () => {
+  const { register, handleFormSubmit } = useSignup();
 
   return (
     <div className={styles.container}>
       <Title
-        content="Login"
+        content="Sign Up"
         className={styles.title}
       />
       <TopLine />
       <form onSubmit={handleFormSubmit}>
         <EmailInput register={register} />
         <PasswordInput register={register} />
-        <LoginButton />
+        <SignupButton />
       </form>
-      <ResetPasswordLink />
       <BottomLine />
-      <SignUpLink />
     </div>
   );
 };
@@ -31,7 +28,7 @@ const LoginForm = () => {
 const EmailInput = (props: { register: any }) => {
   return (
     <>
-      <LoginInput
+      <SignupInput
         iconPrefix="fas"
         iconName="user"
         placeholder="E-Mail"
@@ -46,7 +43,7 @@ const EmailInput = (props: { register: any }) => {
 const PasswordInput = (props: { register: any }) => {
   return (
     <>
-      <LoginInput
+      <SignupInput
         iconPrefix="fas"
         iconName="lock"
         placeholder="Password"
@@ -58,13 +55,13 @@ const PasswordInput = (props: { register: any }) => {
   );
 };
 
-const LoginButton = () => {
+const SignupButton = () => {
   return (
     <>
       <RoundedRectangleButton
-        content="Login"
+        content="Sign up"
         handleClick={() => {}}
-        className={styles.loginButton}
+        className={styles.signupButton}
         type="submit"
       />
     </>
@@ -79,24 +76,4 @@ const BottomLine = () => {
   return <div className={styles.bottomLine} />;
 };
 
-const ResetPasswordLink = () => {
-  return (
-    <SmallText
-      content="Forgot your password?"
-      href="/resetPassword"
-      className={styles.resetPasswordLink}
-    />
-  );
-};
-
-const SignUpLink = () => {
-  return (
-    <SmallText
-      content="Don’t have an account yet? Sign up"
-      href="/signup"
-      className={styles.signUpLink}
-    />
-  );
-};
-
-export default LoginForm;
+export default SignupForm;

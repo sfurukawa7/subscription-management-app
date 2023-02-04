@@ -8,8 +8,6 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 
 import { AuthProvider } from "@utils/authContext";
 
-// import { AuthProvider } from "@utils/authContext";
-
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
