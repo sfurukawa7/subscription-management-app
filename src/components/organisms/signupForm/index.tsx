@@ -2,11 +2,15 @@ import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
 import SignupInput from "@molecules/loginInput";
 
-import { useSignup } from "./hooks";
+import { useSignupForm } from "./hooks";
 import styles from "./styles.module.css";
 
-const SignupForm = () => {
-  const { register, handleFormSubmit } = useSignup();
+type SignupFormOProps = {
+  onAfterSignup: () => void;
+};
+
+const SignupForm = (props: SignupFormOProps) => {
+  const { register, handleFormSubmit } = useSignupForm(props.onAfterSignup);
 
   return (
     <div className={styles.container}>

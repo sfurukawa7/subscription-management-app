@@ -10,14 +10,13 @@ export type SignupForm = {
   password: string;
 };
 
-export const useSignup = () => {
+export const useSignupForm = (onAfterSignup: () => void) => {
   const { register, handleSubmit } = useForm<SignupForm>();
-  const router = useRouter();
   const createUser = async (email: string, password: string) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log("ユーザー登録成功", userCredential.user);
-        router.push("/login");
+        onAfterSignup();
       })
       .catch((error) => {
         const errorCode = error.code;
