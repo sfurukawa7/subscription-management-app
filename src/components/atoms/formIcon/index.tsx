@@ -5,13 +5,13 @@ import { getFontAwesomeIcon } from "@utils/getFaIcon";
 
 import styles from "./styles.module.css";
 
-type FormIconProps = { iconPrefix: IconPrefix; iconName: IconName };
+type FormIconProps = { prefix: IconPrefix; iconName: IconName };
 
 const FormIcon = (props: FormIconProps) => {
   return (
     <>
       <FontAwesomeIcon
-        icon={getFontAwesomeIcon(props.iconPrefix, props.iconName)}
+        icon={getFontAwesomeIcon(props.prefix, props.iconName)}
         className={styles.icon}
       />
     </>

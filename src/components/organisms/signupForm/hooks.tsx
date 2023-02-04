@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 
 import { auth } from "@utils/configureFirebase";
+import { useTranslation } from "@utils/useTranslation";
 
 export type SignupForm = {
   email: string;
@@ -16,6 +17,8 @@ export const useSignupForm = (onAfterSignup: () => void) => {
     handleSubmit,
   } = useForm<SignupForm>();
 
+  const { t } = useTranslation();
+
   const createUser = async (email: string, password: string) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
@@ -26,23 +29,23 @@ export const useSignupForm = (onAfterSignup: () => void) => {
           case "auth/email-already-in-use":
             setError("email", {
               type: "manual",
-              message: "This e-mail is already in use",
+              message: t.ERROR_EMAIL_ALREADY_IN_USE,
             });
             break;
           case "auth/invalid-email":
             setError("email", {
               type: "manual",
-              message: "Invalid e-mail address",
+              message: t.ERROR_INVALID_EMAIL,
             });
             break;
           default:
             setError("email", {
               type: "manual",
-              message: "Unexpected Error",
+              message: t.ERROR_DEFAULT,
             });
             setError("password", {
               type: "manual",
-              message: "Unexpected Error",
+              message: t.ERROR_DEFAULT,
             });
             break;
         }
@@ -53,5 +56,5 @@ export const useSignupForm = (onAfterSignup: () => void) => {
     createUser(data.email, data.password)
   );
 
-  return { control, errors, handleFormSubmit };
+  return { control, errors, handleFormSubmit, t };
 };

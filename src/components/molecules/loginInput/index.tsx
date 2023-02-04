@@ -7,7 +7,7 @@ import FormInput from "@atoms/formInput";
 import styles from "./styles.module.css";
 
 type LoginInputProps = ControllerRenderProps & {
-  iconPrefix: IconPrefix;
+  prefix: IconPrefix;
   iconName: IconName;
   placeholder: string;
   className: string;
@@ -23,7 +23,7 @@ const LoginInput = (props: LoginInputProps) => {
         label={props.label}
       />
       <FormIcon
-        iconPrefix={props.iconPrefix}
+        prefix={props.prefix}
         iconName={props.iconName}
       />
     </div>

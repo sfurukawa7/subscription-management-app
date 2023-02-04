@@ -2,36 +2,38 @@ import Description from "@atoms/description";
 import RectangleButton from "@atoms/rectangleButton";
 import Title from "@atoms/title";
 
-import { useOkayButton } from "./hooks";
+import { useOkayButton, useSignupCompletionModal } from "./hooks";
 import styles from "./styles.module.css";
 
 const SignupCompletionModal = () => {
+  const { t } = useSignupCompletionModal();
+
   return (
     <>
       <div className={styles.modalOverlay}>
         <div className={styles.modalContent}>
           <Title
-            content="Welcome!"
+            content={t.SIGNUP_MODAL_TITLE}
             className={styles.title}
             isBold={true}
           />
           <Description
-            content="You’re all set up and ready to manage your favorite service!"
+            content={t.SIGNUP_MODAL_BODY}
             className={styles.description}
           />
-          <OkayButton />
+          <OkayButton content={t.SIGNUP_MODAL_BUTTON} />
         </div>
       </div>
     </>
   );
 };
 
-const OkayButton = () => {
+const OkayButton = (props: { content: string }) => {
   const { handleClick } = useOkayButton();
 
   return (
     <RectangleButton
-      content="OK"
+      content={props.content}
       handleClick={handleClick}
       className={styles.okayButton}
       type="button"

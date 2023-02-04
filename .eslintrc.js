@@ -37,6 +37,8 @@ module.exports = {
       { blankLine: "never", prev: "const", next: "const" },
       { blankLine: "always", prev: "import", next: "const" },
       { blankLine: "always", prev: "multiline-const", next: "multiline-const" },
+      { blankLine: "always", prev: "const", next: "multiline-const" },
+      { blankLine: "always", prev: "multiline-const", next: "const" },
       { blankLine: "always", prev: "*", next: "export" },
       { blankLine: "always", prev: "*", next: "return" },
     ],
@@ -51,7 +53,7 @@ module.exports = {
             position: "before",
           },
           {
-            pattern: "{@atoms/**,@molecules/**,@organisms/**,@pages/**,@utils/**}",
+            pattern: "{@atoms/**,@molecules/**,@organisms/**,@pages/**,@utils/**,@locales/**}",
             group: "parent",
             position: "before",
           },

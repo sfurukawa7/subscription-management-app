@@ -11,12 +11,12 @@ import { useLogin } from "./hooks";
 import styles from "./styles.module.css";
 
 const LoginForm = () => {
-  const { control, errors, handleFormSubmit } = useLogin();
+  const { t, control, errors, handleFormSubmit } = useLogin();
 
   return (
     <div className={styles.container}>
       <Title
-        content="Login"
+        content={t.LOGIN_TITLE}
         className={styles.title}
       />
       <TopLine />
@@ -25,7 +25,7 @@ const LoginForm = () => {
           name="email"
           control={control}
           rules={{
-            required: "E-mail is required",
+            required: t.ERROR_EMAIL_REQUIRED,
           }}
           render={({ field }) => (
             <EmailInput
@@ -43,7 +43,7 @@ const LoginForm = () => {
         <Controller
           name="password"
           control={control}
-          rules={{ required: "Password is required" }}
+          rules={{ required: t.ERROR_PASSWORD_REQUIRED }}
           render={({ field }) => (
             <PasswordInput
               field={field}
@@ -57,20 +57,20 @@ const LoginForm = () => {
             className={styles.passwordErrorMessage}
           />
         )}
-        <LoginButton />
+        <LoginButton content={t.LOGIN_BUTTON} />
       </form>
-      <ResetPasswordLink />
+      <ResetPasswordLink content={t.LOGIN_RESET_PASSWORD_LINK} />
       <BottomLine />
-      <SignUpLink />
+      <SignUpLink content={t.LOGIN_SIGNUP_LINK} />
     </div>
   );
 };
 
-const LoginButton = () => {
+const LoginButton = (props: { content: string }) => {
   return (
     <>
       <RoundedRectangleButton
-        content="Login"
+        content={props.content}
         handleClick={() => {
           return;
         }}
@@ -89,20 +89,20 @@ const BottomLine = () => {
   return <div className={styles.bottomLine} />;
 };
 
-const ResetPasswordLink = () => {
+const ResetPasswordLink = (props: { content: string }) => {
   return (
     <SmallText
-      content="Forgot your password?"
+      content={props.content}
       href="/resetPassword"
       className={styles.resetPasswordLink}
     />
   );
 };
 
-const SignUpLink = () => {
+const SignUpLink = (props: { content: string }) => {
   return (
     <SmallText
-      content="Don’t have an account yet? Sign up"
+      content={props.content}
       href="/signup"
       className={styles.signUpLink}
     />

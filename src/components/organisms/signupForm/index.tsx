@@ -14,12 +14,12 @@ type SignupFormOProps = {
 };
 
 const SignupForm = (props: SignupFormOProps) => {
-  const { control, errors, handleFormSubmit } = useSignupForm(props.onAfterSignup);
+  const { control, errors, handleFormSubmit, t } = useSignupForm(props.onAfterSignup);
 
   return (
     <div className={styles.container}>
       <Title
-        content="Sign Up"
+        content={t.SIGNUP_TITLE}
         className={styles.title}
       />
       <TopLine />
@@ -28,10 +28,10 @@ const SignupForm = (props: SignupFormOProps) => {
           name="email"
           control={control}
           rules={{
-            required: "E-mail is required",
+            required: t.ERROR_EMAIL_REQUIRED,
             pattern: {
               value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-              message: "Invalid e-mail address",
+              message: t.ERROR_INVALID_EMAIL,
             },
           }}
           render={({ field }) => (
@@ -51,10 +51,10 @@ const SignupForm = (props: SignupFormOProps) => {
           name="password"
           control={control}
           rules={{
-            required: "Password is required",
+            required: t.ERROR_PASSWORD_REQUIRED,
             minLength: {
               value: 6,
-              message: "Password must have at least 6 characters",
+              message: t.ERROR_PASSWORD_LENGTH,
             },
           }}
           render={({ field }) => (
@@ -70,18 +70,18 @@ const SignupForm = (props: SignupFormOProps) => {
             className={styles.passwordErrorMessage}
           />
         )}
-        <SignupButton />
+        <SignupButton content={t.SIGNUP_BUTTON} />
       </form>
       <BottomLine />
     </div>
   );
 };
 
-const SignupButton = () => {
+const SignupButton = (props: { content: string }) => {
   return (
     <>
       <RoundedRectangleButton
-        content="Sign up"
+        content={props.content}
         handleClick={() => {
           return;
         }}

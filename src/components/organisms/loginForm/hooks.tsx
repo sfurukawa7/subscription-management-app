@@ -5,6 +5,7 @@ import { LoginForms } from "loginForms";
 import { useForm } from "react-hook-form";
 
 import { auth } from "@utils/configureFirebase";
+import { useTranslation } from "@utils/useTranslation";
 
 export const useLogin = () => {
   const {
@@ -13,7 +14,10 @@ export const useLogin = () => {
     formState: { errors },
     handleSubmit,
   } = useForm<LoginForms>();
+
+  const { t } = useTranslation();
   const router = useRouter();
+
   const authorize = async (email: string, password: string) => {
     await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
@@ -24,13 +28,19 @@ export const useLogin = () => {
           case "auth/invalid-email":
             setError("email", {
               type: "manual",
-              message: "Invalid e-mail address",
+              message: t.ERROR_INVALID_EMAIL,
             });
             break;
           case "auth/wrong-password":
             setError("password", {
               type: "manual",
-              message: "Your password is incorrect",
+              message: t.ERROR_WRONG_PASSWORD,
+            });
+            break;
+          case "auth/user-not-found":
+            setError("email", {
+              type: "manual",
+              message: t.ERROR_USER_NOT_FOUND,
             });
             break;
           default:
@@ -46,7 +56,8 @@ export const useLogin = () => {
         }
       });
   };
+
   const handleFormSubmit = handleSubmit((data: LoginForms) => authorize(data.email, data.password));
 
-  return { control, errors, handleFormSubmit };
+  return { t, control, errors, handleFormSubmit };
 };

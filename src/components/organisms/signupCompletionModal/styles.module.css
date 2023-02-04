@@ -15,7 +15,6 @@
   width: 312px;
   height: 194px;
   background-color: #ffffff;
-  padding: 1rem;
   border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
@@ -28,7 +27,8 @@
 
 .description {
   position: absolute;
-  left: 17px;
+  padding-left: 17px;
+  padding-right: 17px;
   top: 68px;
 }
 
