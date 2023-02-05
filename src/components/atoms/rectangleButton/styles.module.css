@@ -1,0 +1,17 @@
+.rectangleButton {
+  width: auto;
+  height: 43px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #485edf;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
