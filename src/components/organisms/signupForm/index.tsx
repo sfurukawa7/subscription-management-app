@@ -14,7 +14,7 @@ type SignupFormOProps = {
 };
 
 const SignupForm = (props: SignupFormOProps) => {
-  const { control, errors, handleFormSubmit, t } = useSignupForm(props.onAfterSignup);
+  const { control, errors, handleFormSubmit, t, isSubmit } = useSignupForm(props.onAfterSignup);
 
   return (
     <div className={styles.container}>
@@ -70,14 +70,17 @@ const SignupForm = (props: SignupFormOProps) => {
             className={styles.passwordErrorMessage}
           />
         )}
-        <SignupButton content={t.SIGNUP_BUTTON} />
+        <SignupButton
+          content={t.SIGNUP_BUTTON}
+          disabled={isSubmit}
+        />
       </form>
       <BottomLine />
     </div>
   );
 };
 
-const SignupButton = (props: { content: string }) => {
+const SignupButton = (props: { content: string; disabled: boolean }) => {
   return (
     <>
       <RoundedRectangleButton
@@ -87,6 +90,7 @@ const SignupButton = (props: { content: string }) => {
         }}
         className={styles.signupButton}
         type="submit"
+        disabled={props.disabled}
       />
     </>
   );

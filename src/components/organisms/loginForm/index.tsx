@@ -11,7 +11,7 @@ import { useLogin } from "./hooks";
 import styles from "./styles.module.css";
 
 const LoginForm = () => {
-  const { t, control, errors, handleFormSubmit } = useLogin();
+  const { t, control, errors, handleFormSubmit, isSubmit } = useLogin();
 
   return (
     <div className={styles.container}>
@@ -57,7 +57,10 @@ const LoginForm = () => {
             className={styles.passwordErrorMessage}
           />
         )}
-        <LoginButton content={t.LOGIN_BUTTON} />
+        <LoginButton
+          content={t.LOGIN_BUTTON}
+          disabled={isSubmit}
+        />
       </form>
       <ResetPasswordLink content={t.LOGIN_RESET_PASSWORD_LINK} />
       <BottomLine />
@@ -66,7 +69,7 @@ const LoginForm = () => {
   );
 };
 
-const LoginButton = (props: { content: string }) => {
+const LoginButton = (props: { content: string; disabled: boolean }) => {
   return (
     <>
       <RoundedRectangleButton
@@ -76,6 +79,7 @@ const LoginButton = (props: { content: string }) => {
         }}
         className={styles.loginButton}
         type="submit"
+        disabled={props.disabled}
       />
     </>
   );

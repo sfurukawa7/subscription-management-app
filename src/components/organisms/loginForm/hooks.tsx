@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { LoginForms } from "loginForms";
@@ -17,8 +18,10 @@ export const useLogin = () => {
 
   const { t } = useTranslation();
   const router = useRouter();
+  const [isSubmit, setIsSubmit] = useState<boolean>(false);
 
   const authorize = async (email: string, password: string) => {
+    setIsSubmit(true);
     await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         router.push("/home");
@@ -55,9 +58,10 @@ export const useLogin = () => {
             break;
         }
       });
+    setIsSubmit(false);
   };
 
   const handleFormSubmit = handleSubmit((data: LoginForms) => authorize(data.email, data.password));
 
-  return { t, control, errors, handleFormSubmit };
+  return { t, control, errors, handleFormSubmit, isSubmit };
 };

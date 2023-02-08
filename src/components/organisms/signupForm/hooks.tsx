@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 
@@ -18,8 +20,10 @@ export const useSignupForm = (onAfterSignup: () => void) => {
   } = useForm<SignupForm>();
 
   const { t } = useTranslation();
+  const [isSubmit, setIsSubmit] = useState<boolean>(false);
 
   const createUser = async (email: string, password: string) => {
+    setIsSubmit(true);
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         onAfterSignup();
@@ -50,11 +54,12 @@ export const useSignupForm = (onAfterSignup: () => void) => {
             break;
         }
       });
+    setIsSubmit(false);
   };
 
   const handleFormSubmit = handleSubmit((data: SignupForm) =>
     createUser(data.email, data.password)
   );
 
-  return { control, errors, handleFormSubmit, t };
+  return { control, errors, handleFormSubmit, t, isSubmit };
 };
