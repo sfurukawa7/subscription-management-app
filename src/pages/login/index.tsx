@@ -1,8 +1,10 @@
 import Head from "next/head";
 
-import styles from "./login.module.css";
+import LoginForm from "@organisms/loginForm";
 
-const Home = () => {
+import styles from "./styles.module.css";
+
+const Login = () => {
   return (
     <>
       <Head>
@@ -21,12 +23,10 @@ const Home = () => {
         />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>Hello, Next-js World!</p>
-        </div>
+        <LoginForm />
       </main>
     </>
   );
 };
 
-export default Home;
+export default Login;
