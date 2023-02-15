@@ -14,6 +14,14 @@ jobs:
         run: npm install
 
       - name: Build
+        env:
+          NEXT_PUBLIC_FIREBASE_API_KEY: ${{AIzaSyCEWb7Im-gP67eQppYL1lDeKF-EAsHtJaU}}
+          NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{subscription-mangement-app.firebaseapp.com}}
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{subscription-mangement-app}}
+          NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{subscription-mangement-app.appspot.com}}
+          NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{381372518042}}
+          NEXT_PUBLIC_FIREBASE_APP_ID: ${{1:381372518042:web:4d959b5dfa98596abd9923}}
+          NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{G-4L3E088H7H}}
         run: npx next build
 
       - name: Deploy  # S3にデプロイ 
