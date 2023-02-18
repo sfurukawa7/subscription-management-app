@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { auth } from "@utils/configureFirebase";
 import { useTranslation } from "@utils/useTranslation";
 
+import { useCommonContext } from "src/context/commonContext";
+
 export const useLogin = () => {
   const {
     control,
@@ -19,12 +21,11 @@ export const useLogin = () => {
 
   const { t } = useTranslation();
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const { isSubmitting, toggleIsSubmitting } = useCommonContext();
   const [isResettingEmail, setIsResettingPassword] = useState<boolean>(false);
-  const [isMailSentCompleteModalOpen, setIsMailSentCompleteModalOpen] = useState<boolean>(false);
 
   const authorize = async (email: string, password: string) => {
-    setIsSubmitting(true);
+    toggleIsSubmitting(true);
     await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         router.push("/home");
@@ -61,7 +62,7 @@ export const useLogin = () => {
             break;
         }
       });
-    setIsSubmitting(false);
+    toggleIsSubmitting(false);
   };
 
   const handleFormSubmit = submit((data: LoginForms) => authorize(data.email, data.password));
@@ -75,11 +76,11 @@ export const useLogin = () => {
   };
 
   const handlePasswordReset = () => {
-    setIsSubmitting(true);
+    toggleIsSubmitting(true);
     const email = getValues("email");
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        setIsMailSentCompleteModalOpen(true);
+        console.log("---------");
       })
       .catch((error) => {
         switch (error.code) {
@@ -103,7 +104,7 @@ export const useLogin = () => {
             break;
         }
       });
-    setIsSubmitting(false);
+    toggleIsSubmitting(false);
   };
 
   return {

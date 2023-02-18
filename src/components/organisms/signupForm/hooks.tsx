@@ -1,17 +1,17 @@
-import { useState } from "react";
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
 
 import { auth } from "@utils/configureFirebase";
 import { useTranslation } from "@utils/useTranslation";
 
+import { useCommonContext } from "src/context/commonContext";
+
 export type SignUpForm = {
   email: string;
   password: string;
 };
 
-export const useSignUpForm = (onAfterSignUp: () => void) => {
+export const useSignUpForm = () => {
   const {
     control,
     setError,
@@ -20,13 +20,13 @@ export const useSignUpForm = (onAfterSignUp: () => void) => {
   } = useForm<SignUpForm>();
 
   const { t } = useTranslation();
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const { isSubmitting, toggleIsSubmitting, toggleIsModalOpen } = useCommonContext();
 
   const createUser = async (email: string, password: string) => {
-    setIsSubmitting(true);
+    toggleIsSubmitting(true);
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        onAfterSignUp();
+        toggleIsModalOpen(true);
       })
       .catch((error) => {
         switch (error.code) {
@@ -54,7 +54,7 @@ export const useSignUpForm = (onAfterSignUp: () => void) => {
             break;
         }
       });
-    setIsSubmitting(false);
+    toggleIsSubmitting(false);
   };
 
   const handleFormSubmit = handleSubmit((data: SignUpForm) =>

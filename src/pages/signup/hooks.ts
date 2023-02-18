@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useCommonContext } from "src/context/commonContext";
 
 export const useSignUp = () => {
-  const [isSignUpCompleteModalOpen, setIsSignUpCompleteModalOpen] = useState<boolean>();
+  const { isModalOpen } = useCommonContext();
 
-  return { isSignUpCompleteModalOpen, setIsSignUpCompleteModalOpen };
+  return { isModalOpen };
 };

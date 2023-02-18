@@ -9,12 +9,8 @@ import PasswordInput from "@organisms/passwordInput";
 import { useSignUpForm } from "./hooks";
 import styles from "./styles.module.css";
 
-type SignUpFormOProps = {
-  onAfterSignUp: () => void;
-};
-
-const SignUpForm = (props: SignUpFormOProps) => {
-  const { control, errors, handleFormSubmit, t, isSubmitting } = useSignUpForm(props.onAfterSignUp);
+const SignUpForm = () => {
+  const { control, errors, handleFormSubmit, t, isSubmitting } = useSignUpForm();
 
   return (
     <div className={styles.container}>

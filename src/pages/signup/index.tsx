@@ -4,20 +4,19 @@ import SignUpForm from "@organisms/signUpForm";
 import { useSignUp } from "./hooks";
 import styles from "./styles.module.css";
 
+import Modal from "src/components/templates/modal";
+
 const SignUp = () => {
-  const { isSignUpCompleteModalOpen, setIsSignUpCompleteModalOpen } = useSignUp();
+  const { isModalOpen } = useSignUp();
 
   return (
     <main className={styles.main}>
-      <SignUpForm onAfterSignUp={() => setIsSignUpCompleteModalOpen(true)} />
-      {isSignUpCompleteModalOpen && <SignUpCompleteModal />}
-      {isSignUpCompleteModalOpen && <Backdrop />}
+      <SignUpForm />
+      <Modal isOpen={isModalOpen}>
+        <SignUpCompleteModal />
+      </Modal>
     </main>
   );
-};
-
-const Backdrop = () => {
-  return <div className={styles.modalBackdrop} />;
 };
 
 export default SignUp;
