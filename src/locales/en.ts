@@ -1,5 +1,5 @@
 const tCommon = {
-  COMMON_EMAIL: "E-mail",
+  COMMON_EMAIL: "Email",
   COMMON_PASSWORD: "Password",
 };
 
@@ -7,7 +7,9 @@ const tLogin = {
   LOGIN_TITLE: "Login",
   LOGIN_RESET_PASSWORD_LINK: "Forgot your password?",
   LOGIN_BUTTON: "Login",
+  LOGIN_LINK: "Continue with email",
   LOGIN_SIGNUP_LINK: "Don’t have an account yet? Sign up",
+  PASSWORD_RESET_BUTTON: "Send reset link",
 };
 
 const tSignup = {
@@ -19,12 +21,12 @@ const tSignup = {
 };
 
 const tError = {
-  ERROR_INVALID_EMAIL: "Invalid e-mail address",
+  ERROR_INVALID_EMAIL: "Invalid email address",
   ERROR_WRONG_PASSWORD: "Your password is incorrect",
-  ERROR_EMAIL_REQUIRED: "E-mail is required",
+  ERROR_EMAIL_REQUIRED: "Email is required",
   ERROR_PASSWORD_REQUIRED: "Password is required",
   ERROR_DEFAULT: "Unexpected error",
-  ERROR_EMAIL_ALREADY_IN_USE: "This e-mail is already in use",
+  ERROR_EMAIL_ALREADY_IN_USE: "This email is already in use",
   ERROR_PASSWORD_LENGTH: "Password must have at least 6 characters",
   ERROR_USER_NOT_FOUND: "This user is not found",
 };

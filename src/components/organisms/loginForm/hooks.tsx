@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import { LoginForms } from "loginForms";
 import { useForm } from "react-hook-form";
 
@@ -12,16 +12,18 @@ export const useLogin = () => {
   const {
     control,
     setError,
+    getValues,
     formState: { errors },
-    handleSubmit,
+    handleSubmit: submit,
   } = useForm<LoginForms>();
 
   const { t } = useTranslation();
   const router = useRouter();
-  const [isSubmit, setIsSubmit] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isResettingEmail, setIsResettingPassword] = useState<boolean>(false);
 
   const authorize = async (email: string, password: string) => {
-    setIsSubmit(true);
+    setIsSubmitting(true);
     await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         router.push("/home");
@@ -58,10 +60,58 @@ export const useLogin = () => {
             break;
         }
       });
-    setIsSubmit(false);
+    setIsSubmitting(false);
   };
 
-  const handleFormSubmit = handleSubmit((data: LoginForms) => authorize(data.email, data.password));
+  const handleFormSubmit = submit((data: LoginForms) => authorize(data.email, data.password));
 
-  return { t, control, errors, handleFormSubmit, isSubmit };
+  const handlePasswordResetLink = () => {
+    setIsResettingPassword(true);
+  };
+
+  const handleLoginLink = () => {
+    setIsResettingPassword(false);
+  };
+
+  const handlePasswordReset = () => {
+    setIsSubmitting(true);
+    const email = getValues("email");
+    sendPasswordResetEmail(auth, email)
+      .then(() => {})
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/invalid-email":
+            setError("email", {
+              type: "manual",
+              message: t.ERROR_INVALID_EMAIL,
+            });
+            break;
+          case "auth/user-not-found":
+            setError("email", {
+              type: "manual",
+              message: t.ERROR_USER_NOT_FOUND,
+            });
+            break;
+          default:
+            setError("email", {
+              type: "manual",
+              message: error.message,
+            });
+            break;
+        }
+      });
+    setIsSubmitting(false);
+  };
+
+  return {
+    t,
+    control,
+    errors,
+    handleFormSubmit,
+    isSubmitting,
+    isResettingEmail,
+    handlePasswordResetLink,
+    handleLoginLink,
+    handlePasswordReset,
+  };
 };

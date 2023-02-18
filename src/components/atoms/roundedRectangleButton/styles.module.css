@@ -1,4 +1,5 @@
 .roundedRectangleButton {
+  cursor: pointer;
   width: 315px;
   height: 43px;
   background-color: #485edf;

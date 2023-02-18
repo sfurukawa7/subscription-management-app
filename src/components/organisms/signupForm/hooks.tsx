@@ -20,10 +20,10 @@ export const useSignupForm = (onAfterSignup: () => void) => {
   } = useForm<SignupForm>();
 
   const { t } = useTranslation();
-  const [isSubmit, setIsSubmit] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const createUser = async (email: string, password: string) => {
-    setIsSubmit(true);
+    setIsSubmitting(true);
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         onAfterSignup();
@@ -54,12 +54,12 @@ export const useSignupForm = (onAfterSignup: () => void) => {
             break;
         }
       });
-    setIsSubmit(false);
+    setIsSubmitting(false);
   };
 
   const handleFormSubmit = handleSubmit((data: SignupForm) =>
     createUser(data.email, data.password)
   );
 
-  return { control, errors, handleFormSubmit, t, isSubmit };
+  return { control, errors, handleFormSubmit, t, isSubmitting };
 };

@@ -14,7 +14,7 @@ type SignupFormOProps = {
 };
 
 const SignupForm = (props: SignupFormOProps) => {
-  const { control, errors, handleFormSubmit, t, isSubmit } = useSignupForm(props.onAfterSignup);
+  const { control, errors, handleFormSubmit, t, isSubmitting } = useSignupForm(props.onAfterSignup);
 
   return (
     <div className={styles.container}>
@@ -72,7 +72,7 @@ const SignupForm = (props: SignupFormOProps) => {
         )}
         <SignupButton
           content={t.SIGNUP_BUTTON}
-          disabled={isSubmit}
+          disabled={isSubmitting}
         />
       </form>
       <BottomLine />

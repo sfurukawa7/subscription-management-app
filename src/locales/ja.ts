@@ -7,7 +7,9 @@ const tLogin = {
   LOGIN_TITLE: "ログイン",
   LOGIN_RESET_PASSWORD_LINK: "パスワードを忘れた場合",
   LOGIN_BUTTON: "続ける",
+  LOGIN_LINK: "メールアドレスでログイン",
   LOGIN_SIGNUP_LINK: "アカウントを作成",
+  PASSWORD_RESET_BUTTON: "リセットメール送信",
 };
 
 const tSignup = {
