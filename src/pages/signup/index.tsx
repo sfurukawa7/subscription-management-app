@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import SignUpCompleteModal from "@organisms/signUpCompleteModal";
 import SignUpForm from "@organisms/signUpForm";
 
@@ -7,15 +9,20 @@ import styles from "./styles.module.css";
 import Modal from "src/components/templates/modal";
 
 const SignUp = () => {
-  const { isModalOpen } = useSignUp();
+  const { isModalOpen, t } = useSignUp();
 
   return (
-    <main className={styles.main}>
-      <SignUpForm />
-      <Modal isOpen={isModalOpen}>
-        <SignUpCompleteModal />
-      </Modal>
-    </main>
+    <>
+      <Head>
+        <title>{t.SIGNUP_HEADER}</title>
+      </Head>
+      <main className={styles.main}>
+        <SignUpForm />
+        <Modal isOpen={isModalOpen}>
+          <SignUpCompleteModal />
+        </Modal>
+      </main>
+    </>
   );
 };
 

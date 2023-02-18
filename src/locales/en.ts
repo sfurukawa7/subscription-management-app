@@ -4,6 +4,7 @@ const tCommon = {
 };
 
 const tLogin = {
+  LOGIN_HEADER: "Submane - Login",
   LOGIN_TITLE: "Login",
   LOGIN_RESET_PASSWORD_LINK: "Forgot your password?",
   LOGIN_BUTTON: "Login",
@@ -17,6 +18,7 @@ const tLogin = {
 };
 
 const tSignUp = {
+  SIGNUP_HEADER: "Submane - Sign up",
   SIGNUP_TITLE: "Sign up",
   SIGNUP_BUTTON: "Sign up",
   SIGNUP_MODAL_TITLE: "Welcome!",

@@ -4,6 +4,7 @@ const tCommon = {
 };
 
 const tLogin = {
+  LOGIN_HEADER: "サブマネ - ログイン",
   LOGIN_TITLE: "ログイン",
   LOGIN_RESET_PASSWORD_LINK: "パスワードを忘れた場合",
   LOGIN_BUTTON: "続ける",
@@ -17,6 +18,7 @@ const tLogin = {
 };
 
 const tSignUp = {
+  SIGNUP_HEADER: "サブマネ - サインアップ",
   SIGNUP_TITLE: "アカウント作成",
   SIGNUP_BUTTON: "作成する",
   SIGNUP_MODAL_TITLE: "作成完了",
