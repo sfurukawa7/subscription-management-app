@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import { useTranslation } from "@utils/useTranslation";
 
-export const useSignupCompletionModal = () => {
+export const useSignUpCompleteModal = () => {
   const { t } = useTranslation();
 
   return { t };

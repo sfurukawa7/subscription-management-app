@@ -21,6 +21,7 @@ export const useLogin = () => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isResettingEmail, setIsResettingPassword] = useState<boolean>(false);
+  const [isMailSentCompleteModalOpen, setIsMailSentCompleteModalOpen] = useState<boolean>(false);
 
   const authorize = async (email: string, password: string) => {
     setIsSubmitting(true);
@@ -77,7 +78,9 @@ export const useLogin = () => {
     setIsSubmitting(true);
     const email = getValues("email");
     sendPasswordResetEmail(auth, email)
-      .then(() => {})
+      .then(() => {
+        setIsMailSentCompleteModalOpen(true);
+      })
       .catch((error) => {
         switch (error.code) {
           case "auth/invalid-email":

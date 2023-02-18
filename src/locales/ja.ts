@@ -12,7 +12,7 @@ const tLogin = {
   PASSWORD_RESET_BUTTON: "リセットメール送信",
 };
 
-const tSignup = {
+const tSignUp = {
   SIGNUP_TITLE: "アカウント作成",
   SIGNUP_BUTTON: "作成する",
   SIGNUP_MODAL_TITLE: "作成完了",
@@ -32,6 +32,6 @@ const tError = {
   ERROR_USER_NOT_FOUND: "存在しないユーザーアカウントです",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignup, ...tError };
+const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError };
 
 export default t;

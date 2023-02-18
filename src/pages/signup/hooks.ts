@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const useSignup = () => {
-  const [showCompletionModal, setShowCompletionModal] = useState<boolean>();
+export const useSignUp = () => {
+  const [isSignUpCompleteModalOpen, setIsSignUpCompleteModalOpen] = useState<boolean>();
 
-  return { showCompletionModal, setShowCompletionModal };
+  return { isSignUpCompleteModalOpen, setIsSignUpCompleteModalOpen };
 };

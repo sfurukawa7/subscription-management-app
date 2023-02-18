@@ -12,7 +12,7 @@ const tLogin = {
   PASSWORD_RESET_BUTTON: "Send reset link",
 };
 
-const tSignup = {
+const tSignUp = {
   SIGNUP_TITLE: "Sign up",
   SIGNUP_BUTTON: "Sign up",
   SIGNUP_MODAL_TITLE: "Welcome!",
@@ -31,6 +31,6 @@ const tError = {
   ERROR_USER_NOT_FOUND: "This user is not found",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignup, ...tError };
+const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError };
 
 export default t;
