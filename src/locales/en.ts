@@ -10,6 +10,10 @@ const tLogin = {
   LOGIN_LINK: "Continue with email",
   LOGIN_SIGNUP_LINK: "Don’t have an account yet? Sign up",
   PASSWORD_RESET_BUTTON: "Send reset link",
+  PASSWORD_RESET_MODAL_TITLE: "Reset Password",
+  PASSWORD_RESET_MODAL_BODY:
+    "An e-mail has been sent to your email address. Check the inbox of your email account.",
+  PASSWORD_RESET_MODAL_BUTTON: "OK",
 };
 
 const tSignUp = {

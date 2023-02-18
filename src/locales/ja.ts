@@ -10,6 +10,10 @@ const tLogin = {
   LOGIN_LINK: "メールアドレスでログイン",
   LOGIN_SIGNUP_LINK: "アカウントを作成",
   PASSWORD_RESET_BUTTON: "リセットメール送信",
+  PASSWORD_RESET_MODAL_TITLE: "メール送信完了",
+  PASSWORD_RESET_MODAL_BODY:
+    "パスワード再設定のメールを送信しました．メールのリンクから再設定を行ってください．",
+  PASSWORD_RESET_MODAL_BUTTON: "OK",
 };
 
 const tSignUp = {

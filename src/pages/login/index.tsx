@@ -1,10 +1,16 @@
 import Head from "next/head";
 
 import LoginForm from "@organisms/loginForm";
+import PasswordResetMailSentModal from "@organisms/passwordResetMailSentModal";
 
+import { useLogin } from "./hooks";
 import styles from "./styles.module.css";
 
+import Modal from "src/components/templates/modal";
+
 const Login = () => {
+  const { isModalOpen } = useLogin();
+
   return (
     <>
       <Head>
@@ -24,6 +30,9 @@ const Login = () => {
       </Head>
       <main className={styles.main}>
         <LoginForm />
+        <Modal isOpen={isModalOpen}>
+          <PasswordResetMailSentModal />
+        </Modal>
       </main>
     </>
   );

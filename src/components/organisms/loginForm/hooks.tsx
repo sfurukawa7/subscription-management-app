@@ -21,7 +21,7 @@ export const useLogin = () => {
 
   const { t } = useTranslation();
   const router = useRouter();
-  const { isSubmitting, toggleIsSubmitting } = useCommonContext();
+  const { isSubmitting, toggleIsSubmitting, toggleIsModalOpen } = useCommonContext();
   const [isResettingEmail, setIsResettingPassword] = useState<boolean>(false);
 
   const authorize = async (email: string, password: string) => {
@@ -80,7 +80,7 @@ export const useLogin = () => {
     const email = getValues("email");
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        console.log("---------");
+        toggleIsModalOpen(true);
       })
       .catch((error) => {
         switch (error.code) {

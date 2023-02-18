@@ -1,0 +1,40 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modalContent {
+  position: relative;
+  width: 312px;
+  height: 194px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.title {
+  position: absolute;
+  left: 17px;
+  top: 19px;
+}
+
+.description {
+  position: absolute;
+  padding-left: 17px;
+  padding-right: 17px;
+  top: 68px;
+}
+
+.okayButton {
+  position: absolute;
+  top: 139px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
