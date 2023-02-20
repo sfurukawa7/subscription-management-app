@@ -1,23 +1,29 @@
-import SignupCompletionModal from "@organisms/signupCompletionModal";
-import SignupForm from "@organisms/signupForm";
+import Head from "next/head";
 
-import { useSignup } from "./hooks";
+import SignUpCompleteModal from "@organisms/signUpCompleteModal";
+import SignUpForm from "@organisms/signUpForm";
+
+import { useSignUp } from "./hooks";
 import styles from "./styles.module.css";
 
+import Modal from "src/components/templates/modal";
+
 const SignUp = () => {
-  const { showCompletionModal, setShowCompletionModal } = useSignup();
+  const { isModalOpen, t } = useSignUp();
 
   return (
-    <main className={styles.main}>
-      <SignupForm onAfterSignup={() => setShowCompletionModal(true)} />
-      {showCompletionModal && <SignupCompletionModal />}
-      {showCompletionModal && <Backdrop />}
-    </main>
+    <>
+      <Head>
+        <title>{t.SIGNUP_HEADER}</title>
+      </Head>
+      <main className={styles.main}>
+        <SignUpForm />
+        <Modal isOpen={isModalOpen}>
+          <SignUpCompleteModal />
+        </Modal>
+      </main>
+    </>
   );
-};
-
-const Backdrop = () => {
-  return <div className={styles.modalBackdrop} />;
 };
 
 export default SignUp;

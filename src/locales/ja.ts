@@ -4,13 +4,21 @@ const tCommon = {
 };
 
 const tLogin = {
+  LOGIN_HEADER: "サブマネ - ログイン",
   LOGIN_TITLE: "ログイン",
   LOGIN_RESET_PASSWORD_LINK: "パスワードを忘れた場合",
   LOGIN_BUTTON: "続ける",
+  LOGIN_LINK: "メールアドレスでログイン",
   LOGIN_SIGNUP_LINK: "アカウントを作成",
+  PASSWORD_RESET_BUTTON: "リセットメール送信",
+  PASSWORD_RESET_MODAL_TITLE: "メール送信完了",
+  PASSWORD_RESET_MODAL_BODY:
+    "パスワード再設定のメールを送信しました．メールのリンクから再設定を行ってください．",
+  PASSWORD_RESET_MODAL_BUTTON: "OK",
 };
 
-const tSignup = {
+const tSignUp = {
+  SIGNUP_HEADER: "サブマネ - サインアップ",
   SIGNUP_TITLE: "アカウント作成",
   SIGNUP_BUTTON: "作成する",
   SIGNUP_MODAL_TITLE: "作成完了",
@@ -30,6 +38,6 @@ const tError = {
   ERROR_USER_NOT_FOUND: "存在しないユーザーアカウントです",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignup, ...tError };
+const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError };
 
 export default t;

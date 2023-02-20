@@ -2,7 +2,7 @@ import { useTranslation } from "@utils/useTranslation";
 
 import { useCommonContext } from "src/context/commonContext";
 
-export const useSignUp = () => {
+export const useLogin = () => {
   const { isModalOpen } = useCommonContext();
   const { t } = useTranslation();
 

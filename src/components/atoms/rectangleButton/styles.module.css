@@ -1,4 +1,5 @@
 .rectangleButton {
+  cursor: pointer;
   width: auto;
   height: 43px;
   padding-right: 25px;
