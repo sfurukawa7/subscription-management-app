@@ -31,6 +31,7 @@ const tError = {
 };
 
 const tHome = {
+  ADD_SUBSCRIPTION: "新規追加",
   HOME_PAYMENT_SCHEDULE: "支払予定日",
   HOME_SUBSCRIPTION: "サブスク一覧",
   HOME_PAYMENT_DATE: "日付",
@@ -44,6 +45,11 @@ const tHome = {
   HOME_EXAMPLE_FREQUENCE: "/月",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignup, ...tError, ...tHome };
+const tDetail = {
+  DETAIL_TITLE: "Subscription Detail",
+  DETAIL_CLOSE: "CLOSE",
+};
+
+const t = { ...tCommon, ...tLogin, ...tSignup, ...tError, ...tHome, ...tDetail };
 
 export default t;

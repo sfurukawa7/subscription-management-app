@@ -30,6 +30,7 @@ const tError = {
 };
 
 const tHome = {
+  ADD_SUBSCRIPTION: "Add Subscription",
   HOME_PAYMENT_SCHEDULE: "Payment Schedule",
   HOME_SUBSCRIPTION: "Subscription",
   HOME_PAYMENT_DATE: "Date",
@@ -43,6 +44,11 @@ const tHome = {
   HOME_EXAMPLE_FREQUENCE: "/month",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignup, ...tError, ...tHome };
+const tDetail = {
+  DETAIL_TITLE: "Subscription Detail",
+  DETAIL_CLOSE: "CLOSE",
+};
+
+const t = { ...tCommon, ...tLogin, ...tSignup, ...tError, ...tHome, ...tDetail };
 
 export default t;

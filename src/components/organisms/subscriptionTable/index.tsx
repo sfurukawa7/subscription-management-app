@@ -1,47 +1,38 @@
-import styles from "./styles.module.css";
+import TableBody from "@organisms/tableBody";
+import TableHead from "@organisms/tableHead";
+import { useTranslation } from "@utils/useTranslation";
 
+import styles from "./styles.module.css";
 type SubscriptionTableProps = {
-  contentService: string;
-  contentExamplePrice: string;
-  contentFrequence: string;
-  contentExampleService: string;
-  contentPrice: string;
-  contentExampleFrequence: string;
   className: string;
 };
 
 const SubscriptionTable = (props: SubscriptionTableProps) => {
+  const { t } = useTranslation();
+
+  const subscriptionList = [
+    { service: "amazon prime", price: "￥500", frequence: "/month" },
+    { service: "netflix", price: "￥900", frequence: "/month" },
+    { service: "Disney Plus", price: "￥1000", frequence: "/month" },
+  ];
+
   return (
     <>
       <div className={styles.container}>
-        <table className={`${styles.table} ${props.className}`}>
-          <thead className={`${styles.tableHead} ${props.className}`}>
-            <tr className={`${styles.tableHeadRow} ${props.className}`}>
-              <th className={`${styles.tableHeader} ${styles.tableRow} ${props.className}`}>
-                {props.contentService}
-              </th>
-              <th className={`${styles.tableHeader} ${styles.tableRow} ${props.className}`}>
-                {props.contentPrice}
-              </th>
-              <th className={`${styles.tableHeader} ${styles.tableRow} ${props.className}`}>
-                {props.contentFrequence}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className={`${styles.tableDetail} ${styles.tableRow} ${props.className}`}>
-                {props.contentExampleService}
-              </td>
-              <td className={`${styles.tableDetail} ${styles.tableRow} ${props.className}`}>
-                {props.contentExamplePrice}
-              </td>
-              <td className={`${styles.tableDetail} ${styles.tableRow} ${props.className}`}>
-                {props.contentExampleFrequence}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className={styles.scrollDiv}>
+          <table className={`${styles.table} ${props.className}`}>
+            <TableHead
+              headFirstItem={t.HOME_SERVICE}
+              headSecondItem={t.HOME_PRICE}
+              headThirdItem={t.HOME_FREQUENCE}
+              className={styles.tableHeadRow}
+            />
+            <TableBody
+              subscriptionList={subscriptionList}
+              className={styles.tableBodyRow}
+            />
+          </table>
+        </div>
       </div>
     </>
   );
