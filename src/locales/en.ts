@@ -40,6 +40,10 @@ const tError = {
   ERROR_EMAIL_ALREADY_IN_USE: "This email is already in use",
   ERROR_PASSWORD_LENGTH: "Password must have at least 6 characters",
   ERROR_USER_NOT_FOUND: "This user is not found",
+  ERROR_SERVICE_REQUIRED: "Service name is required",
+  ERROR_PRICE_REQUIRED: "Price is required",
+  ERROR_PAYMENT_DATE_REQUIRED: "Payment date is required",
+  ERROR_FREQUENCY_REQUIRED: "Frequency is required",
 };
 
 const tHome = {

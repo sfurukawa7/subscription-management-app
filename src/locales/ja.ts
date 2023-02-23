@@ -41,6 +41,10 @@ const tError = {
   ERROR_PASSWORD_REQUIRED: "パスワードを入力してください",
   ERROR_PASSWORD_LENGTH: "パスワードは6文字以上である必要があります",
   ERROR_USER_NOT_FOUND: "存在しないユーザーアカウントです",
+  ERROR_SERVICE_REQUIRED: "サービス名を入力してください",
+  ERROR_PRICE_REQUIRED: "金額を入力してください",
+  ERROR_PAYMENT_DATE_REQUIRED: "支払日を入力してください",
+  ERROR_FREQUENCY_REQUIRED: "支払頻度を選択してください",
 };
 
 const tHome = {
