@@ -2,11 +2,11 @@ import Description from "@atoms/description";
 import RectangleButton from "@atoms/rectangleButton";
 import Title from "@atoms/title";
 
-import { useOkayButton, useSignupCompletionModal } from "./hooks";
+import { useOkayButton, useSignUpCompleteModal } from "./hooks";
 import styles from "./styles.module.css";
 
-const SignupCompletionModal = () => {
-  const { t } = useSignupCompletionModal();
+const SignUpCompleteModal = () => {
+  const { t } = useSignUpCompleteModal();
 
   return (
     <>
@@ -41,4 +41,4 @@ const OkayButton = (props: { content: string }) => {
   );
 };
 
-export default SignupCompletionModal;
+export default SignUpCompleteModal;

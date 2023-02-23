@@ -7,7 +7,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { GetStaticPaths } from "next";
 
-import { AuthProvider } from "@utils/authContext";
+import { AuthProvider } from "src/context/authContext";
+import { CommonProvider } from "src/context/commonContext";
 
 const roboto = Roboto({
   weight: "400",
@@ -20,7 +21,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <main className={roboto.className}>
       <AuthProvider>
-        <Component {...pageProps} />
+        <CommonProvider>
+          <Component {...pageProps} />
+        </CommonProvider>
       </AuthProvider>
     </main>
   );

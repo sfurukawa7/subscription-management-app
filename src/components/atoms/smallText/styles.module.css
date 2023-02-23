@@ -4,10 +4,13 @@
   white-space: nowrap;
 
   font-style: normal;
+  text-decoration: underline;
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
   text-align: center;
+
+  cursor: pointer;
 
   color: #000000;
 }
