@@ -9,7 +9,7 @@ type TextOutlineInputProps = Partial<ControllerRenderProps> & {
 
 const TextOutlineInput = (props: TextOutlineInputProps) => {
   return (
-    <>
+    <div>
       <label htmlFor={props.label} />
       <input
         {...props}
@@ -17,7 +17,7 @@ const TextOutlineInput = (props: TextOutlineInputProps) => {
         className={styles.textOutlineInput}
         placeholder={props.placeholder}
       />
-    </>
+    </div>
   );
 };
 

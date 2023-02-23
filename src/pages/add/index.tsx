@@ -2,9 +2,10 @@ import Head from "next/head";
 
 import { Controller } from "react-hook-form";
 
-import MediumText from "@atoms/mediumText";
+import SelectInput from "@atoms/dateInput";
 import TextOutlineInput from "@atoms/textOutlineInput";
 import Title from "@atoms/title";
+import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import { Translation } from "@utils/useTranslation";
 
 import { useAddSubscription, useAddSubscriptionBody } from "./hooks";
@@ -37,53 +38,87 @@ const AddSubscription = () => {
   );
 };
 
-// define the type of the props of ADDSubscriptionBody
 type AddSubscriptionBodyProps = {
   t: Translation;
 };
 
 const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
-  const { register, handleSubmit, control, errors } = useAddSubscriptionBody();
+  const { register, handleSubmit, control, errors, dateOptions, frequencyOptions } =
+    useAddSubscriptionBody();
 
   return (
-    <>
-      <MediumText
-        content={t.COMMON_SERVICE}
-        className=""
-      />
-      <form onSubmit={}>
+    <div className={styles.body}>
+      <form onSubmit={() => handleSubmit}>
         <Controller
           name="service"
           control={control}
           rules={{
-            required: t.ERROR_SERVICE_REQUIRED,
+            required: props.t.ERROR_SERVICE_REQUIRED,
           }}
           render={({ field: { value, onChange } }) => (
-            <TextOutlineInput
-              value={value}
-              onChange={onChange}
-              label="service"
-              placeholder=""
-            />
+            <AddSubscriptionInput content={props.t.COMMON_SERVICE}>
+              <TextOutlineInput
+                value={value}
+                onChange={onChange}
+                label="service"
+                placeholder=""
+              />
+            </AddSubscriptionInput>
           )}
         />
         <Controller
           name="price"
           control={control}
           rules={{
-            required: t.ERROR_PRICE_REQUIRED,
+            required: props.t.ERROR_PRICE_REQUIRED,
           }}
           render={({ field: { value, onChange } }) => (
-            <TextOutlineInput
-              value={value}
-              onChange={onChange}
-              label="price"
-              placeholder=""
-            />
+            <AddSubscriptionInput content={props.t.COMMON_PRICE}>
+              <TextOutlineInput
+                value={value}
+                onChange={onChange}
+                label="price"
+                placeholder=""
+              />
+            </AddSubscriptionInput>
+          )}
+        />
+        <Controller
+          name="paymentDate"
+          control={control}
+          rules={{
+            required: props.t.ERROR_PAYMENT_DATE_REQUIRED,
+          }}
+          render={({ field: { value, onChange } }) => (
+            <AddSubscriptionInput content={props.t.COMMON_PAYMENT_DATE}>
+              <SelectInput
+                value={value}
+                onChange={onChange}
+                label="payment_date"
+                options={dateOptions}
+              />
+            </AddSubscriptionInput>
+          )}
+        />
+        <Controller
+          name="paymentFrequency"
+          control={control}
+          rules={{
+            required: props.t.ERROR_FREQUENCY_REQUIRED,
+          }}
+          render={({ field: { value, onChange } }) => (
+            <AddSubscriptionInput content={props.t.COMMON_PAYMENT_FREQUENCY}>
+              <SelectInput
+                value={value}
+                onChange={onChange}
+                label="payment_frequency"
+                options={frequencyOptions}
+              />
+            </AddSubscriptionInput>
           )}
         />
       </form>
-    </>
+    </div>
   );
 };
 

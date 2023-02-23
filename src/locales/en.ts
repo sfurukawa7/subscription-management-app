@@ -6,6 +6,9 @@ const tCommon = {
   COMMON_PAYMENT_DATE: "Payment Date",
   COMMON_PAYMENT_FREQUENCY: "Payment Frequency",
   COMMON_CANCEL: "Cancel",
+  COMMON_DATE: "",
+  COMMON_MONTH: "ヶ月",
+  COMMON_YEAR: "年",
 };
 
 const tLogin = {
@@ -74,3 +77,5 @@ const tAddSubscription = {
 const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome, ...tAddSubscription };
 
 export default t;
+
+export const days = Array.from(Array(31), (_, i) => i + 1);
