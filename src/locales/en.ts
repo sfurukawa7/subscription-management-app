@@ -1,6 +1,11 @@
 const tCommon = {
   COMMON_EMAIL: "Email",
   COMMON_PASSWORD: "Password",
+  COMMON_SERVICE: "Service",
+  COMMON_PRICE: "Price",
+  COMMON_PAYMENT_DATE: "Payment Date",
+  COMMON_PAYMENT_FREQUENCY: "Payment Frequency",
+  COMMON_CANCEL: "Cancel",
 };
 
 const tLogin = {
@@ -51,6 +56,17 @@ const tHome = {
   HOME_EXAMPLE_FREQUENCE: "/month",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome };
+const tAddSubscription = {
+  ADD_SUBSCRIPTION_HEADER: "Submane - Add Subscription",
+  ADD_SUBSCRIPTION_TITLE: "Add Subscription",
+  ADD_SUBSCRIPTION_BUTTON: "Add",
+  ADD_SUBSCRIPTION_TERM_1MONTH: "1 month",
+  ADD_SUBSCRIPTION_TERM_3MONTH: "3 months",
+  ADD_SUBSCRIPTION_TERM_6MONTH: "6 months",
+  ADD_SUBSCRIPTION_TERM_1YEAR: "1 year",
+  ADD_SUBSCRIPTION_TERM_SELECT: "Select a term",
+};
+
+const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome, ...tAddSubscription };
 
 export default t;

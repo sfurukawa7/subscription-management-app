@@ -1,6 +1,11 @@
 const tCommon = {
   COMMON_EMAIL: "メールアドレス",
   COMMON_PASSWORD: "パスワード",
+  COMMON_SERVICE: "サービス名",
+  COMMON_PRICE: "金額",
+  COMMON_PAYMENT_DATE: "支払日",
+  COMMON_PAYMENT_FREQUENCY: "支払頻度",
+  COMMON_CANCEL: "キャンセル",
 };
 
 const tLogin = {
@@ -52,10 +57,17 @@ const tHome = {
   HOME_EXAMPLE_FREQUENCE: "/月",
 };
 
-const tAddSuscription = {
+const tAddSubscription = {
   ADD_SUBSCRIPTION_HEADER: "サブマネ - サブスク追加",
+  ADD_SUBSCRIPTION_TITLE: "サブスク追加",
+  ADD_SUBSCRIPTION_BUTTON: "追加",
+  ADD_SUBSCRIPTION_TERM_1MONTH: "1ヶ月",
+  ADD_SUBSCRIPTION_TERM_3MONTH: "3ヶ月",
+  ADD_SUBSCRIPTION_TERM_6MONTH: "6ヶ月",
+  ADD_SUBSCRIPTION_TERM_1YEAR: "1年",
+  ADD_SUBSCRIPTION_TERM_SELECT: "支払頻度を選択",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome, ...tAddSuscription };
+const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome, ...tAddSubscription };
 
 export default t;
