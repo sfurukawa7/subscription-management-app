@@ -1,0 +1,10 @@
+.textOutlineInput {
+  border-radius: 10px;
+  border: 2px solid #606468;
+  width: 332px;
+  height: 58px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #606468;
+  outline: none;
+}

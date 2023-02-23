@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import en from "@locales/en";
 import ja from "@locales/ja";
 
+export type Translation = { [key: string]: string };
+
 export const useTranslation = () => {
   const { locale } = useRouter();
   let t;
