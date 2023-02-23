@@ -1,0 +1,25 @@
+.container {
+  position: absolute;
+  width: 390px;
+  height: 60px;
+  left: -1px;
+  top: 40px;
+  
+  background: #485EDF;
+}
+
+.title {
+  position: absolute;
+  left: 37px;
+  top: 30px;
+}
+
+.topLine {
+  position: absolute;
+  width: 355px;
+  height: 0px;
+  left: -1px;
+  top: 69.5px;
+
+  border: 3px solid #ffffff;
+}
