@@ -52,6 +52,10 @@ const tHome = {
   HOME_EXAMPLE_FREQUENCE: "/月",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome };
+const tAddSuscription = {
+  ADD_SUBSCRIPTION_HEADER: "サブマネ - サブスク追加",
+};
+
+const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome, ...tAddSuscription };
 
 export default t;
