@@ -5,6 +5,8 @@ const tCommon = {
   COMMON_PRICE: "Price",
   COMMON_PAYMENT_DATE: "Payment Date",
   COMMON_PAYMENT_FREQUENCY: "Payment Frequency",
+  COMMON_GENRE: "Genre",
+  COMMON_NOTE: "Note",
   COMMON_CANCEL: "Cancel",
   COMMON_DATE: "",
   COMMON_MONTH: "ヶ月",

@@ -2,28 +2,20 @@ import { ControllerRenderProps } from "react-hook-form";
 
 import styles from "./styles.module.css";
 
-type SelectInputProps = Partial<ControllerRenderProps> & { label: string; options: string[] };
+type DateInputProps = Partial<ControllerRenderProps> & { label: string };
 
-const SelectInput = (props: SelectInputProps) => {
+const DateInput = (props: DateInputProps) => {
   return (
     <div>
       <label htmlFor={props.label} />
-      <select
+      <input
         {...props}
+        type="date"
         id={props.label}
-        className={styles.selectInput}>
-        {props.options.map((i) => {
-          return (
-            <option
-              key={i}
-              value={i}>
-              {i}
-            </option>
-          );
-        })}
-      </select>
+        className={styles.dateInput}
+      />
     </div>
   );
 };
 
-export default SelectInput;
+export default DateInput;

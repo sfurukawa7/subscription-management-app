@@ -2,8 +2,10 @@ import Head from "next/head";
 
 import { Controller } from "react-hook-form";
 
-import SelectInput from "@atoms/dateInput";
+import DateInput from "@atoms/dateInput";
+import SelectInput from "@atoms/selectInput";
 import TextOutlineInput from "@atoms/textOutlineInput";
+import TextOutlineInputArea from "@atoms/textOutlineInputArea";
 import Title from "@atoms/title";
 import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import { Translation } from "@utils/useTranslation";
@@ -43,8 +45,7 @@ type AddSubscriptionBodyProps = {
 };
 
 const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
-  const { register, handleSubmit, control, errors, dateOptions, frequencyOptions } =
-    useAddSubscriptionBody();
+  const { register, handleSubmit, control, errors, frequencyOptions } = useAddSubscriptionBody();
 
   return (
     <div className={styles.body}>
@@ -91,11 +92,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           }}
           render={({ field: { value, onChange } }) => (
             <AddSubscriptionInput content={props.t.COMMON_PAYMENT_DATE}>
-              <SelectInput
+              <DateInput
                 value={value}
                 onChange={onChange}
                 label="payment_date"
-                options={dateOptions}
               />
             </AddSubscriptionInput>
           )}
@@ -113,6 +113,34 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
                 onChange={onChange}
                 label="payment_frequency"
                 options={frequencyOptions}
+              />
+            </AddSubscriptionInput>
+          )}
+        />
+        <Controller
+          name="genre"
+          control={control}
+          render={({ field: { value, onChange } }) => (
+            <AddSubscriptionInput content={props.t.COMMON_GENRE}>
+              <TextOutlineInput
+                value={value}
+                onChange={onChange}
+                label="genre"
+                placeholder=""
+              />
+            </AddSubscriptionInput>
+          )}
+        />
+        <Controller
+          name="note"
+          control={control}
+          render={({ field: { value, onChange } }) => (
+            <AddSubscriptionInput content={props.t.COMMON_NOTE}>
+              <TextOutlineInputArea
+                value={value}
+                onChange={onChange}
+                label="note"
+                placeholder=""
               />
             </AddSubscriptionInput>
           )}

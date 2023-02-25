@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-import { getDateOptions, getFrequencyOptions } from "@utils/getSelectBoxOptions";
+import { getFrequencyOptions } from "@utils/getSelectBoxOptions";
 import { useTranslation } from "@utils/useTranslation";
 
 export const useAddSubscription = () => {
@@ -14,6 +14,8 @@ export type SubscriptionFormData = {
   price: number;
   paymentDate: string;
   paymentFrequency: string;
+  genre: string;
+  note: string;
 };
 
 export const useAddSubscriptionBody = () => {
@@ -24,13 +26,18 @@ export const useAddSubscriptionBody = () => {
     formState: { errors },
   } = useForm<SubscriptionFormData>({
     mode: "onSubmit",
-    defaultValues: { service: "", price: 0, paymentDate: "", paymentFrequency: "" },
+    defaultValues: {
+      service: "",
+      price: 0,
+      paymentDate: "",
+      paymentFrequency: "",
+      genre: "",
+      note: "",
+    },
   });
 
   const { locale } = useTranslation();
-  const dateOptions = getDateOptions(locale);
-  console.log(dateOptions);
   const frequencyOptions = getFrequencyOptions(locale);
 
-  return { register, handleSubmit, control, errors, dateOptions, frequencyOptions };
+  return { register, handleSubmit, control, errors, frequencyOptions };
 };

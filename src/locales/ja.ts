@@ -5,6 +5,8 @@ const tCommon = {
   COMMON_PRICE: "金額",
   COMMON_PAYMENT_DATE: "支払日",
   COMMON_PAYMENT_FREQUENCY: "支払頻度",
+  COMMON_GENRE: "ジャンル",
+  COMMON_NOTE: "備考",
   COMMON_CANCEL: "キャンセル",
   COMMON_DATE: "日",
   COMMON_MONTH: "ヶ月",
