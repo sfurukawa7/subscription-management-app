@@ -6,9 +6,8 @@ const tCommon = {
   COMMON_PAYMENT_DATE: "Payment Date",
   COMMON_PAYMENT_FREQUENCY: "Payment Frequency",
   COMMON_GENRE: "Genre",
-  COMMON_NOTE: "Note",
+  COMMON_REMARK: "Note",
   COMMON_CANCEL: "Cancel",
-  COMMON_DATE: "",
   COMMON_MONTH: "ヶ月",
   COMMON_YEAR: "年",
 };
@@ -49,6 +48,8 @@ const tError = {
   ERROR_PRICE_REQUIRED: "Price is required",
   ERROR_PAYMENT_DATE_REQUIRED: "Payment date is required",
   ERROR_FREQUENCY_REQUIRED: "Frequency is required",
+  ERROR_GENRE_REQUIRED: "Genre is required",
+  ERROR_FAILED_TO_ADD: "Failed to add subscription",
 };
 
 const tHome = {

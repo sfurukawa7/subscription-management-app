@@ -4,6 +4,7 @@ import { BaseSyntheticEvent } from "react";
 import { Control, Controller, FieldErrorsImpl } from "react-hook-form";
 
 import DateInput from "@atoms/dateInput";
+import ErrorMessage from "@atoms/errorMessage";
 import GrayRectangleButton from "@atoms/grayRectangleButton";
 import RectangleButton from "@atoms/rectangleButton";
 import SelectInput from "@atoms/selectInput";
@@ -61,7 +62,7 @@ type AddSubscriptionBodyProps = {
   control: Control<SubscriptionFormData>;
   errors: Partial<FieldErrorsImpl<SubscriptionFormData>>;
   handleAdd: (e?: BaseSyntheticEvent<object, any, any> | undefined) => Promise<void>;
-  frequencyOptions: string[];
+  frequencyOptions: { key: string; value: string }[];
 };
 
 const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
@@ -87,6 +88,12 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
             </AddSubscriptionInput>
           )}
         />
+        {props.errors.service && (
+          <ErrorMessage
+            content={props.errors.service.message ?? ""}
+            className=""
+          />
+        )}
         <Controller
           name="price"
           control={props.control}
@@ -104,6 +111,12 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
             </AddSubscriptionInput>
           )}
         />
+        {props.errors.price && (
+          <ErrorMessage
+            content={props.errors.price.message ?? ""}
+            className=""
+          />
+        )}
         <Controller
           name="paymentDate"
           control={props.control}
@@ -120,6 +133,12 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
             </AddSubscriptionInput>
           )}
         />
+        {props.errors.paymentDate && (
+          <ErrorMessage
+            content={props.errors.paymentDate.message ?? ""}
+            className=""
+          />
+        )}
         <Controller
           name="paymentFrequency"
           control={props.control}
@@ -137,9 +156,18 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
             </AddSubscriptionInput>
           )}
         />
+        {props.errors.paymentFrequency && (
+          <ErrorMessage
+            content={props.errors.paymentFrequency.message ?? ""}
+            className=""
+          />
+        )}
         <Controller
           name="genre"
           control={props.control}
+          rules={{
+            required: props.t.ERROR_GENRE_REQUIRED,
+          }}
           render={({ field: { value, onChange } }) => (
             <AddSubscriptionInput content={props.t.COMMON_GENRE}>
               <TextOutlineInput
@@ -151,15 +179,21 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
             </AddSubscriptionInput>
           )}
         />
+        {props.errors.genre && (
+          <ErrorMessage
+            content={props.errors.genre.message ?? ""}
+            className=""
+          />
+        )}
         <Controller
-          name="note"
+          name="remark"
           control={props.control}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_NOTE}>
+            <AddSubscriptionInput content={props.t.COMMON_REMARK}>
               <TextOutlineInputArea
                 value={value}
                 onChange={onChange}
-                label="note"
+                label="remark"
                 placeholder=""
               />
             </AddSubscriptionInput>

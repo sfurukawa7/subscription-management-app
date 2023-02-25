@@ -6,9 +6,8 @@ const tCommon = {
   COMMON_PAYMENT_DATE: "支払日",
   COMMON_PAYMENT_FREQUENCY: "支払頻度",
   COMMON_GENRE: "ジャンル",
-  COMMON_NOTE: "備考",
+  COMMON_REMARK: "備考",
   COMMON_CANCEL: "キャンセル",
-  COMMON_DATE: "日",
   COMMON_MONTH: "ヶ月",
   COMMON_YEAR: "年",
 };
@@ -50,6 +49,8 @@ const tError = {
   ERROR_PRICE_REQUIRED: "金額を入力してください",
   ERROR_PAYMENT_DATE_REQUIRED: "支払日を入力してください",
   ERROR_FREQUENCY_REQUIRED: "支払頻度を選択してください",
+  ERROR_GENRE_REQUIRED: "ジャンルを入力してください",
+  ERROR_FAILED_TO_ADD: "サブスクの追加に失敗しました",
 };
 
 const tHome = {

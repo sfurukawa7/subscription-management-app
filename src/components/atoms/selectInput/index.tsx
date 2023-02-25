@@ -2,7 +2,10 @@ import { ControllerRenderProps } from "react-hook-form";
 
 import styles from "./styles.module.css";
 
-type SelectInputProps = Partial<ControllerRenderProps> & { label: string; options: string[] };
+type SelectInputProps = Partial<ControllerRenderProps> & {
+  label: string;
+  options: { key: string; value: string }[];
+};
 
 const SelectInput = (props: SelectInputProps) => {
   return (
@@ -15,9 +18,9 @@ const SelectInput = (props: SelectInputProps) => {
         {props.options.map((i) => {
           return (
             <option
-              key={i}
-              value={i}>
-              {i}
+              key={i.key}
+              value={i.value}>
+              {i.key}
             </option>
           );
         })}
