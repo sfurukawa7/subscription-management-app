@@ -10,6 +10,7 @@ import TextOutlineInput from "@atoms/textOutlineInput";
 import TextOutlineInputArea from "@atoms/textOutlineInputArea";
 import Title from "@atoms/title";
 import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
+import MenuBar from "@molecules/menuBar";
 import { Translation } from "@utils/useTranslation";
 
 import { SubscriptionFormData, useAddSubscription } from "./hooks";
@@ -33,6 +34,7 @@ const AddSubscription = () => {
         />
       </Head>
       <main className={styles.main}>
+        <MenuBar className={styles.menuBar} />
         <Title
           content={t.ADD_SUBSCRIPTION_TITLE}
           className={styles.title}

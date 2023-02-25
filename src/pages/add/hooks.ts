@@ -26,7 +26,7 @@ export const useAddSubscription = () => {
     defaultValues: {
       service: "",
       price: 0,
-      paymentDate: "",
+      paymentDate: new Date().toISOString().split("T")[0],
       paymentFrequency: "",
       genre: "",
       note: "",

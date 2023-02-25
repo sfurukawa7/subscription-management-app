@@ -10,7 +10,7 @@ type GrayRectangleButtonProps = {
 const GrayRectangleButton = (props: GrayRectangleButtonProps) => {
   return (
     <button
-      className={`${styles.rectangleButton} ${props.className}`}
+      className={`${styles.grayRectangleButton} ${props.className}`}
       onClick={() => props.handleClick()}
       type={props.type}>
       {props.content}
