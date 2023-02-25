@@ -1,6 +1,7 @@
 import Head from "next/head";
+import { BaseSyntheticEvent } from "react";
 
-import { Control, Controller, FieldErrorsImpl, UseFormHandleSubmit } from "react-hook-form";
+import { Control, Controller, FieldErrorsImpl } from "react-hook-form";
 
 import DateInput from "@atoms/dateInput";
 import GrayRectangleButton from "@atoms/grayRectangleButton";
@@ -17,8 +18,7 @@ import { SubscriptionFormData, useAddSubscription } from "./hooks";
 import styles from "./styles.module.css";
 
 const AddSubscription = () => {
-  const { t, handleSubmit, control, errors, frequencyOptions, handleCancel, handleAdd } =
-    useAddSubscription();
+  const { t, control, errors, frequencyOptions, handleCancel, handleAdd } = useAddSubscription();
 
   return (
     <>
@@ -43,7 +43,7 @@ const AddSubscription = () => {
           t={t}
           control={control}
           errors={errors}
-          handleSubmit={handleSubmit}
+          handleAdd={handleAdd}
           frequencyOptions={frequencyOptions}
         />
         <AddSubscriptionFooter
@@ -60,14 +60,16 @@ type AddSubscriptionBodyProps = {
   t: Translation;
   control: Control<SubscriptionFormData>;
   errors: Partial<FieldErrorsImpl<SubscriptionFormData>>;
-  handleSubmit: UseFormHandleSubmit<SubscriptionFormData>;
+  handleAdd: (e?: BaseSyntheticEvent<object, any, any> | undefined) => Promise<void>;
   frequencyOptions: string[];
 };
 
 const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
   return (
     <div className={styles.body}>
-      <form onSubmit={() => props.handleSubmit}>
+      <form
+        onSubmit={props.handleAdd}
+        id="subscription-form">
         <Controller
           name="service"
           control={props.control}
@@ -188,9 +190,9 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
       <div className={styles.footerButton}>
         <RectangleButton
           type="submit"
+          form="subscription-form"
           content={props.t.ADD_SUBSCRIPTION_BUTTON}
           className={styles.addButton}
-          handleClick={props.handleAdd}
         />
       </div>
     </div>

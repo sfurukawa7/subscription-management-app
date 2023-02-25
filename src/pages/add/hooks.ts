@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { getFrequencyOptions } from "@utils/getSelectBoxOptions";
 import { useTranslation } from "@utils/useTranslation";
 
+import { useCommonContext } from "src/context/commonContext";
+
 export type SubscriptionFormData = {
   service: string;
   price: number;
@@ -16,6 +18,7 @@ export type SubscriptionFormData = {
 
 export const useAddSubscription = () => {
   const { t } = useTranslation();
+  const { isSubmitting, toggleIsSubmitting } = useCommonContext();
 
   const {
     handleSubmit,
@@ -41,6 +44,7 @@ export const useAddSubscription = () => {
   };
 
   const handleAdd = handleSubmit((data) => {
+    toggleIsSubmitting(true);
     console.log(data);
   });
 
