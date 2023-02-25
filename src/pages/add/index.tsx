@@ -1,8 +1,10 @@
 import Head from "next/head";
 
-import { Controller } from "react-hook-form";
+import { Control, Controller, FieldErrorsImpl, UseFormHandleSubmit } from "react-hook-form";
 
 import DateInput from "@atoms/dateInput";
+import GrayRectangleButton from "@atoms/grayRectangleButton";
+import RectangleButton from "@atoms/rectangleButton";
 import SelectInput from "@atoms/selectInput";
 import TextOutlineInput from "@atoms/textOutlineInput";
 import TextOutlineInputArea from "@atoms/textOutlineInputArea";
@@ -10,11 +12,12 @@ import Title from "@atoms/title";
 import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import { Translation } from "@utils/useTranslation";
 
-import { useAddSubscription, useAddSubscriptionBody } from "./hooks";
+import { SubscriptionFormData, useAddSubscription } from "./hooks";
 import styles from "./styles.module.css";
 
 const AddSubscription = () => {
-  const { t } = useAddSubscription();
+  const { t, handleSubmit, control, errors, frequencyOptions, handleCancel, handleAdd } =
+    useAddSubscription();
 
   return (
     <>
@@ -32,9 +35,20 @@ const AddSubscription = () => {
       <main className={styles.main}>
         <Title
           content={t.ADD_SUBSCRIPTION_TITLE}
-          className=""
+          className={styles.title}
         />
-        <AddSubscriptionBody t={t} />
+        <AddSubscriptionBody
+          t={t}
+          control={control}
+          errors={errors}
+          handleSubmit={handleSubmit}
+          frequencyOptions={frequencyOptions}
+        />
+        <AddSubscriptionFooter
+          t={t}
+          handleCancel={handleCancel}
+          handleAdd={handleAdd}
+        />
       </main>
     </>
   );
@@ -42,17 +56,19 @@ const AddSubscription = () => {
 
 type AddSubscriptionBodyProps = {
   t: Translation;
+  control: Control<SubscriptionFormData>;
+  errors: Partial<FieldErrorsImpl<SubscriptionFormData>>;
+  handleSubmit: UseFormHandleSubmit<SubscriptionFormData>;
+  frequencyOptions: string[];
 };
 
 const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
-  const { register, handleSubmit, control, errors, frequencyOptions } = useAddSubscriptionBody();
-
   return (
     <div className={styles.body}>
-      <form onSubmit={() => handleSubmit}>
+      <form onSubmit={() => props.handleSubmit}>
         <Controller
           name="service"
-          control={control}
+          control={props.control}
           rules={{
             required: props.t.ERROR_SERVICE_REQUIRED,
           }}
@@ -69,7 +85,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
         />
         <Controller
           name="price"
-          control={control}
+          control={props.control}
           rules={{
             required: props.t.ERROR_PRICE_REQUIRED,
           }}
@@ -86,7 +102,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
         />
         <Controller
           name="paymentDate"
-          control={control}
+          control={props.control}
           rules={{
             required: props.t.ERROR_PAYMENT_DATE_REQUIRED,
           }}
@@ -102,7 +118,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
         />
         <Controller
           name="paymentFrequency"
-          control={control}
+          control={props.control}
           rules={{
             required: props.t.ERROR_FREQUENCY_REQUIRED,
           }}
@@ -112,14 +128,14 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
                 value={value}
                 onChange={onChange}
                 label="payment_frequency"
-                options={frequencyOptions}
+                options={props.frequencyOptions}
               />
             </AddSubscriptionInput>
           )}
         />
         <Controller
           name="genre"
-          control={control}
+          control={props.control}
           render={({ field: { value, onChange } }) => (
             <AddSubscriptionInput content={props.t.COMMON_GENRE}>
               <TextOutlineInput
@@ -133,7 +149,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
         />
         <Controller
           name="note"
-          control={control}
+          control={props.control}
           render={({ field: { value, onChange } }) => (
             <AddSubscriptionInput content={props.t.COMMON_NOTE}>
               <TextOutlineInputArea
@@ -146,6 +162,35 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           )}
         />
       </form>
+    </div>
+  );
+};
+
+type AddSubscriptionFooterProps = {
+  t: Translation;
+  handleCancel: () => void;
+  handleAdd: () => void;
+};
+
+const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
+  return (
+    <div className={styles.footer}>
+      <div className={styles.footerButton}>
+        <GrayRectangleButton
+          type="button"
+          content={props.t.COMMON_CANCEL}
+          className={styles.cancelButton}
+          handleClick={props.handleCancel}
+        />
+      </div>
+      <div className={styles.footerButton}>
+        <RectangleButton
+          type="submit"
+          content={props.t.ADD_SUBSCRIPTION_BUTTON}
+          className={styles.addButton}
+          handleClick={props.handleAdd}
+        />
+      </div>
     </div>
   );
 };

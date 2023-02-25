@@ -1,13 +1,9 @@
+import router from "next/router";
+
 import { useForm } from "react-hook-form";
 
 import { getFrequencyOptions } from "@utils/getSelectBoxOptions";
 import { useTranslation } from "@utils/useTranslation";
-
-export const useAddSubscription = () => {
-  const { t } = useTranslation();
-
-  return { t };
-};
 
 export type SubscriptionFormData = {
   service: string;
@@ -18,9 +14,10 @@ export type SubscriptionFormData = {
   note: string;
 };
 
-export const useAddSubscriptionBody = () => {
+export const useAddSubscription = () => {
+  const { t } = useTranslation();
+
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors },
@@ -39,5 +36,13 @@ export const useAddSubscriptionBody = () => {
   const { locale } = useTranslation();
   const frequencyOptions = getFrequencyOptions(locale);
 
-  return { register, handleSubmit, control, errors, frequencyOptions };
+  const handleCancel = () => {
+    router.push("/home");
+  };
+
+  const handleAdd = handleSubmit((data) => {
+    console.log(data);
+  });
+
+  return { t, handleSubmit, control, errors, frequencyOptions, handleCancel, handleAdd };
 };
