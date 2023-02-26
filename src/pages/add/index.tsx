@@ -24,7 +24,7 @@ const AddSubscription = () => {
   return (
     <>
       <Head>
-        <title>{t.LOGIN_HEADER}</title>
+        <title>{t.ADD_SUBSCRIPTION_HEADER}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"

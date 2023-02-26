@@ -4,12 +4,11 @@ const tCommon = {
   COMMON_SERVICE: "Service",
   COMMON_PRICE: "Price",
   COMMON_PAYMENT_DATE: "Payment Date",
+  COMMON_NEXT_PAYMENT_DATE: "Next Payment Date",
   COMMON_PAYMENT_FREQUENCY: "Payment Frequency",
   COMMON_GENRE: "Genre",
   COMMON_REMARK: "Note",
   COMMON_CANCEL: "Cancel",
-  COMMON_MONTH: "ヶ月",
-  COMMON_YEAR: "年",
 };
 
 const tLogin = {
@@ -77,7 +76,21 @@ const tAddSubscription = {
   ADD_SUBSCRIPTION_TERM_SELECT: "Select a term",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError, ...tHome, ...tAddSubscription };
+const tSubscriptionDetail = {
+  DETAIL_SUBSCRIPTION_HEADER: "Submane - Subscription Detail",
+  DETAIL_SUBSCRIPTION_TITLE: "Subscription Detail",
+  DETAIL_SUBSCRIPTION_BUTTON: "Close",
+};
+
+const t = {
+  ...tCommon,
+  ...tLogin,
+  ...tSignUp,
+  ...tError,
+  ...tHome,
+  ...tAddSubscription,
+  ...tSubscriptionDetail,
+};
 
 export default t;
 
