@@ -1,26 +1,28 @@
 import Head from "next/head";
 
+import { GetServerSideProps } from "next";
 import { Subscription } from "subscription";
 
 import RectangleButton from "@atoms/rectangleButton";
 import Title from "@atoms/title";
 import MenuBar from "@molecules/menuBar";
-import { Translation } from "@utils/useTranslation";
+import axios from "@utils/useApi";
+import { getTranslation, Translation } from "@utils/useTranslation";
 
 import { useSubscriptionDetail } from "./hooks";
 import styles from "./styles.module.css";
 
-type SubscriptionDetailProps = { sample: string };
+type SubscriptionDetailProps = { t: Translation; data: Subscription | null };
 
 const SubscriptionDetail = (props: SubscriptionDetailProps) => {
-  const { t, handleClose, data } = useSubscriptionDetail();
+  const { handleClose } = useSubscriptionDetail();
 
   useSubscriptionDetail();
 
   return (
     <>
       <Head>
-        <title>{t.DETAIL_SUBSCRIPTION_HEADER}</title>
+        <title>{props.t.DETAIL_SUBSCRIPTION_HEADER}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -33,17 +35,17 @@ const SubscriptionDetail = (props: SubscriptionDetailProps) => {
       <main className={styles.main}>
         <MenuBar className={styles.menuBar} />
         <Title
-          content={t.DETAIL_SUBSCRIPTION_TITLE}
+          content={props.t.DETAIL_SUBSCRIPTION_TITLE}
           className={styles.title}
         />
-        {data && (
+        {props.data && (
           <SubscriptionDetailBody
-            t={t}
-            data={data}
+            t={props.t}
+            data={props.data}
           />
         )}
         <SubscriptionDetailFooter
-          t={t}
+          t={props.t}
           handleClose={handleClose}
         />
       </main>
@@ -116,17 +118,35 @@ const SubscriptionDetailFooter = (props: SubscriptionDetailFooterProps) => {
   );
 };
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   await axios
-//     .get("/sucsc/1")
-//     .then((res) => {
-//       console.log(res.data);
-//     })
-//     .catch((err) => {
-//       console.error(err.code);
-//     });
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { lang, subscId } = context.query;
+  const t = getTranslation(lang);
 
-//   return { props: { sample: "sample" } };
-// };
+  if (subscId) {
+    const data = await axios
+      .get(`/subsc/${subscId}`)
+      .then((res) => {
+        const fetchedData = res.data[0];
+
+        return {
+          service: fetchedData.subsc_name,
+          price: Number(fetchedData.price),
+          nextPaymentDate: fetchedData.next_payment_date,
+          paymentFrequency: fetchedData.payment_frequency,
+          genre: fetchedData.genre,
+          remark: fetchedData.remark,
+        };
+      })
+      .catch((err) => {
+        alert(t.ERROR_FAILED_TO_FETCH);
+
+        return null;
+      });
+
+    return { props: { t, data } };
+  } else {
+    return { props: { t, data: null } };
+  }
+};
 
 export default SubscriptionDetail;
