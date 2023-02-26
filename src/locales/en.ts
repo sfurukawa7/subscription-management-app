@@ -93,5 +93,3 @@ const t = {
 };
 
 export default t;
-
-export const days = Array.from(Array(31), (_, i) => i + 1);
