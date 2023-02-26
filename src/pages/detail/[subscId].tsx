@@ -36,10 +36,12 @@ const SubscriptionDetail = (props: SubscriptionDetailProps) => {
           content={t.DETAIL_SUBSCRIPTION_TITLE}
           className={styles.title}
         />
-        <SubscriptionDetailBody
-          t={t}
-          data={data}
-        />
+        {data && (
+          <SubscriptionDetailBody
+            t={t}
+            data={data}
+          />
+        )}
         <SubscriptionDetailFooter
           t={t}
           handleClose={handleClose}

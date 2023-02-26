@@ -50,6 +50,7 @@ const tError = {
   ERROR_FREQUENCY_REQUIRED: "支払頻度を選択してください",
   ERROR_GENRE_REQUIRED: "ジャンルを入力してください",
   ERROR_FAILED_TO_ADD: "サブスクの追加に失敗しました",
+  ERROR_FAILED_TO_FETCH: "サブスクの取得に失敗しました",
 };
 
 const tHome = {

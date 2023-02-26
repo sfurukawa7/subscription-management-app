@@ -49,6 +49,7 @@ const tError = {
   ERROR_FREQUENCY_REQUIRED: "Frequency is required",
   ERROR_GENRE_REQUIRED: "Genre is required",
   ERROR_FAILED_TO_ADD: "Failed to add subscription",
+  ERROR_FAILED_TO_FETCH: "Failed to fetch subscription detail",
 };
 
 const tHome = {

@@ -1,5 +1,5 @@
-import router from "next/router";
-import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { Subscription } from "subscription";
 
@@ -7,36 +7,40 @@ import axios from "@utils/useApi";
 import { useTranslation } from "@utils/useTranslation";
 
 export const useSubscriptionDetail = () => {
-  useEffect(() => {
-    const hoge = async () => {
-      await axios
-        .get("/subsc/20")
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.error(err.code);
-        })
-        .finally(() => {
-          console.log("finally");
-        });
-    };
-    hoge();
-  }, []);
-
+  const router = useRouter();
+  const { subscId } = router.query;
+  const [data, setData] = useState<Subscription | null>();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (subscId) {
+        await axios
+          .get(`/subsc/${subscId}`)
+          .then((res) => {
+            const fetchedData = res.data[0];
+
+            const newData: Subscription = {
+              service: fetchedData.subsc_name,
+              price: Number(fetchedData.price),
+              nextPaymentDate: fetchedData.next_payment_date,
+              paymentFrequency: fetchedData.payment_frequency,
+              genre: fetchedData.genre,
+              remark: fetchedData.remark,
+            };
+            setData(newData);
+          })
+          .catch((err) => {
+            alert(t.ERROR_FAILED_TO_FETCH);
+          });
+      }
+    };
+
+    fetchData();
+  }, [t, subscId]);
 
   const handleClose = () => {
     router.push("/home");
-  };
-
-  const data: Subscription = {
-    service: "Apple Music",
-    price: 990,
-    nextPaymentDate: "2023-03-01",
-    paymentFrequency: "month",
-    genre: "music",
-    remark: "test",
   };
 
   return { t, handleClose, data };
