@@ -17,6 +17,10 @@
   overflow:auto;
 }
 
+.scrollDiv::-webkit-scrollbar{
+  display:none;
+}
+
 .table {
   border-collapse:collapse;
   width:100%;
@@ -39,3 +43,4 @@
 .tableHeadRow:nth-of-type(3) {
   width: 30%;
 }
+

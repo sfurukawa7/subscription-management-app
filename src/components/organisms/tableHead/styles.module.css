@@ -12,3 +12,9 @@
   top: 0;
   left: 0;
 }
+
+.tableHeadRow:nth-of-type(3){
+  text-align: left;
+  padding-left: 20px;
+}
+

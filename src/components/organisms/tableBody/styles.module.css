@@ -1,2 +1,4 @@
-.tableBody {
+.tableBodyRow {
+    height:1.6em;
+    padding-left:6px;
 }

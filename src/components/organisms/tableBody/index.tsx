@@ -1,26 +1,24 @@
+import TableRow from "@atoms/tableRow";
+
 import styles from "./styles.module.css";
 
 type TableBodyProps = {
-  subscriptionList: defineType[];
+  subscriptionList: Array<defineType>;
   className: string;
 };
 
-type defineType = { service: string; price: string; frequence: string };
+type defineType = { service: string; price: string; frequency: string };
 
 const TableBody = (props: TableBodyProps) => {
   return (
     <tbody>
-      {props.subscriptionList?.map((subscription) => {
+      {props.subscriptionList?.map((obj) => {
         return (
-          <tr
-            className={`${styles.tableBody} ${props.className}`}
-            key={subscription.service}>
-            <td className={`${styles.tableBodyRow} ${props.className}`}>{subscription.service}</td>
-            <td className={`${styles.tableBodyRow} ${props.className}`}>{subscription.price}</td>
-            <td className={`${styles.tableBodyRow} ${props.className}`}>
-              {subscription.frequence}
-            </td>
-          </tr>
+          <TableRow
+            subscription={obj}
+            className={styles.tableBodyRow}
+            key={obj.service}
+          />
         );
       })}
     </tbody>

@@ -11,9 +11,9 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
   const { t } = useTranslation();
 
   const subscriptionList = [
-    { service: "amazon prime", price: "￥500", frequence: "/month" },
-    { service: "netflix", price: "￥900", frequence: "/month" },
-    { service: "Disney Plus", price: "￥1000", frequence: "/month" },
+    { service: "amazon prime", price: "￥500", frequency: "/month" },
+    { service: "netflix", price: "￥900", frequency: "/month" },
+    { service: "Disney Plus", price: "￥1000", frequency: "/month" },
   ];
 
   return (
@@ -24,7 +24,7 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
             <TableHead
               headFirstItem={t.HOME_SERVICE}
               headSecondItem={t.HOME_PRICE}
-              headThirdItem={t.HOME_FREQUENCE}
+              headThirdItem={t.HOME_frequency}
               className={styles.tableHeadRow}
             />
             <TableBody

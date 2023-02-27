@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
 import SubscriptionTable from "@organisms/subscriptionTable";
@@ -25,14 +27,16 @@ const Subscription = () => {
 const AddSubscriptionButton = (props: { content: string }) => {
   return (
     <>
-      <RoundedRectangleButton
-        content={props.content}
-        handleClick={() => {
-          return;
-        }}
-        className={styles.addSubscriptionButton}
-        type="submit"
-      />
+      <Link href="/addSubscription">
+        <RoundedRectangleButton
+          content={props.content}
+          handleClick={() => {
+            return;
+          }}
+          className={styles.addSubscriptionButton}
+          type="submit"
+        />
+      </Link>
     </>
   );
 };

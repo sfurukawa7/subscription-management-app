@@ -38,11 +38,11 @@ const tHome = {
   HOME_SERVICE: "サービス名",
   HOME_PRICE: "金額",
   HOME_ADD_SUBSCRIPTION: "サブスクを追加",
-  HOME_FREQUENCE: "頻度",
+  HOME_frequency: "頻度",
   HOME_EXAMPLE: "Amazon Prime",
   HOME_EXAMPLE_DATE: "Jan.14",
   HOME_EXAMPLE_PRICE: "￥4,800",
-  HOME_EXAMPLE_FREQUENCE: "/月",
+  HOME_EXAMPLE_frequency: "/月",
 };
 
 const tDetail = {

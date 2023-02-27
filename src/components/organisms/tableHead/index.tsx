@@ -5,6 +5,7 @@ type TableHeadProps = {
   headSecondItem: string;
   headThirdItem: string;
   className: string;
+  colSpan: string;
 };
 
 const TableHead = (props: TableHeadProps) => {
@@ -14,7 +15,11 @@ const TableHead = (props: TableHeadProps) => {
         <tr className={`${styles.tableHeadtr} ${props.className}`}>
           <th className={`${styles.tableHeadRow} ${props.className}`}>{props.headFirstItem}</th>
           <th className={`${styles.tableHeadRow} ${props.className}`}>{props.headSecondItem}</th>
-          <th className={`${styles.tableHeadRow} ${props.className}`}>{props.headThirdItem}</th>
+          <th
+            colSpan={2}
+            className={`${styles.tableHeadRow} ${props.className}`}>
+            {props.headThirdItem}
+          </th>
         </tr>
       </thead>
     </>
