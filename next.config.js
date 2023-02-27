@@ -14,6 +14,7 @@ const nextConfig = {
     locales: ["en", "ja"],
     defaultLocale: "ja",
   },
+  pageExtensions: ["tsx"],
 };
 
 module.exports = {

@@ -6,15 +6,11 @@ import Title from "@atoms/title";
 import EmailInput from "@organisms/emailInput";
 import PasswordInput from "@organisms/passwordInput";
 
-import { useSignupForm } from "./hooks";
+import { useSignUpForm } from "./hooks";
 import styles from "./styles.module.css";
 
-type SignupFormOProps = {
-  onAfterSignup: () => void;
-};
-
-const SignupForm = (props: SignupFormOProps) => {
-  const { control, errors, handleFormSubmit, t } = useSignupForm(props.onAfterSignup);
+const SignUpForm = () => {
+  const { control, errors, handleFormSubmit, t, isSubmitting } = useSignUpForm();
 
   return (
     <div className={styles.container}>
@@ -70,14 +66,17 @@ const SignupForm = (props: SignupFormOProps) => {
             className={styles.passwordErrorMessage}
           />
         )}
-        <SignupButton content={t.SIGNUP_BUTTON} />
+        <SignUpButton
+          content={t.SIGNUP_BUTTON}
+          disabled={isSubmitting}
+        />
       </form>
       <BottomLine />
     </div>
   );
 };
 
-const SignupButton = (props: { content: string }) => {
+const SignUpButton = (props: { content: string; disabled: boolean }) => {
   return (
     <>
       <RoundedRectangleButton
@@ -87,6 +86,7 @@ const SignupButton = (props: { content: string }) => {
         }}
         className={styles.signupButton}
         type="submit"
+        disabled={props.disabled}
       />
     </>
   );
@@ -100,4 +100,4 @@ const BottomLine = () => {
   return <div className={styles.bottomLine} />;
 };
 
-export default SignupForm;
+export default SignUpForm;

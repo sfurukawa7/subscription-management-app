@@ -11,7 +11,17 @@ import { useLogin } from "./hooks";
 import styles from "./styles.module.css";
 
 const LoginForm = () => {
-  const { t, control, errors, handleFormSubmit } = useLogin();
+  const {
+    t,
+    control,
+    errors,
+    handleFormSubmit,
+    isSubmitting,
+    isResettingEmail,
+    handlePasswordResetLink,
+    handleLoginLink,
+    handlePasswordReset,
+  } = useLogin();
 
   return (
     <div className={styles.container}>
@@ -40,33 +50,75 @@ const LoginForm = () => {
             className={styles.emailErrorMessage}
           />
         )}
-        <Controller
-          name="password"
-          control={control}
-          rules={{ required: t.ERROR_PASSWORD_REQUIRED }}
-          render={({ field }) => (
-            <PasswordInput
-              field={field}
-              className={styles.passwordInput}
-            />
-          )}
-        />
-        {errors.password && (
-          <ErrorMessage
-            content={errors.password.message ?? ""}
-            className={styles.passwordErrorMessage}
+        {isResettingEmail && (
+          <PasswordResetButton
+            content={t.PASSWORD_RESET_BUTTON}
+            disabled={isSubmitting}
+            handleClick={handlePasswordReset}
           />
         )}
-        <LoginButton content={t.LOGIN_BUTTON} />
+        {!isResettingEmail && (
+          <>
+            <Controller
+              name="password"
+              control={control}
+              rules={{ required: t.ERROR_PASSWORD_REQUIRED }}
+              render={({ field }) => (
+                <PasswordInput
+                  field={field}
+                  className={styles.passwordInput}
+                />
+              )}
+            />
+            {errors.password && (
+              <ErrorMessage
+                content={errors.password.message ?? ""}
+                className={styles.passwordErrorMessage}
+              />
+            )}
+            <LoginButton
+              content={t.LOGIN_BUTTON}
+              disabled={isSubmitting}
+            />
+          </>
+        )}
       </form>
-      <ResetPasswordLink content={t.LOGIN_RESET_PASSWORD_LINK} />
+      {isResettingEmail ? (
+        <LoginLink
+          content={t.LOGIN_LINK}
+          handleClick={handleLoginLink}
+        />
+      ) : (
+        <PasswordResetLink
+          content={t.LOGIN_RESET_PASSWORD_LINK}
+          handleClick={handlePasswordResetLink}
+        />
+      )}
       <BottomLine />
       <SignUpLink content={t.LOGIN_SIGNUP_LINK} />
     </div>
   );
 };
 
-const LoginButton = (props: { content: string }) => {
+const PasswordResetButton = (props: {
+  content: string;
+  disabled: boolean;
+  handleClick: () => void;
+}) => {
+  return (
+    <>
+      <RoundedRectangleButton
+        content={props.content}
+        handleClick={props.handleClick}
+        className={styles.loginButton}
+        type="button"
+        disabled={props.disabled}
+      />
+    </>
+  );
+};
+
+const LoginButton = (props: { content: string; disabled: boolean }) => {
   return (
     <>
       <RoundedRectangleButton
@@ -76,6 +128,7 @@ const LoginButton = (props: { content: string }) => {
         }}
         className={styles.loginButton}
         type="submit"
+        disabled={props.disabled}
       />
     </>
   );
@@ -89,11 +142,21 @@ const BottomLine = () => {
   return <div className={styles.bottomLine} />;
 };
 
-const ResetPasswordLink = (props: { content: string }) => {
+const LoginLink = (props: { content: string; handleClick: () => void }) => {
   return (
     <SmallText
       content={props.content}
-      href="/resetPassword"
+      onClick={props.handleClick}
+      className={styles.resetPasswordLink}
+    />
+  );
+};
+
+const PasswordResetLink = (props: { content: string; handleClick: () => void }) => {
+  return (
+    <SmallText
+      content={props.content}
+      onClick={props.handleClick}
       className={styles.resetPasswordLink}
     />
   );

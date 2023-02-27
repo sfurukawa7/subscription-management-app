@@ -1,16 +1,32 @@
 const tCommon = {
   COMMON_EMAIL: "メールアドレス",
   COMMON_PASSWORD: "パスワード",
+  COMMON_SERVICE: "サービス名",
+  COMMON_PRICE: "金額",
+  COMMON_PAYMENT_DATE: "支払日",
+  COMMON_NEXT_PAYMENT_DATE: "次の支払日",
+  COMMON_PAYMENT_FREQUENCY: "支払頻度",
+  COMMON_GENRE: "ジャンル",
+  COMMON_REMARK: "備考",
+  COMMON_CANCEL: "キャンセル",
 };
 
 const tLogin = {
+  LOGIN_HEADER: "サブマネ - ログイン",
   LOGIN_TITLE: "ログイン",
   LOGIN_RESET_PASSWORD_LINK: "パスワードを忘れた場合",
   LOGIN_BUTTON: "続ける",
+  LOGIN_LINK: "メールアドレスでログイン",
   LOGIN_SIGNUP_LINK: "アカウントを作成",
+  PASSWORD_RESET_BUTTON: "リセットメール送信",
+  PASSWORD_RESET_MODAL_TITLE: "メール送信完了",
+  PASSWORD_RESET_MODAL_BODY:
+    "パスワード再設定のメールを送信しました．メールのリンクから再設定を行ってください．",
+  PASSWORD_RESET_MODAL_BUTTON: "OK",
 };
 
-const tSignup = {
+const tSignUp = {
+  SIGNUP_HEADER: "サブマネ - サインアップ",
   SIGNUP_TITLE: "アカウント作成",
   SIGNUP_BUTTON: "作成する",
   SIGNUP_MODAL_TITLE: "作成完了",
@@ -28,6 +44,13 @@ const tError = {
   ERROR_PASSWORD_REQUIRED: "パスワードを入力してください",
   ERROR_PASSWORD_LENGTH: "パスワードは6文字以上である必要があります",
   ERROR_USER_NOT_FOUND: "存在しないユーザーアカウントです",
+  ERROR_SERVICE_REQUIRED: "サービス名を入力してください",
+  ERROR_PRICE_REQUIRED: "金額を入力してください",
+  ERROR_PAYMENT_DATE_REQUIRED: "支払日を入力してください",
+  ERROR_FREQUENCY_REQUIRED: "支払頻度を選択してください",
+  ERROR_GENRE_REQUIRED: "ジャンルを入力してください",
+  ERROR_FAILED_TO_ADD: "サブスクの追加に失敗しました",
+  ERROR_FAILED_TO_FETCH: "サブスクの取得に失敗しました",
 };
 
 const tHome = {
@@ -45,11 +68,40 @@ const tHome = {
   HOME_EXAMPLE_frequency: "/月",
 };
 
+<<<<<<< HEAD
 const tDetail = {
   DETAIL_TITLE: "Subscription Detail",
   DETAIL_CLOSE: "CLOSE",
 };
 
 const t = { ...tCommon, ...tLogin, ...tSignup, ...tError, ...tHome, ...tDetail };
+=======
+const tAddSubscription = {
+  ADD_SUBSCRIPTION_HEADER: "サブマネ - サブスク追加",
+  ADD_SUBSCRIPTION_TITLE: "サブスク追加",
+  ADD_SUBSCRIPTION_BUTTON: "追加",
+  ADD_SUBSCRIPTION_TERM_1MONTH: "1ヶ月",
+  ADD_SUBSCRIPTION_TERM_3MONTH: "3ヶ月",
+  ADD_SUBSCRIPTION_TERM_6MONTH: "6ヶ月",
+  ADD_SUBSCRIPTION_TERM_1YEAR: "1年",
+  ADD_SUBSCRIPTION_TERM_SELECT: "支払頻度を選択",
+};
+
+const tSubscriptionDetail = {
+  DETAIL_SUBSCRIPTION_HEADER: "サブマネ - サブスク詳細",
+  DETAIL_SUBSCRIPTION_TITLE: "サブスク詳細",
+  DETAIL_SUBSCRIPTION_BUTTON: "閉じる",
+};
+
+const t = {
+  ...tCommon,
+  ...tLogin,
+  ...tSignUp,
+  ...tError,
+  ...tHome,
+  ...tAddSubscription,
+  ...tSubscriptionDetail,
+};
+>>>>>>> 925fab71cbdd06fb4752589ccc68fdf3c894c89e
 
 export default t;

@@ -5,6 +5,7 @@ type RoundedRectangleButtonProps = {
   handleClick: () => void;
   className: string;
   type: "button" | "submit" | "reset";
+  disabled: boolean;
 };
 
 const RoundedRectangleButton = (props: RoundedRectangleButtonProps) => {
@@ -12,7 +13,8 @@ const RoundedRectangleButton = (props: RoundedRectangleButtonProps) => {
     <button
       className={`${styles.roundedRectangleButton} ${props.className}`}
       onClick={() => props.handleClick()}
-      type={props.type}>
+      type={props.type}
+      disabled={props.disabled}>
       {props.content}
     </button>
   );

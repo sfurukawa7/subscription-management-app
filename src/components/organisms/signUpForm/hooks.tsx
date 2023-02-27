@@ -4,25 +4,29 @@ import { useForm } from "react-hook-form";
 import { auth } from "@utils/configureFirebase";
 import { useTranslation } from "@utils/useTranslation";
 
-export type SignupForm = {
+import { useCommonContext } from "src/context/commonContext";
+
+export type SignUpForm = {
   email: string;
   password: string;
 };
 
-export const useSignupForm = (onAfterSignup: () => void) => {
+export const useSignUpForm = () => {
   const {
     control,
     setError,
     formState: { errors },
     handleSubmit,
-  } = useForm<SignupForm>();
+  } = useForm<SignUpForm>();
 
   const { t } = useTranslation();
+  const { isSubmitting, toggleIsSubmitting, toggleIsModalOpen } = useCommonContext();
 
   const createUser = async (email: string, password: string) => {
+    toggleIsSubmitting(true);
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        onAfterSignup();
+        toggleIsModalOpen(true);
       })
       .catch((error) => {
         switch (error.code) {
@@ -50,11 +54,12 @@ export const useSignupForm = (onAfterSignup: () => void) => {
             break;
         }
       });
+    toggleIsSubmitting(false);
   };
 
-  const handleFormSubmit = handleSubmit((data: SignupForm) =>
+  const handleFormSubmit = handleSubmit((data: SignUpForm) =>
     createUser(data.email, data.password)
   );
 
-  return { control, errors, handleFormSubmit, t };
+  return { control, errors, handleFormSubmit, t, isSubmitting };
 };

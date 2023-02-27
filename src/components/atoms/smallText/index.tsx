@@ -8,6 +8,7 @@ type SmallTextProps = {
   content: string;
   href?: string | UrlObject;
   className?: string;
+  onClick?: () => void;
 };
 
 const SmallText = (props: SmallTextProps) => {
@@ -19,6 +20,12 @@ const SmallText = (props: SmallTextProps) => {
           className={`${styles.smallText}` + (props.className ? ` ${props.className}` : "")}>
           {props.content}
         </Link>
+      ) : props.onClick ? (
+        <a
+          onClick={props.onClick}
+          className={`${styles.smallText}` + (props.className ? ` ${props.className}` : "")}>
+          {props.content}
+        </a>
       ) : (
         <span className={`${styles.smallText} ${props.className}`}>{props.content}</span>
       )}

@@ -2,6 +2,10 @@
 
 ## 動作環境
 
+- Node.js: v16.19.0
+- Next.js: v13.1.2
+- React: v18.2.0
+
 ## 環境構築
 
 ### 1. Dockerをインストールする（インストール済みならスキップ）
@@ -33,6 +37,9 @@
 
 ## 使い方
 
+- developmentモードで実行: `npm run dev`
+- productionモードで実行: `npm run start`
+
 ## 開発手順
 
 ### 1. Issueを立てる
@@ -45,6 +52,11 @@
 - その都度，commit&push
 
 ### 4. Figmaの画面通りに開発完了できればPull Request
-- 問題なければMergeして，IssueをClose
+- 問題なければdevelopブランチにMergeして，IssueをClose
 
 ## その他
+
+### デプロイについて
+
+- mainブランチにpushすると自動でデプロイ
+- developブランチからのみmainブランチにpush可能

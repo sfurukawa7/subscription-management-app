@@ -3,7 +3,7 @@ import { ReactNode, createContext, useState, useContext, useEffect } from "react
 
 import { onAuthStateChanged } from "firebase/auth";
 
-import { auth } from "./configureFirebase";
+import { auth } from "../utils/configureFirebase";
 
 import type { User } from "firebase/auth";
 
@@ -26,12 +26,9 @@ type AuthProviderProps = {
 export const AuthProvider = (props: AuthProviderProps) => {
   const router = useRouter();
   const [user, setUser] = useState<UserType>(null);
-  const isAvailableForViewing =
-    router.pathname === "/" ||
-    router.pathname === "/about" ||
-    router.pathname === "/login" ||
-    router.pathname === "/signup";
 
+  const isAvailableForViewing =
+    router.pathname === "/" || router.pathname === "/login" || router.pathname === "/signup";
   useEffect(() => {
     const authStateChanged = onAuthStateChanged(auth, async (user) => {
       setUser(user);
