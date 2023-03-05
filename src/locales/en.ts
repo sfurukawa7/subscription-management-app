@@ -65,16 +65,11 @@ const tHome = {
   HOME_EXAMPLE_DATE: "Jan.14",
   HOME_EXAMPLE_PRICE: "￥4,800",
   HOME_EXAMPLE_frequency: "/month",
+  HOME_CLOSE_BUTTON: "CLOSE",
+  HOME_EDIT_BUTTON: "EDIT",
+  HOME_DELETE_BUTTON: "DELETE",
 };
 
-<<<<<<< HEAD
-const tDetail = {
-  DETAIL_TITLE: "Subscription Detail",
-  DETAIL_CLOSE: "CLOSE",
-};
-
-const t = { ...tCommon, ...tLogin, ...tSignup, ...tError, ...tHome, ...tDetail };
-=======
 const tAddSubscription = {
   ADD_SUBSCRIPTION_HEADER: "Submane - Add Subscription",
   ADD_SUBSCRIPTION_TITLE: "Add Subscription",
@@ -101,6 +96,5 @@ const t = {
   ...tAddSubscription,
   ...tSubscriptionDetail,
 };
->>>>>>> 925fab71cbdd06fb4752589ccc68fdf3c894c89e
 
 export default t;

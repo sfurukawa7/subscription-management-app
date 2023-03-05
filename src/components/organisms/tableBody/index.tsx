@@ -12,12 +12,12 @@ type defineType = { service: string; price: string; frequency: string };
 const TableBody = (props: TableBodyProps) => {
   return (
     <tbody>
-      {props.subscriptionList?.map((obj) => {
+      {props.subscriptionList?.map((body, index) => {
         return (
           <TableRow
-            subscription={obj}
+            subscription={body}
             className={styles.tableBodyRow}
-            key={obj.service}
+            key={`body${index}`}
           />
         );
       })}

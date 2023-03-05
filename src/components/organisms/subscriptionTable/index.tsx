@@ -1,3 +1,5 @@
+import { Subscription } from "subscription";
+
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
 import { useTranslation } from "@utils/useTranslation";
@@ -5,16 +7,13 @@ import { useTranslation } from "@utils/useTranslation";
 import styles from "./styles.module.css";
 type SubscriptionTableProps = {
   className: string;
+  subscTableList: defineType[];
 };
+
+type defineType = { service: string; price: string; frequency: string; subscId: string };
 
 const SubscriptionTable = (props: SubscriptionTableProps) => {
   const { t } = useTranslation();
-
-  const subscriptionList = [
-    { service: "amazon prime", price: "￥500", frequency: "/month" },
-    { service: "netflix", price: "￥900", frequency: "/month" },
-    { service: "Disney Plus", price: "￥1000", frequency: "/month" },
-  ];
 
   return (
     <>
@@ -26,9 +25,10 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
               headSecondItem={t.HOME_PRICE}
               headThirdItem={t.HOME_frequency}
               className={styles.tableHeadRow}
+              colSpan={2}
             />
             <TableBody
-              subscriptionList={subscriptionList}
+              subscriptionList={props.subscTableList}
               className={styles.tableBodyRow}
             />
           </table>
