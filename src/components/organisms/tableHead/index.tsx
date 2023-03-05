@@ -5,7 +5,7 @@ type TableHeadProps = {
   headSecondItem: string;
   headThirdItem: string;
   className: string;
-  colSpan: string;
+  colSpan: number;
 };
 
 const TableHead = (props: TableHeadProps) => {

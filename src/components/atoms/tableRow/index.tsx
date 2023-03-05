@@ -60,7 +60,7 @@ const TableRow = (props: TableRowProps) => {
           onClick={() => {
             handleModalSubscId(subscId);
             toggleIsModalOpen(true);
-            console.log("tableRow", subscId);
+            console.log("tableRossssssss");
 
             return modalSubscId;
           }}>
