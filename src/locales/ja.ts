@@ -54,17 +54,18 @@ const tError = {
 };
 
 const tHome = {
+  ADD_SUBSCRIPTION: "新規追加",
   HOME_PAYMENT_SCHEDULE: "支払予定日",
   HOME_SUBSCRIPTION: "サブスク一覧",
   HOME_PAYMENT_DATE: "日付",
   HOME_SERVICE: "サービス名",
   HOME_PRICE: "金額",
   HOME_ADD_SUBSCRIPTION: "サブスクを追加",
-  HOME_FREQUENCE: "頻度",
+  HOME_frequency: "頻度",
   HOME_EXAMPLE: "Amazon Prime",
   HOME_EXAMPLE_DATE: "Jan.14",
   HOME_EXAMPLE_PRICE: "￥4,800",
-  HOME_EXAMPLE_FREQUENCE: "/月",
+  HOME_EXAMPLE_frequency: "/月",
 };
 
 const tAddSubscription = {

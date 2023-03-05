@@ -53,17 +53,18 @@ const tError = {
 };
 
 const tHome = {
+  ADD_SUBSCRIPTION: "Add Subscription",
   HOME_PAYMENT_SCHEDULE: "Payment Schedule",
   HOME_SUBSCRIPTION: "Subscription",
   HOME_PAYMENT_DATE: "Date",
   HOME_SERVICE: "Service",
   HOME_PRICE: "Price",
   HOME_ADD_SUBSCRIPTION: "Add Subscription",
-  HOME_FREQUENCE: "Frequence",
+  HOME_frequency: "frequency",
   HOME_EXAMPLE: "Amazon Prime",
   HOME_EXAMPLE_DATE: "Jan.14",
   HOME_EXAMPLE_PRICE: "￥4,800",
-  HOME_EXAMPLE_FREQUENCE: "/month",
+  HOME_EXAMPLE_frequency: "/month",
 };
 
 const tAddSubscription = {

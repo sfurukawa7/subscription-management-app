@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
 import SubscriptionTable from "@organisms/subscriptionTable";
 import { useTranslation } from "@utils/useTranslation";
@@ -14,16 +17,26 @@ const Subscription = () => {
           content={t.HOME_SUBSCRIPTION}
           className={styles.title}
         />
-        <SubscriptionTable
-          className={styles.dt}
-          contentService={t.HOME_SERVICE}
-          contentPrice={t.HOME_PRICE}
-          contentFrequence={t.HOME_FREQUENCE}
-          contentExampleService={t.HOME_EXAMPLE}
-          contentExamplePrice={t.HOME_EXAMPLE_PRICE}
-          contentExampleFrequence={t.HOME_EXAMPLE_FREQUENCE}
-        />
+        <AddSubscriptionButton content={t.ADD_SUBSCRIPTION} />
+        <SubscriptionTable className={styles.dt} />
       </div>
+    </>
+  );
+};
+
+const AddSubscriptionButton = (props: { content: string }) => {
+  return (
+    <>
+      <Link href="/addSubscription">
+        <RoundedRectangleButton
+          content={props.content}
+          handleClick={() => {
+            return;
+          }}
+          className={styles.addSubscriptionButton}
+          type="submit"
+        />
+      </Link>
     </>
   );
 };
