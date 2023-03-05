@@ -22,6 +22,7 @@ type HomeProps = {
 
 const Home = (props: HomeProps) => {
   const { isModalOpen, modalSubscId } = useHome();
+  console.log("sss");
 
   return (
     <>
