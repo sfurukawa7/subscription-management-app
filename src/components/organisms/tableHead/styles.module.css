@@ -6,7 +6,8 @@
 }
 
 .tableHeadRow {
-  background-color: #9a9da1;
+  background-color: white;
+  border-bottom: 2px solid #9a9da1;
   text-align: center;
   position: sticky;
   top: 0;

@@ -37,9 +37,12 @@
 
 ## 使い方
 
+<<<<<<< HEAD
 - developmentモードで実行: `npm run dev`
 - productionモードで実行: `npm run start`
 
+=======
+>>>>>>> 06f45f86f2911492f50074bb7bd915d42f527bc6
 ## 開発手順
 
 ### 1. Issueを立てる
@@ -52,6 +55,7 @@
 - その都度，commit&push
 
 ### 4. Figmaの画面通りに開発完了できればPull Request
+<<<<<<< HEAD
 - 問題なければdevelopブランチにMergeして，IssueをClose
 
 ## その他
@@ -60,3 +64,8 @@
 
 - mainブランチにpushすると自動でデプロイ
 - developブランチからのみmainブランチにpush可能
+=======
+- 問題なければMergeして，IssueをClose
+
+## その他
+>>>>>>> 06f45f86f2911492f50074bb7bd915d42f527bc6

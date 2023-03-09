@@ -65,6 +65,9 @@ const tHome = {
   HOME_EXAMPLE_DATE: "Jan.14",
   HOME_EXAMPLE_PRICE: "￥4,800",
   HOME_EXAMPLE_frequency: "/month",
+  HOME_CLOSE_BUTTON: "CLOSE",
+  HOME_EDIT_BUTTON: "EDIT",
+  HOME_DELETE_BUTTON: "DELETE",
 };
 
 const tAddSubscription = {

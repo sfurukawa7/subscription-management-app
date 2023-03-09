@@ -5,6 +5,7 @@
 
 .tableBodyRow:first-of-type {
     padding-left:0.7em;
+    
   }
 
 .tableBodyRow:nth-of-type(2)  {
@@ -17,4 +18,14 @@
 
 .tableBodyRow:nth-of-type(4) {
 padding-left:0.7em;
+}
+
+.link {
+  text-decoration: none;
+  color:black
+}
+
+.button {
+  background: none;
+  border: none;
 }
