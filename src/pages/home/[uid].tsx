@@ -21,8 +21,7 @@ type HomeProps = {
 };
 
 const Home = (props: HomeProps) => {
-  const { isModalOpen, modalSubscId } = useHome();
-  console.log("sss");
+  const { isModalOpen, modalSubscId, handleOpen, handleClose, handleDelete } = useHome();
 
   return (
     <>
@@ -45,9 +44,16 @@ const Home = (props: HomeProps) => {
         <div className={styles.container}>
           <Header />
           <PaymentSchedule subscriptionList={props.data} />
-          <SubscriptionWrap subscriptionList={props.data} />
+          <SubscriptionWrap
+            subscriptionList={props.data}
+            handleOpen={handleOpen}
+          />
           <Modal isOpen={isModalOpen}>
-            <EditSubscModal />
+            <EditSubscModal
+              handleClose={handleClose}
+              handleDelete={handleDelete}
+              modalSubscId={modalSubscId}
+            />
           </Modal>
         </div>
       </main>

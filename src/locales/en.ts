@@ -50,6 +50,7 @@ const tError = {
   ERROR_GENRE_REQUIRED: "Genre is required",
   ERROR_FAILED_TO_ADD: "Failed to add subscription",
   ERROR_FAILED_TO_FETCH: "Failed to fetch subscription detail",
+  ERROR_FAILED_TO_DELETE: "Failed to delete subscription",
 };
 
 const tHome = {

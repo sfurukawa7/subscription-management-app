@@ -18,15 +18,13 @@ type TableRowProps = {
     service: string;
     price: string;
     frequency: string;
-    subscId?: string;
+    subscId: string;
   };
+  handleOpen: (subscId: string) => void;
 };
 
 const TableRow = (props: TableRowProps) => {
-  const { toggleIsModalOpen } = useCommonContext();
   const subscId = props.subscription.subscId;
-  const { modalSubscId, handleModalSubscId } = useHome();
-  delete props.subscription.subscId;
 
   return (
     <tr className={`${styles.tableBody} ${props.className}`}>
@@ -58,11 +56,7 @@ const TableRow = (props: TableRowProps) => {
         <button
           className={`${styles.button} ${props.className}`}
           onClick={() => {
-            handleModalSubscId(subscId);
-            toggleIsModalOpen(true);
-            console.log("tableRossssssss");
-
-            return modalSubscId;
+            props.handleOpen(subscId);
           }}>
           <FontAwesomeIcon
             icon={faEllipsis}

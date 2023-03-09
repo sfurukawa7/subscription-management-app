@@ -8,6 +8,7 @@ import styles from "./styles.module.css";
 type SubscriptionTableProps = {
   className: string;
   subscTableList: defineType[];
+  handleOpen: (subscId: string) => void;
 };
 
 type defineType = { service: string; price: string; frequency: string; subscId: string };
@@ -30,6 +31,7 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
             <TableBody
               subscriptionList={props.subscTableList}
               className={styles.tableBodyRow}
+              handleOpen={props.handleOpen}
             />
           </table>
         </div>

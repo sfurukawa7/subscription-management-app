@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 type TableBodyProps = {
   subscriptionList: Array<defineType>;
   className: string;
+  handleOpen: (subscId: string) => void;
 };
 
 type defineType = { service: string; price: string; frequency: string };
@@ -18,6 +19,7 @@ const TableBody = (props: TableBodyProps) => {
             subscription={body}
             className={styles.tableBodyRow}
             key={`body${index}`}
+            handleOpen={props.handleOpen}
           />
         );
       })}

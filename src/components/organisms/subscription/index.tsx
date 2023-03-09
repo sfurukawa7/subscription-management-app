@@ -10,9 +10,10 @@ import styles from "./styles.module.css";
 
 type SubscriptionWrapProps = {
   subscriptionList: { service: string; price: string; paymentFrequency: string; subscId: string }[];
+  handleOpen: (subscId: string) => void;
 };
 
-type defineType = { service?: string; price?: string; frequency?: string; subscId?: string };
+type defineType = { service?: string; price?: string; frequency?: string; subscId: string };
 
 const SubscriptionWrap = (props: SubscriptionWrapProps) => {
   const { t } = useTranslation();
@@ -38,6 +39,7 @@ const SubscriptionWrap = (props: SubscriptionWrapProps) => {
         <SubscriptionTable
           className={styles.dt}
           subscTableList={subscTableList}
+          handleOpen={props.handleOpen}
         />
       </div>
     </>
@@ -47,7 +49,7 @@ const SubscriptionWrap = (props: SubscriptionWrapProps) => {
 const AddSubscriptionButton = (props: { content: string }) => {
   return (
     <>
-      <Link href="/addSubscription">
+      <Link href="/add">
         <RoundedRectangleButton
           content={props.content}
           handleClick={() => {

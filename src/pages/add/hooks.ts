@@ -53,7 +53,7 @@ export const useAddSubscription = () => {
   const frequencyOptions = getFrequencyOptions(locale);
 
   const handleCancel = () => {
-    router.push("/home");
+    router.push(`/home/${user?.uid}`);
   };
 
   const addSubscription = async (req: APISubscriptionRequest) => {
@@ -62,7 +62,7 @@ export const useAddSubscription = () => {
     await axios
       .post("/subsc", req)
       .then(() => {
-        router.push("/home");
+        router.push(`/home/${user?.uid}`);
       })
       .catch((err) => {
         alert(t.ERROR_FAILED_TO_ADD);

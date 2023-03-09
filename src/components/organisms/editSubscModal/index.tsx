@@ -6,7 +6,13 @@ import { useHome } from "@pages/home/hooks";
 import { useDeleteButton, useCloseButton, useEditButton, useEditSubscModal } from "./hooks";
 import styles from "./styles.module.css";
 
-const EditSubscModal = () => {
+type EditSubscModalProps = {
+  handleClose: () => void;
+  handleDelete: () => void;
+  modalSubscId: string | null;
+};
+
+const EditSubscModal = (props: EditSubscModalProps) => {
   const { t } = useEditSubscModal();
 
   return (
@@ -14,8 +20,14 @@ const EditSubscModal = () => {
       <div className={styles.modalOverlay}>
         <div className={styles.modalContent}>
           <EditButton content={t.HOME_EDIT_BUTTON} />
-          <DeleteButton content={t.HOME_DELETE_BUTTON} />
-          <CloseButton content={t.HOME_CLOSE_BUTTON} />
+          <DeleteButton
+            content={t.HOME_DELETE_BUTTON}
+            handleDelete={props.handleDelete}
+          />
+          <CloseButton
+            content={t.HOME_CLOSE_BUTTON}
+            handleClose={props.handleClose}
+          />
           <p>s</p>
         </div>
       </div>
@@ -23,13 +35,11 @@ const EditSubscModal = () => {
   );
 };
 
-const DeleteButton = (props: { content: string }) => {
-  const { handleClick } = useDeleteButton();
-
+const DeleteButton = (props: { content: string; handleDelete: () => void }) => {
   return (
     <RectangleButton
       content={props.content}
-      handleClick={handleClick}
+      handleClick={props.handleDelete}
       className={styles.deleteButton}
       type="button"
     />
@@ -37,25 +47,21 @@ const DeleteButton = (props: { content: string }) => {
 };
 
 const EditButton = (props: { content: string }) => {
-  const { handleClick } = useEditButton();
-
   return (
     <RectangleButton
       content={props.content}
-      handleClick={handleClick}
+      handleClick={() => console.log("edit")}
       className={styles.editButton}
       type="button"
     />
   );
 };
 
-const CloseButton = (props: { content: string }) => {
-  const { handleClick } = useCloseButton();
-
+const CloseButton = (props: { content: string; handleClose: () => void }) => {
   return (
     <RectangleButton
       content={props.content}
-      handleClick={handleClick}
+      handleClick={props.handleClose}
       className={styles.closeButton}
       type="button"
     />
