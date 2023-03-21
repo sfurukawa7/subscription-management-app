@@ -13,11 +13,6 @@ const Header = () => {
           icon={faBars}
           style={{ fontSize: "xx-large", marginTop: "14px", marginLeft: "20px", color: "white" }}
         />
-        <ProfileImage
-          dummyImage="https://profileimage-bucket-subscripiton.s3.ap-northeast-1.amazonaws.com/13856689711822.jpg"
-          width={40}
-          height={40}
-        />
       </div>
     </>
   );

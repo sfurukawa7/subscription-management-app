@@ -17,9 +17,4 @@ const nextConfig = {
   pageExtensions: ["tsx"],
 };
 
-module.exports = {
-  nextConfig,
-  images: {
-    domains: ["profileimage-bucket-subscripiton.s3.ap-northeast-1.amazonaws.com"],
-  },
-};
+module.exports = nextConfig;
