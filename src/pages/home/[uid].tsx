@@ -43,7 +43,10 @@ const Home = (props: HomeProps) => {
       <main className={styles.main}>
         <div className={styles.container}>
           <Header />
-          <PaymentSchedule subscriptionList={props.data} />
+          <PaymentSchedule
+            subscriptionList={props.data}
+            handleOpen={handleOpen}
+          />
           <SubscriptionWrap
             subscriptionList={props.data}
             handleOpen={handleOpen}

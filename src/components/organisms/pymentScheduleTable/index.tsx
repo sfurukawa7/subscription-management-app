@@ -7,9 +7,10 @@ import styles from "./styles.module.css";
 type PaymentScheduleTableProps = {
   className: string;
   paymentTableList: defineType[];
+  handleOpen: (subscId: string) => void;
 };
 
-type defineType = { service: string; price: string; nextPaymentDate: string };
+type defineType = { [key: string]: string };
 
 const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
             <TableBody
               subscriptionList={props.paymentTableList}
               className={styles.tableBodyRow}
+              handleOpen={props.handleOpen}
             />
           </table>
         </div>

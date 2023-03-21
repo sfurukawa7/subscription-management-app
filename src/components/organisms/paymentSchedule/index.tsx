@@ -5,10 +5,11 @@ import { useTranslation } from "@utils/useTranslation";
 import styles from "./styles.module.css";
 
 type PaymentScheduleProps = {
-  subscriptionList: { service: string; price: string; nextPaymentDate: string }[];
+  subscriptionList: defineType[];
+  handleOpen: (subscId: string) => void;
 };
 
-type defineType = { service?: string; price?: string; nextPaymentDate?: string };
+type defineType = { [key: string]: string };
 
 const PaymentSchedule = (props: PaymentScheduleProps) => {
   const { t } = useTranslation();
@@ -31,6 +32,7 @@ const PaymentSchedule = (props: PaymentScheduleProps) => {
         <PaymentScheduleTable
           className={styles.dt}
           paymentTableList={paymentTableList}
+          handleOpen={props.handleOpen}
         />
       </div>
     </>
