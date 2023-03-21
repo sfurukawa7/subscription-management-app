@@ -8,18 +8,21 @@ type TableBodyProps = {
   handleOpen: (subscId: string) => void;
 };
 
-type defineType = { service: string; price: string; frequency: string };
+type defineType = { [key: string]: string };
 
 const TableBody = (props: TableBodyProps) => {
   return (
     <tbody>
       {props.subscriptionList?.map((body, index) => {
+        // subscIdを除いたオブジェクトを作成
+        const { subscId, ...data } = body;
+
         return (
           <TableRow
-            subscription={body}
+            subscription={data}
             className={styles.tableBodyRow}
             key={`body${index}`}
-            handleOpen={props.handleOpen}
+            handleOpen={() => props.handleOpen(subscId)}
           />
         );
       })}

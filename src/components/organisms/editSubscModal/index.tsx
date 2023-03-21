@@ -50,7 +50,6 @@ const EditButton = (props: { content: string }) => {
   return (
     <RectangleButton
       content={props.content}
-      handleClick={() => console.log("edit")}
       className={styles.editButton}
       type="button"
     />

@@ -68,7 +68,6 @@ export const useAddSubscription = () => {
         alert(t.ERROR_FAILED_TO_ADD);
       })
       .finally(() => {
-        console.log(req);
         toggleIsSubmitting(false);
       });
   };

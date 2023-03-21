@@ -9,7 +9,7 @@ type PaymentScheduleTableProps = {
   paymentTableList: defineType[];
 };
 
-type defineType = { service: string; price: string; frequency: string };
+type defineType = { service: string; price: string; nextPaymentDate: string };
 
 const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
   const { t } = useTranslation();

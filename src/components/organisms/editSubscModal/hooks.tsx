@@ -18,11 +18,8 @@ export const useDeleteButton = () => {
   const { modalSubscId } = useHome();
   const { toggleIsModalOpen } = useCommonContext();
 
-  console.log("modal", modalSubscId);
-
   const handleClick = () => {
     toggleIsModalOpen(false);
-    console.log("modalsubscId", modalSubscId);
     router.push(`/home/${modalSubscId}`);
   };
 

@@ -1,26 +1,14 @@
-import Link from "next/link";
-import { useContext } from "react";
-
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { SubscModalIdContext } from "@pages/home/hooks";
-import { useHome } from "@pages/home/hooks";
-
 import styles from "./styles.module.css";
-
-import { useCommonContext } from "src/context/commonContext";
 
 type TableRowProps = {
   className: string;
   subscription: {
     [key: string]: string;
-    service: string;
-    price: string;
-    frequency: string;
-    subscId: string;
   };
-  handleOpen: (subscId: string) => void;
+  handleOpen: () => void;
 };
 
 const TableRow = (props: TableRowProps) => {
@@ -30,12 +18,13 @@ const TableRow = (props: TableRowProps) => {
     <tr className={`${styles.tableBody} ${props.className}`}>
       <>
         {Object.keys(props.subscription).map((key, index) => {
-          if (key == "price") {
-            props.subscription[key] = "￥" + props.subscription[key];
-          }
+          let content;
           if (key == "nextPaymentDate") {
-            props.subscription[key] =
-              props.subscription[key].slice(5, 7) + "/" + props.subscription[key].slice(8, 10);
+            content = props.subscription[key].split("-").slice(1).join("/");
+          } else if (key == "price") {
+            content = "¥" + props.subscription[key];
+          } else {
+            content = props.subscription[key];
           }
 
           return (
@@ -46,7 +35,7 @@ const TableRow = (props: TableRowProps) => {
                 key={`td${index}`}
                 href={`/detail/${subscId}`}
                 className={`${styles.link} ${props.className}`}>
-                {props.subscription[key]}
+                {content}
               </a>
             </td>
           );
@@ -55,9 +44,7 @@ const TableRow = (props: TableRowProps) => {
       <td className={`${styles.tableBodyRow} ${props.className}`}>
         <button
           className={`${styles.button} ${props.className}`}
-          onClick={() => {
-            props.handleOpen(subscId);
-          }}>
+          onClick={props.handleOpen}>
           <FontAwesomeIcon
             icon={faEllipsis}
             style={{
