@@ -1,0 +1,58 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .modalContent {
+    position: relative;
+    width: 240px;
+    height: 140px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .title {
+    position: absolute;
+    left: 17px;
+    top: 19px;
+  }
+  
+  .description {
+    position: absolute;
+    padding-left: 17px;
+    padding-right: 17px;
+    top: 68px;
+  }
+  
+  .editButton {
+    position: absolute;
+    top: 20px;
+    left: 27%;
+    transform: translate(-50%, 0);
+    background-color:#485edf;
+  }
+
+  .deleteButton {
+    position: absolute;
+    top: 20px;
+    left: 73%;
+    transform: translate(-50%, 0);
+    width:38%;
+    background-color: rgb(209, 17, 17);
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: gray;
+  }

@@ -1,6 +1,14 @@
 const tCommon = {
   COMMON_EMAIL: "Email",
   COMMON_PASSWORD: "Password",
+  COMMON_SERVICE: "Service",
+  COMMON_PRICE: "Price",
+  COMMON_PAYMENT_DATE: "Payment Date",
+  COMMON_NEXT_PAYMENT_DATE: "Next Payment Date",
+  COMMON_PAYMENT_FREQUENCY: "Payment Frequency",
+  COMMON_GENRE: "Genre",
+  COMMON_REMARK: "Note",
+  COMMON_CANCEL: "Cancel",
 };
 
 const tLogin = {
@@ -35,8 +43,59 @@ const tError = {
   ERROR_EMAIL_ALREADY_IN_USE: "This email is already in use",
   ERROR_PASSWORD_LENGTH: "Password must have at least 6 characters",
   ERROR_USER_NOT_FOUND: "This user is not found",
+  ERROR_SERVICE_REQUIRED: "Service name is required",
+  ERROR_PRICE_REQUIRED: "Price is required",
+  ERROR_PAYMENT_DATE_REQUIRED: "Payment date is required",
+  ERROR_FREQUENCY_REQUIRED: "Frequency is required",
+  ERROR_GENRE_REQUIRED: "Genre is required",
+  ERROR_FAILED_TO_ADD: "Failed to add subscription",
+  ERROR_FAILED_TO_FETCH: "Failed to fetch subscription detail",
+  ERROR_FAILED_TO_DELETE: "Failed to delete subscription",
 };
 
-const t = { ...tCommon, ...tLogin, ...tSignUp, ...tError };
+const tHome = {
+  ADD_SUBSCRIPTION: "Add Subscription",
+  HOME_PAYMENT_SCHEDULE: "Payment Schedule",
+  HOME_SUBSCRIPTION: "Subscription",
+  HOME_PAYMENT_DATE: "Date",
+  HOME_SERVICE: "Service",
+  HOME_PRICE: "Price",
+  HOME_ADD_SUBSCRIPTION: "Add Subscription",
+  HOME_frequency: "frequency",
+  HOME_EXAMPLE: "Amazon Prime",
+  HOME_EXAMPLE_DATE: "Jan.14",
+  HOME_EXAMPLE_PRICE: "￥4,800",
+  HOME_EXAMPLE_frequency: "/month",
+  HOME_CLOSE_BUTTON: "CLOSE",
+  HOME_EDIT_BUTTON: "EDIT",
+  HOME_DELETE_BUTTON: "DELETE",
+};
+
+const tAddSubscription = {
+  ADD_SUBSCRIPTION_HEADER: "Submane - Add Subscription",
+  ADD_SUBSCRIPTION_TITLE: "Add Subscription",
+  ADD_SUBSCRIPTION_BUTTON: "Add",
+  ADD_SUBSCRIPTION_TERM_1MONTH: "1 month",
+  ADD_SUBSCRIPTION_TERM_3MONTH: "3 months",
+  ADD_SUBSCRIPTION_TERM_6MONTH: "6 months",
+  ADD_SUBSCRIPTION_TERM_1YEAR: "1 year",
+  ADD_SUBSCRIPTION_TERM_SELECT: "Select a term",
+};
+
+const tSubscriptionDetail = {
+  DETAIL_SUBSCRIPTION_HEADER: "Submane - Subscription Detail",
+  DETAIL_SUBSCRIPTION_TITLE: "Subscription Detail",
+  DETAIL_SUBSCRIPTION_BUTTON: "Close",
+};
+
+const t = {
+  ...tCommon,
+  ...tLogin,
+  ...tSignUp,
+  ...tError,
+  ...tHome,
+  ...tAddSubscription,
+  ...tSubscriptionDetail,
+};
 
 export default t;

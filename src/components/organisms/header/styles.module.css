@@ -1,0 +1,9 @@
+.container {
+  position: absolute;
+  width: 415px;
+  height: 60px;
+  left: -1px;
+  top: 0px;
+  
+  background: #485EDF;
+}

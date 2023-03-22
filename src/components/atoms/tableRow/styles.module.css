@@ -1,0 +1,14 @@
+.tableBodyRow {
+  line-height: 2em;
+  border-bottom: 1px solid #aaa;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.button {
+  background: none;
+  border: none;
+}

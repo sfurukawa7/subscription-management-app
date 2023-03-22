@@ -1,0 +1,18 @@
+.grayRectangleButton {
+  cursor: pointer;
+  width: auto;
+  height: 43px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #eaeff4;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-style: bold;
+  font-weight: 400;
+  font-size: 20px;
+}
