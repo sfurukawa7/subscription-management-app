@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import { GetServerSideProps } from "next";
+import { APIGetSubscriptionList, SubscriptionList } from "subscription";
 
 import EditSubscModal from "@organisms/editSubscModal";
 import Header from "@organisms/header";
@@ -16,8 +17,7 @@ import styles from "./styles.module.css";
 
 type HomeProps = {
   t: Translation;
-  // data: Subscription[] | null;
-  data: any;
+  data: SubscriptionList;
 };
 
 const Home = (props: HomeProps) => {
@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   if (uid) {
     const data = await axios
-      .get(`/subsc?user_id=${uid}`)
+      .get<APIGetSubscriptionList>(`/subsc?user_id=${uid}`)
       .then((res) => {
         const fetchedData = res.data;
 
@@ -82,7 +82,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           subscId: v.subsc_id,
         }));
       })
-      .catch((err) => {
+      .catch(() => {
         console.log(t.ERROR_FAILED_TO_FETCH);
 
         return null;
