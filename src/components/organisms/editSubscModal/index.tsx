@@ -28,7 +28,6 @@ const EditSubscModal = (props: EditSubscModalProps) => {
             content={t.HOME_CLOSE_BUTTON}
             handleClose={props.handleClose}
           />
-          <p>s</p>
         </div>
       </div>
     </>
