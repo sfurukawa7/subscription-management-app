@@ -85,12 +85,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       .catch(() => {
         console.log(t.ERROR_FAILED_TO_FETCH);
 
-        return null;
+        return [];
       });
 
     return { props: { t, data } };
   } else {
-    return { props: { t, data: null } };
+    return { props: { t, data: [] } };
   }
 };
 
