@@ -5,11 +5,14 @@ import { useTranslation } from "@utils/useTranslation";
 import styles from "./styles.module.css";
 type SubscriptionTableProps = {
   className: string;
-  subscTableList: defineType[];
+  subscTableList: {
+    service: string;
+    price: string;
+    frequency: string;
+    subscId: string;
+  }[];
   handleOpen: (subscId: string) => void;
 };
-
-type defineType = { [key: string]: string };
 
 const SubscriptionTable = (props: SubscriptionTableProps) => {
   const { t } = useTranslation();

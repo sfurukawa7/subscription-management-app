@@ -137,7 +137,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           remark: fetchedData.remark,
         };
       })
-      .catch((err) => {
+      .catch(() => {
         alert(t.ERROR_FAILED_TO_FETCH);
 
         return null;
