@@ -1,5 +1,3 @@
-import { Subscription } from "subscription";
-
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
 import { useTranslation } from "@utils/useTranslation";
@@ -11,7 +9,7 @@ type SubscriptionTableProps = {
   handleOpen: (subscId: string) => void;
 };
 
-type defineType = { service: string; price: string; frequency: string; subscId: string };
+type defineType = { [key: string]: string };
 
 const SubscriptionTable = (props: SubscriptionTableProps) => {
   const { t } = useTranslation();
@@ -26,7 +24,6 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
               headSecondItem={t.HOME_PRICE}
               headThirdItem={t.HOME_frequency}
               className={styles.tableHeadRow}
-              colSpan={2}
             />
             <TableBody
               subscriptionList={props.subscTableList}

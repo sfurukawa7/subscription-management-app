@@ -1,28 +1,11 @@
 .tableBodyRow {
-    line-height:2em;
-    border-bottom:1px solid #aaa;
-}
-
-.tableBodyRow:first-of-type {
-    padding-left:0.7em;
-    
-  }
-
-.tableBodyRow:nth-of-type(2)  {
-    padding-left:0.7em;
-}
-
-.tableBodyRow:nth-of-type(3) {
-    padding-left:0.7em;
-  }
-
-.tableBodyRow:nth-of-type(4) {
-padding-left:0.7em;
+  line-height: 2em;
+  border-bottom: 1px solid #aaa;
 }
 
 .link {
   text-decoration: none;
-  color:black
+  color: black;
 }
 
 .button {

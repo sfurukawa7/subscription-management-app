@@ -9,11 +9,10 @@ type TableRowProps = {
     [key: string]: string;
   };
   handleOpen: () => void;
+  subscId: string;
 };
 
 const TableRow = (props: TableRowProps) => {
-  const subscId = props.subscription.subscId;
-
   return (
     <tr className={`${styles.tableBody} ${props.className}`}>
       <>
@@ -33,7 +32,7 @@ const TableRow = (props: TableRowProps) => {
               key={`td${index}`}>
               <a
                 key={`td${index}`}
-                href={`/detail/${subscId}`}
+                href={`/detail/${props.subscId}`}
                 className={`${styles.link} ${props.className}`}>
                 {content}
               </a>

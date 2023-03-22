@@ -17,16 +17,13 @@ type defineType = { service?: string; price?: string; frequency?: string; subscI
 
 const SubscriptionWrap = (props: SubscriptionWrapProps) => {
   const { t } = useTranslation();
-  const subscTableList: defineType[] = [];
 
-  props.subscriptionList.map((v) => {
-    const subscTableItem: defineType = Object.assign({});
-    subscTableItem.service = v.service;
-    subscTableItem.price = v.price;
-    subscTableItem.frequency = v.paymentFrequency;
-    subscTableItem.subscId = v.subscId;
-    subscTableList.push(subscTableItem);
-  });
+  const subscTableList: defineType[] = props.subscriptionList.map((v) => ({
+    service: v.service,
+    price: v.price,
+    frequency: v.paymentFrequency,
+    subscId: v.subscId,
+  }));
 
   return (
     <>
