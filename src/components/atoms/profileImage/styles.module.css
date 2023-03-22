@@ -1,0 +1,6 @@
+.profileimage {
+  border-radius: 50%;
+  position: absolute;
+  left: 350px;
+  top: 10px;
+}

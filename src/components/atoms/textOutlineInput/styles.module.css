@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.textOutlineInput {
+  border-radius: 10px;
+  border: 2px solid #606468;
+  width: 332px;
+  height: 58px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #606468;
+  outline: none;
+}
