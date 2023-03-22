@@ -1,9 +1,6 @@
-import { useEffect } from "react";
-
 import RectangleButton from "@atoms/rectangleButton";
-import { useHome } from "@pages/home/hooks";
 
-import { useDeleteButton, useCloseButton, useEditButton, useEditSubscModal } from "./hooks";
+import { useEditSubscModal } from "./hooks";
 import styles from "./styles.module.css";
 
 type EditSubscModalProps = {

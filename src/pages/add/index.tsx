@@ -61,7 +61,7 @@ type AddSubscriptionBodyProps = {
   t: Translation;
   control: Control<SubscriptionFormData>;
   errors: Partial<FieldErrorsImpl<SubscriptionFormData>>;
-  handleAdd: (e?: BaseSyntheticEvent<object, any, any> | undefined) => Promise<void>;
+  handleAdd: (e?: BaseSyntheticEvent | undefined) => Promise<void>;
   frequencyOptions: { key: string; value: string }[];
 };
 

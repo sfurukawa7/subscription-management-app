@@ -1,8 +1,6 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import ProfileImage from "@atoms/profileImage";
-
 import styles from "./styles.module.css";
 
 const Header = () => {
