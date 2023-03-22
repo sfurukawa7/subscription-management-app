@@ -20,6 +20,7 @@ const TableBody = (props: TableBodyProps) => {
         return (
           <TableRow
             subscription={data}
+            className={styles.tableBodyRow}
             key={`body${index}`}
             handleOpen={() => props.handleOpen(subscId)}
             subscId={subscId}

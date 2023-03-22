@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
-import TableRow from "@atoms/tableRow";
 import { useHome } from "@pages/home/hooks";
 import { useTranslation } from "@utils/useTranslation";
 

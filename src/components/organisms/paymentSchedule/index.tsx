@@ -1,3 +1,5 @@
+import { SubscriptionList } from "subscription";
+
 import Title from "@atoms/title";
 import PaymentScheduleTable from "@organisms/pymentScheduleTable";
 import { compareTwoDate } from "@utils/compareTwoDate";
@@ -6,20 +8,18 @@ import { useTranslation } from "@utils/useTranslation";
 import styles from "./styles.module.css";
 
 type PaymentScheduleProps = {
-  subscriptionList: defineType[];
+  subscriptionList: SubscriptionList;
   handleOpen: (subscId: string) => void;
 };
-
-type defineType = { [key: string]: string };
 
 const PaymentSchedule = (props: PaymentScheduleProps) => {
   const { t } = useTranslation();
 
-  const paymentTableList: defineType[] = props.subscriptionList
+  const paymentTableList = props.subscriptionList
     .map((v) => ({
       nextPaymentDate: v.nextPaymentDate,
       service: v.service,
-      price: v.price,
+      price: String(v.price),
       subscId: v.subscId,
     }))
     .sort((a, b) => compareTwoDate(a.nextPaymentDate, b.nextPaymentDate));

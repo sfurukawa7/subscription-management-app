@@ -6,11 +6,14 @@ import styles from "./styles.module.css";
 
 type PaymentScheduleTableProps = {
   className: string;
-  paymentTableList: defineType[];
+  paymentTableList: {
+    nextPaymentDate: string;
+    service: string;
+    price: string;
+    subscId: string;
+  }[];
   handleOpen: (subscId: string) => void;
 };
-
-type defineType = { [key: string]: string };
 
 const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
   const { t } = useTranslation();

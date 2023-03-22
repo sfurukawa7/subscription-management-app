@@ -64,7 +64,7 @@ export const useAddSubscription = () => {
       .then(() => {
         router.push(`/home/${user?.uid}`);
       })
-      .catch((err) => {
+      .catch(() => {
         alert(t.ERROR_FAILED_TO_ADD);
       })
       .finally(() => {
