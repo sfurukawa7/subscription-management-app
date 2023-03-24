@@ -46,7 +46,8 @@
 - Issue名：XX画面（<PC|スマホ>）
 
 ### 2. Issue番号に基づいてBranchを切る
-- Branch名：`feature/#<Issue番号>_<画面名>`
+- Branch名：`<Type>/#<Issue番号>-<キーワード>`
+- Typeは[こちら](https://gist.github.com/seunggabi/87f8c722d35cd07deb3f649d45a31082)を参考にする
 
 ### 3. 2で切ったBranchで開発する
 - その都度，commit&push
