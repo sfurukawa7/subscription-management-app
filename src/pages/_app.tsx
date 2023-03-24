@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Roboto } from "@next/font/google";
+import { Noto_Sans_JP } from "@next/font/google";
 import type { AppProps } from "next/app";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -10,16 +10,13 @@ import { GetStaticPaths } from "next";
 import { AuthProvider } from "src/context/authContext";
 import { CommonProvider } from "src/context/commonContext";
 
-const roboto = Roboto({
-  weight: "400",
-  subsets: ["latin"],
-});
+const notoSansJp = Noto_Sans_JP({ weight: "400", preload: false });
 
 const App = ({ Component, pageProps }: AppProps) => {
   library.add(fas);
 
   return (
-    <main className={roboto.className}>
+    <main className={notoSansJp.className}>
       <AuthProvider>
         <CommonProvider>
           <Component {...pageProps} />

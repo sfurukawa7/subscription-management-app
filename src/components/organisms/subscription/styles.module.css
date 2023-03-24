@@ -4,16 +4,15 @@
   height: 28px;
   left: 18px;
   top: 320px;
-  
-  font-family: 'Roboto';
+
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
   display: flex;
   align-items: center;
-  
-  color: #000000; 
+
+  color: #000000;
 }
 
 .addSubscriptionButton {
