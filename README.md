@@ -37,25 +37,22 @@
 
 ## 使い方
 
-<<<<<<< HEAD
 - developmentモードで実行: `npm run dev`
 - productionモードで実行: `npm run start`
 
-=======
->>>>>>> 06f45f86f2911492f50074bb7bd915d42f527bc6
 ## 開発手順
 
 ### 1. Issueを立てる
 - Issue名：XX画面（<PC|スマホ>）
 
 ### 2. Issue番号に基づいてBranchを切る
-- Branch名：`feature/#<Issue番号>_<画面名>`
+- Branch名：`<Type>/#<Issue番号>-<キーワード>`
+- Typeは[こちら](https://gist.github.com/seunggabi/87f8c722d35cd07deb3f649d45a31082)を参考にする
 
 ### 3. 2で切ったBranchで開発する
 - その都度，commit&push
 
 ### 4. Figmaの画面通りに開発完了できればPull Request
-<<<<<<< HEAD
 - 問題なければdevelopブランチにMergeして，IssueをClose
 
 ## その他
@@ -64,8 +61,3 @@
 
 - mainブランチにpushすると自動でデプロイ
 - developブランチからのみmainブランチにpush可能
-=======
-- 問題なければMergeして，IssueをClose
-
-## その他
->>>>>>> 06f45f86f2911492f50074bb7bd915d42f527bc6

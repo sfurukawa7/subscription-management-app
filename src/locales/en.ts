@@ -54,6 +54,7 @@ const tError = {
 };
 
 const tHome = {
+  HOME_HEADER: "Submane - Home",
   ADD_SUBSCRIPTION: "Add Subscription",
   HOME_PAYMENT_SCHEDULE: "Payment Schedule",
   HOME_SUBSCRIPTION: "Subscription",

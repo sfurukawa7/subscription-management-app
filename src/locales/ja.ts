@@ -55,6 +55,7 @@ const tError = {
 };
 
 const tHome = {
+  HOME_HEADER: "サブマネ - ホーム",
   ADD_SUBSCRIPTION: "新規追加",
   HOME_PAYMENT_SCHEDULE: "支払予定日",
   HOME_SUBSCRIPTION: "サブスク一覧",

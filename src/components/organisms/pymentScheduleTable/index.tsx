@@ -19,25 +19,23 @@ const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.scrollDiv}>
-          <table className={`${styles.table} ${props.className}`}>
-            <TableHead
-              headFirstItem={t.HOME_PAYMENT_DATE}
-              headSecondItem={t.HOME_SERVICE}
-              headThirdItem={t.HOME_PRICE}
-              className={styles.tableHeadRow}
-            />
-            <TableBody
-              subscriptionList={props.paymentTableList}
-              className={styles.tableBodyRow}
-              handleOpen={props.handleOpen}
-            />
-          </table>
-        </div>
+    <div className={styles.container}>
+      <div className={styles.scrollDiv}>
+        <table className={`${styles.table} ${props.className}`}>
+          <TableHead
+            headFirstItem={t.HOME_PAYMENT_DATE}
+            headSecondItem={t.HOME_SERVICE}
+            headThirdItem={t.HOME_PRICE}
+            className={styles.tableHeadRow}
+          />
+          <TableBody
+            subscriptionList={props.paymentTableList}
+            className={styles.tableBodyRow}
+            handleOpen={props.handleOpen}
+          />
+        </table>
       </div>
-    </>
+    </div>
   );
 };
 

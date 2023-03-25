@@ -34,20 +34,22 @@ const SubscriptionDetail = (props: SubscriptionDetailProps) => {
       </Head>
       <main className={styles.main}>
         <MenuBar className={styles.menuBar} />
-        <Title
-          content={props.t.DETAIL_SUBSCRIPTION_TITLE}
-          className={styles.title}
-        />
-        {props.data && (
-          <SubscriptionDetailBody
-            t={props.t}
-            data={props.data}
+        <div className={styles.container}>
+          <Title
+            content={props.t.DETAIL_SUBSCRIPTION_TITLE}
+            className={styles.title}
           />
-        )}
-        <SubscriptionDetailFooter
-          t={props.t}
-          handleClose={handleClose}
-        />
+          {props.data && (
+            <SubscriptionDetailBody
+              t={props.t}
+              data={props.data}
+            />
+          )}
+          <SubscriptionDetailFooter
+            t={props.t}
+            handleClose={handleClose}
+          />
+        </div>
       </main>
     </>
   );

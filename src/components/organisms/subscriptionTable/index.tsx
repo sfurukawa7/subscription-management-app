@@ -18,25 +18,23 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.scrollDiv}>
-          <table className={`${styles.table} ${props.className}`}>
-            <TableHead
-              headFirstItem={t.HOME_SERVICE}
-              headSecondItem={t.HOME_PRICE}
-              headThirdItem={t.HOME_frequency}
-              className={styles.tableHeadRow}
-            />
-            <TableBody
-              subscriptionList={props.subscTableList}
-              className={styles.tableBodyRow}
-              handleOpen={props.handleOpen}
-            />
-          </table>
-        </div>
+    <div className={styles.container}>
+      <div className={styles.scrollDiv}>
+        <table className={`${styles.table} ${props.className}`}>
+          <TableHead
+            headFirstItem={t.HOME_SERVICE}
+            headSecondItem={t.HOME_PRICE}
+            headThirdItem={t.HOME_frequency}
+            className={styles.tableHeadRow}
+          />
+          <TableBody
+            subscriptionList={props.subscTableList}
+            className={styles.tableBodyRow}
+            handleOpen={props.handleOpen}
+          />
+        </table>
       </div>
-    </>
+    </div>
   );
 };
 
