@@ -48,12 +48,13 @@ const AddSubscription = () => {
             handleAdd={handleAdd}
             frequencyOptions={frequencyOptions}
           />
-          <AddSubscriptionFooter
-            t={t}
-            handleCancel={handleCancel}
-            handleAdd={handleAdd}
-          />
         </div>
+
+        <AddSubscriptionFooter
+          t={t}
+          handleCancel={handleCancel}
+          handleAdd={handleAdd}
+        />
       </main>
     </>
   );
