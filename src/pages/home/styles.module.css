@@ -11,7 +11,7 @@
 .menuBar {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 5%;
   width: 100%;

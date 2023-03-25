@@ -9,7 +9,7 @@ type SelectInputProps = Partial<ControllerRenderProps> & {
 
 const SelectInput = (props: SelectInputProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <label htmlFor={props.label} />
       <select
         {...props}
