@@ -25,19 +25,17 @@ const PaymentSchedule = (props: PaymentScheduleProps) => {
     .sort((a, b) => compareTwoDate(a.nextPaymentDate, b.nextPaymentDate));
 
   return (
-    <>
-      <div className={styles.container}>
-        <Title
-          content={t.HOME_PAYMENT_SCHEDULE}
-          className={styles.title}
-        />
-        <PaymentScheduleTable
-          className={styles.dt}
-          paymentTableList={paymentTableList}
-          handleOpen={props.handleOpen}
-        />
-      </div>
-    </>
+    <div className={styles.container}>
+      <Title
+        content={t.HOME_PAYMENT_SCHEDULE}
+        className={styles.title}
+      />
+      <PaymentScheduleTable
+        className={styles.dt}
+        paymentTableList={paymentTableList}
+        handleOpen={props.handleOpen}
+      />
+    </div>
   );
 };
 

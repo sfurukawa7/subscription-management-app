@@ -6,7 +6,7 @@ type DateInputProps = Partial<ControllerRenderProps> & { label: string };
 
 const DateInput = (props: DateInputProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <label htmlFor={props.label} />
       <input
         {...props}

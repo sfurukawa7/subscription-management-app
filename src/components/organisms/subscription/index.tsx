@@ -4,7 +4,6 @@ import { SubscriptionList } from "subscription";
 
 import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
-// import SubscriptionTable from "@organisms/subscriptionTable";
 import SubscriptionTable from "@organisms/subscriptionTable";
 import { useTranslation } from "@utils/useTranslation";
 
@@ -26,20 +25,20 @@ const SubscriptionWrap = (props: SubscriptionWrapProps) => {
   }));
 
   return (
-    <>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.header}>
         <Title
           content={t.HOME_SUBSCRIPTION}
           className={styles.title}
         />
         <AddSubscriptionButton content={t.ADD_SUBSCRIPTION} />
-        <SubscriptionTable
-          className={styles.dt}
-          subscTableList={subscTableList}
-          handleOpen={props.handleOpen}
-        />
       </div>
-    </>
+      <SubscriptionTable
+        className={styles.dt}
+        subscTableList={subscTableList}
+        handleOpen={props.handleOpen}
+      />
+    </div>
   );
 };
 

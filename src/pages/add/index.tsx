@@ -36,22 +36,24 @@ const AddSubscription = () => {
       </Head>
       <main className={styles.main}>
         <MenuBar className={styles.menuBar} />
-        <Title
-          content={t.ADD_SUBSCRIPTION_TITLE}
-          className={styles.title}
-        />
-        <AddSubscriptionBody
-          t={t}
-          control={control}
-          errors={errors}
-          handleAdd={handleAdd}
-          frequencyOptions={frequencyOptions}
-        />
-        <AddSubscriptionFooter
-          t={t}
-          handleCancel={handleCancel}
-          handleAdd={handleAdd}
-        />
+        <div className={styles.container}>
+          <Title
+            content={t.ADD_SUBSCRIPTION_TITLE}
+            className={styles.title}
+          />
+          <AddSubscriptionBody
+            t={t}
+            control={control}
+            errors={errors}
+            handleAdd={handleAdd}
+            frequencyOptions={frequencyOptions}
+          />
+          <AddSubscriptionFooter
+            t={t}
+            handleCancel={handleCancel}
+            handleAdd={handleAdd}
+          />
+        </div>
       </main>
     </>
   );
