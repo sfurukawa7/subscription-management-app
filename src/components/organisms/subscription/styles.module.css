@@ -1,24 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 0.5em;
+}
+
 .title {
-  position: absolute;
-  width: 300px;
+  display: flex;
   height: 28px;
-  left: 18px;
-  top: 320px;
 
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-  display: flex;
   align-items: center;
 
   color: #000000;
 }
 
 .addSubscriptionButton {
-  position: absolute;
   width: 140px;
   height: 29px;
-  left: 231px;
-  top: 315px;
 }
