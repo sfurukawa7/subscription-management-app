@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
 import { useTranslation } from "@utils/useTranslation";
@@ -11,7 +13,7 @@ type SubscriptionTableProps = {
     frequency: string;
     subscId: string;
   }[];
-  handleOpen: (subscId: string) => void;
+  handleOpen: (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const SubscriptionTable = (props: SubscriptionTableProps) => {

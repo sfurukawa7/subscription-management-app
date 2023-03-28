@@ -1,7 +1,11 @@
-import { useTranslation } from "@utils/useTranslation";
+import { useRouter } from "next/router";
 
-export const usePasswordInput = () => {
-  const { t } = useTranslation();
+export const useTableRow = (id: string) => {
+  const router = useRouter();
 
-  return { t };
+  const handleClick = () => {
+    router.push(`/detail/${id}`);
+  };
+
+  return { handleClick };
 };

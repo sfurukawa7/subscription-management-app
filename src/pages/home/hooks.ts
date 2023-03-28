@@ -1,5 +1,5 @@
 import router from "next/router";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 
 import axios from "@utils/useApi";
 import { useTranslation } from "@utils/useTranslation";
@@ -13,7 +13,9 @@ export const useHome = () => {
   const { isModalOpen, toggleIsModalOpen } = useCommonContext();
   const { user } = useAuthContext();
 
-  const handleOpen = (subscId: string) => {
+  const handleOpen = (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => {
+    // 3点リーダーボタンを押したときに、行クリックのイベントが発火しないようにする
+    e.stopPropagation();
     toggleIsModalOpen(true);
     setModalSubscId(subscId);
   };

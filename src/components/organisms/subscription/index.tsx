@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MouseEvent } from "react";
 
 import { SubscriptionList } from "subscription";
 
@@ -11,7 +12,7 @@ import styles from "./styles.module.css";
 
 type SubscriptionWrapProps = {
   subscriptionList: SubscriptionList;
-  handleOpen: (subscId: string) => void;
+  handleOpen: (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const SubscriptionWrap = (props: SubscriptionWrapProps) => {
