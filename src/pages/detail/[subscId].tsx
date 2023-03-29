@@ -45,11 +45,11 @@ const SubscriptionDetail = (props: SubscriptionDetailProps) => {
               data={props.data}
             />
           )}
-          <SubscriptionDetailFooter
-            t={props.t}
-            handleClose={handleClose}
-          />
         </div>
+        <SubscriptionDetailFooter
+          t={props.t}
+          handleClose={handleClose}
+        />
       </main>
     </>
   );
