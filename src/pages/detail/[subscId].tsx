@@ -120,9 +120,9 @@ const SubscriptionDetailFooter = (props: SubscriptionDetailFooterProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { lang, subscId } = context.query;
-  const t = getTranslation(lang);
+export const getServerSideProps: GetServerSideProps = async ({ query, locale }) => {
+  const { subscId } = query;
+  const t = getTranslation(locale);
 
   if (subscId) {
     const data = await axios
