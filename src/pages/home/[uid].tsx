@@ -60,9 +60,9 @@ const Home = (props: HomeProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { lang, uid } = context.query;
-  const t = getTranslation(lang);
+export const getServerSideProps: GetServerSideProps = async ({ query, locale }) => {
+  const { uid } = query;
+  const t = getTranslation(locale);
 
   if (uid) {
     const data = await axios

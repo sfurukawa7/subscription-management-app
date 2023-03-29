@@ -1,6 +1,9 @@
+import { MouseEvent } from "react";
+
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { useTableRow } from "./hooks";
 import styles from "./styles.module.css";
 
 type TableRowProps = {
@@ -8,38 +11,39 @@ type TableRowProps = {
   subscription: {
     [key: string]: string;
   };
-  handleOpen: () => void;
+  handleOpen: (e: MouseEvent<HTMLButtonElement>) => void;
   subscId: string;
 };
 
 const TableRow = (props: TableRowProps) => {
-  return (
-    <tr className={`${styles.tableBody} ${props.className}`}>
-      <>
-        {Object.keys(props.subscription).map((key, index) => {
-          let content;
-          if (key == "nextPaymentDate") {
-            content = props.subscription[key].split("-").slice(1).join("/");
-          } else if (key == "price") {
-            content = "¥" + props.subscription[key];
-          } else {
-            content = props.subscription[key];
-          }
+  const { handleClick } = useTableRow(props.subscId);
 
-          return (
-            <td
-              className={`${styles.tableBodyRow} ${props.className}`}
-              key={`td${index}`}>
-              <a
-                key={`td${index}`}
-                href={`/detail/${props.subscId}`}
-                className={`${styles.link} ${props.className}`}>
-                {content}
-              </a>
-            </td>
-          );
-        })}
-      </>
+  return (
+    <tr
+      onClick={handleClick}
+      className={`${styles.tableBody} ${props.className}`}>
+      {Object.keys(props.subscription).map((key, index) => {
+        let content;
+        if (key == "nextPaymentDate") {
+          content = props.subscription[key].split("-").slice(1).join("/");
+        } else if (key == "price") {
+          content = "¥" + props.subscription[key];
+        } else {
+          content = props.subscription[key];
+        }
+
+        return (
+          <td
+            className={`${styles.tableBodyRow} ${props.className}`}
+            key={`td${index}`}>
+            <span
+              key={`td${index}`}
+              className={`${styles.link} ${props.className}`}>
+              {content}
+            </span>
+          </td>
+        );
+      })}
       <td className={`${styles.tableBodyRow} ${props.className}`}>
         <button
           className={`${styles.button} ${props.className}`}
