@@ -62,7 +62,7 @@ const tHome = {
   HOME_SERVICE: "Service",
   HOME_PRICE: "Price",
   HOME_ADD_SUBSCRIPTION: "Add Subscription",
-  HOME_frequency: "frequency",
+  HOME_frequency: "Frequency",
   HOME_EXAMPLE: "Amazon Prime",
   HOME_EXAMPLE_DATE: "Jan.14",
   HOME_EXAMPLE_PRICE: "￥4,800",
