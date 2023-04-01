@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 import { SubscriptionList } from "subscription";
 
 import Title from "@atoms/title";
@@ -9,7 +11,7 @@ import styles from "./styles.module.css";
 
 type PaymentScheduleProps = {
   subscriptionList: SubscriptionList;
-  handleOpen: (subscId: string) => void;
+  handleOpen: (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const PaymentSchedule = (props: PaymentScheduleProps) => {

@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 import TableRow from "@atoms/tableRow";
 
 import styles from "./styles.module.css";
@@ -5,7 +7,7 @@ import styles from "./styles.module.css";
 type TableBodyProps = {
   subscriptionList: Array<defineType>;
   className: string;
-  handleOpen: (subscId: string) => void;
+  handleOpen: (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 type defineType = { [key: string]: string };
@@ -22,7 +24,7 @@ const TableBody = (props: TableBodyProps) => {
             subscription={data}
             className={styles.tableBodyRow}
             key={`body${index}`}
-            handleOpen={() => props.handleOpen(subscId)}
+            handleOpen={props.handleOpen(subscId)}
             subscId={subscId}
           />
         );

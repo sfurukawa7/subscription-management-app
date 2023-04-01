@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
 import { useTranslation } from "@utils/useTranslation";
@@ -12,7 +14,7 @@ type PaymentScheduleTableProps = {
     price: string;
     subscId: string;
   }[];
-  handleOpen: (subscId: string) => void;
+  handleOpen: (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
