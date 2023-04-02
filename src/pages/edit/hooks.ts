@@ -74,7 +74,7 @@ export const useEditSubscription = (data: Subscription | null, subscId: string) 
     toggleIsSubmitting(true);
 
     await axios
-      .post(`/subsc`, req)
+      .post("/subsc", req)
       .then(() => {
         router.push(`/home/${user?.uid}`);
       })
