@@ -39,12 +39,17 @@ export const useHome = () => {
       });
   };
 
+  const handleEdit = () => {
+    router.push(`/edit/${modalSubscId}`);
+  };
+
   return {
     isModalOpen,
     modalSubscId,
     handleOpen,
     handleClose,
     handleDelete,
+    handleEdit,
   };
 };
 

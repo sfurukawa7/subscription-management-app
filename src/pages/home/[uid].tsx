@@ -21,7 +21,8 @@ type HomeProps = {
 };
 
 const Home = (props: HomeProps) => {
-  const { isModalOpen, modalSubscId, handleOpen, handleClose, handleDelete } = useHome();
+  const { isModalOpen, modalSubscId, handleOpen, handleClose, handleDelete, handleEdit } =
+    useHome();
 
   return (
     <>
@@ -52,6 +53,7 @@ const Home = (props: HomeProps) => {
               handleClose={handleClose}
               handleDelete={handleDelete}
               modalSubscId={modalSubscId}
+              handleEdit={handleEdit}
             />
           </Modal>
         </div>
