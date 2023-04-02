@@ -17,8 +17,6 @@ type SubscriptionDetailProps = { t: Translation; data: Subscription | null };
 const SubscriptionDetail = (props: SubscriptionDetailProps) => {
   const { handleClose } = useSubscriptionDetail();
 
-  useSubscriptionDetail();
-
   return (
     <>
       <Head>
@@ -140,8 +138,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query, locale }) 
         };
       })
       .catch(() => {
-        alert(t.ERROR_FAILED_TO_FETCH);
-
         return null;
       });
 

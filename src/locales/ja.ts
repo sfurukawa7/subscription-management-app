@@ -50,6 +50,7 @@ const tError = {
   ERROR_FREQUENCY_REQUIRED: "支払頻度を選択してください",
   ERROR_GENRE_REQUIRED: "ジャンルを入力してください",
   ERROR_FAILED_TO_ADD: "サブスクの追加に失敗しました",
+  ERROR_FAILED_TO_UPDATE: "サブスクの更新に失敗しました",
   ERROR_FAILED_TO_FETCH: "サブスクの取得に失敗しました",
   ERROR_FAILED_TO_DELETE: "サブスクの削除に失敗しました",
 };
@@ -77,11 +78,12 @@ const tAddSubscription = {
   ADD_SUBSCRIPTION_HEADER: "サブマネ - サブスク追加",
   ADD_SUBSCRIPTION_TITLE: "サブスク追加",
   ADD_SUBSCRIPTION_BUTTON: "追加",
-  ADD_SUBSCRIPTION_TERM_1MONTH: "1ヶ月",
-  ADD_SUBSCRIPTION_TERM_3MONTH: "3ヶ月",
-  ADD_SUBSCRIPTION_TERM_6MONTH: "6ヶ月",
-  ADD_SUBSCRIPTION_TERM_1YEAR: "1年",
-  ADD_SUBSCRIPTION_TERM_SELECT: "支払頻度を選択",
+};
+
+const tEditSubscription = {
+  EDIT_SUBSCRIPTION_HEADER: "サブマネ - サブスク編集",
+  EDIT_SUBSCRIPTION_TITLE: "サブスク編集",
+  EDIT_SUBSCRIPTION_BUTTON: "更新",
 };
 
 const tSubscriptionDetail = {
@@ -97,6 +99,7 @@ const t = {
   ...tError,
   ...tHome,
   ...tAddSubscription,
+  ...tEditSubscription,
   ...tSubscriptionDetail,
 };
 

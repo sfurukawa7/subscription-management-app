@@ -7,6 +7,7 @@ type EditSubscModalProps = {
   handleClose: () => void;
   handleDelete: () => void;
   modalSubscId: string | null;
+  handleEdit: () => void;
 };
 
 const EditSubscModal = (props: EditSubscModalProps) => {
@@ -16,7 +17,10 @@ const EditSubscModal = (props: EditSubscModalProps) => {
     <>
       <div className={styles.modalOverlay}>
         <div className={styles.modalContent}>
-          <EditButton content={t.HOME_EDIT_BUTTON} />
+          <EditButton
+            content={t.HOME_EDIT_BUTTON}
+            handleEdit={props.handleEdit}
+          />
           <DeleteButton
             content={t.HOME_DELETE_BUTTON}
             handleDelete={props.handleDelete}
@@ -42,10 +46,11 @@ const DeleteButton = (props: { content: string; handleDelete: () => void }) => {
   );
 };
 
-const EditButton = (props: { content: string }) => {
+const EditButton = (props: { content: string; handleEdit: () => void }) => {
   return (
     <RectangleButton
       content={props.content}
+      handleClick={props.handleEdit}
       className={styles.editButton}
       type="button"
     />

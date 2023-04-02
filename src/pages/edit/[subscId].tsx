@@ -1,7 +1,9 @@
 import Head from "next/head";
 import { BaseSyntheticEvent } from "react";
 
+import { GetServerSideProps } from "next";
 import { Control, Controller, FieldErrorsImpl } from "react-hook-form";
+import { Subscription } from "subscription";
 
 import DateInput from "@atoms/dateInput";
 import ErrorMessage from "@atoms/errorMessage";
@@ -13,18 +15,24 @@ import TextOutlineInputArea from "@atoms/textOutlineInputArea";
 import Title from "@atoms/title";
 import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import MenuBar from "@molecules/menuBar";
-import { Translation } from "@utils/useTranslation";
+import axios from "@utils/useApi";
+import { getTranslation, Translation } from "@utils/useTranslation";
 
-import { SubscriptionFormData, useAddSubscription } from "./hooks";
+import { SubscriptionFormData, useEditSubscription } from "./hooks";
 import styles from "./styles.module.css";
 
-const AddSubscription = () => {
-  const { t, control, errors, frequencyOptions, handleCancel, handleAdd } = useAddSubscription();
+type EditSubscriptionProps = { t: Translation; data: Subscription | null; subscId: string };
+
+const EditSubscription = (props: EditSubscriptionProps) => {
+  const { control, errors, frequencyOptions, handleCancel, handleUpdate } = useEditSubscription(
+    props.data,
+    props.subscId
+  );
 
   return (
     <>
       <Head>
-        <title>{t.ADD_SUBSCRIPTION_HEADER}</title>
+        <title>{props.t.EDIT_SUBSCRIPTION_HEADER}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -38,20 +46,20 @@ const AddSubscription = () => {
         <MenuBar className={styles.menuBar} />
         <div className={styles.container}>
           <Title
-            content={t.ADD_SUBSCRIPTION_TITLE}
+            content={props.t.EDIT_SUBSCRIPTION_TITLE}
             className={styles.title}
           />
           <AddSubscriptionBody
-            t={t}
+            t={props.t}
             control={control}
             errors={errors}
-            handleAdd={handleAdd}
+            handleUpdate={handleUpdate}
             frequencyOptions={frequencyOptions}
           />
         </div>
 
         <AddSubscriptionFooter
-          t={t}
+          t={props.t}
           handleCancel={handleCancel}
         />
       </main>
@@ -63,7 +71,7 @@ type AddSubscriptionBodyProps = {
   t: Translation;
   control: Control<SubscriptionFormData>;
   errors: Partial<FieldErrorsImpl<SubscriptionFormData>>;
-  handleAdd: (e?: BaseSyntheticEvent | undefined) => Promise<void>;
+  handleUpdate: (e?: BaseSyntheticEvent | undefined) => Promise<void>;
   frequencyOptions: { key: string; value: string }[];
 };
 
@@ -71,7 +79,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
   return (
     <div className={styles.body}>
       <form
-        onSubmit={props.handleAdd}
+        onSubmit={props.handleUpdate}
         id="subscription-form">
         <Controller
           name="service"
@@ -226,12 +234,41 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
         <RectangleButton
           type="submit"
           form="subscription-form"
-          content={props.t.ADD_SUBSCRIPTION_BUTTON}
-          className={styles.addButton}
+          content={props.t.EDIT_SUBSCRIPTION_BUTTON}
+          className=""
         />
       </div>
     </div>
   );
 };
 
-export default AddSubscription;
+export const getServerSideProps: GetServerSideProps = async ({ query, locale }) => {
+  const { subscId } = query;
+  const t = getTranslation(locale);
+
+  if (subscId) {
+    const data = await axios
+      .get(`/subsc/${subscId}`)
+      .then((res) => {
+        const fetchedData = res.data[0];
+
+        return {
+          service: fetchedData.subsc_name,
+          price: Number(fetchedData.price),
+          nextPaymentDate: fetchedData.next_payment_date,
+          paymentFrequency: fetchedData.payment_frequency,
+          genre: fetchedData.genre,
+          remark: fetchedData.remark,
+        };
+      })
+      .catch(() => {
+        return null;
+      });
+
+    return { props: { t, data, subscId } };
+  } else {
+    return { props: { t, data: null, subscId } };
+  }
+};
+
+export default EditSubscription;
