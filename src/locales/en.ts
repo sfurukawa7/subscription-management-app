@@ -49,6 +49,7 @@ const tError = {
   ERROR_FREQUENCY_REQUIRED: "Frequency is required",
   ERROR_GENRE_REQUIRED: "Genre is required",
   ERROR_FAILED_TO_ADD: "Failed to add subscription",
+  ERROR_FAILED_TO_UPDATE: "Failed to update subscription",
   ERROR_FAILED_TO_FETCH: "Failed to fetch subscription detail",
   ERROR_FAILED_TO_DELETE: "Failed to delete subscription",
 };
@@ -76,11 +77,12 @@ const tAddSubscription = {
   ADD_SUBSCRIPTION_HEADER: "Submane - Add Subscription",
   ADD_SUBSCRIPTION_TITLE: "Add Subscription",
   ADD_SUBSCRIPTION_BUTTON: "Add",
-  ADD_SUBSCRIPTION_TERM_1MONTH: "1 month",
-  ADD_SUBSCRIPTION_TERM_3MONTH: "3 months",
-  ADD_SUBSCRIPTION_TERM_6MONTH: "6 months",
-  ADD_SUBSCRIPTION_TERM_1YEAR: "1 year",
-  ADD_SUBSCRIPTION_TERM_SELECT: "Select a term",
+};
+
+const tEditSubscription = {
+  EDIT_SUBSCRIPTION_HEADER: "Submane - Edit Subscription",
+  EDIT_SUBSCRIPTION_TITLE: "Edit Subscription",
+  EDIT_SUBSCRIPTION_BUTTON: "Update",
 };
 
 const tSubscriptionDetail = {
@@ -96,6 +98,7 @@ const t = {
   ...tError,
   ...tHome,
   ...tAddSubscription,
+  ...tEditSubscription,
   ...tSubscriptionDetail,
 };
 
