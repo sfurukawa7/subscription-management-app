@@ -138,8 +138,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query, locale }) 
         };
       })
       .catch(() => {
-        alert(t.ERROR_FAILED_TO_FETCH);
-
         return null;
       });
 

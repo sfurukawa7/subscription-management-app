@@ -21,17 +21,18 @@ import { getTranslation, Translation } from "@utils/useTranslation";
 import { SubscriptionFormData, useEditSubscription } from "./hooks";
 import styles from "./styles.module.css";
 
-type EditSubscriptionProps = { t: Translation; data: Subscription | null };
+type EditSubscriptionProps = { t: Translation; data: Subscription | null; subscId: string };
 
 const EditSubscription = (props: EditSubscriptionProps) => {
   const { control, errors, frequencyOptions, handleCancel, handleUpdate } = useEditSubscription(
-    props.data
+    props.data,
+    props.subscId
   );
 
   return (
     <>
       <Head>
-        <title>{props.t.ADD_SUBSCRIPTION_HEADER}</title>
+        <title>{props.t.EDIT_SUBSCRIPTION_HEADER}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -45,7 +46,7 @@ const EditSubscription = (props: EditSubscriptionProps) => {
         <MenuBar className={styles.menuBar} />
         <div className={styles.container}>
           <Title
-            content={props.t.ADD_SUBSCRIPTION_TITLE}
+            content={props.t.EDIT_SUBSCRIPTION_TITLE}
             className={styles.title}
           />
           <AddSubscriptionBody
@@ -233,7 +234,7 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
         <RectangleButton
           type="submit"
           form="subscription-form"
-          content={props.t.ADD_SUBSCRIPTION_BUTTON}
+          content={props.t.EDIT_SUBSCRIPTION_BUTTON}
           className={styles.addButton}
         />
       </div>
@@ -261,14 +262,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query, locale }) 
         };
       })
       .catch(() => {
-        alert(t.ERROR_FAILED_TO_FETCH);
-
         return null;
       });
 
-    return { props: { t, data } };
+    return { props: { t, data, subscId } };
   } else {
-    return { props: { t, data: null } };
+    return { props: { t, data: null, subscId } };
   }
 };
 

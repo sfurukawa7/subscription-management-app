@@ -40,6 +40,7 @@ export const useHome = () => {
   };
 
   const handleEdit = () => {
+    toggleIsModalOpen(false);
     router.push(`/edit/${modalSubscId}`);
   };
 

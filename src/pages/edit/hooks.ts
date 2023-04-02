@@ -29,7 +29,7 @@ type APISubscriptionRequest = {
   remark: string;
 };
 
-export const useEditSubscription = (data: Subscription | null) => {
+export const useEditSubscription = (data: Subscription | null, subscId: string) => {
   const { t } = useTranslation();
   const { isSubmitting, toggleIsSubmitting } = useCommonContext();
   const { user } = useAuthContext();
@@ -73,12 +73,12 @@ export const useEditSubscription = (data: Subscription | null) => {
     toggleIsSubmitting(true);
 
     await axios
-      .post("/subsc", req)
+      .post(`/subsc?subscId=${subscId}`, req)
       .then(() => {
         router.push(`/home/${user?.uid}`);
       })
       .catch(() => {
-        alert(t.ERROR_FAILED_TO_ADD);
+        alert(t.ERROR_FAILED_TO_UPDATE);
       })
       .finally(() => {
         toggleIsSubmitting(false);
