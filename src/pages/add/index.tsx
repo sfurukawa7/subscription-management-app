@@ -53,7 +53,6 @@ const AddSubscription = () => {
         <AddSubscriptionFooter
           t={t}
           handleCancel={handleCancel}
-          handleAdd={handleAdd}
         />
       </main>
     </>
@@ -210,7 +209,6 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
 type AddSubscriptionFooterProps = {
   t: Translation;
   handleCancel: () => void;
-  handleAdd: () => void;
 };
 
 const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {

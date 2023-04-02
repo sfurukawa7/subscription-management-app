@@ -17,8 +17,6 @@ type SubscriptionDetailProps = { t: Translation; data: Subscription | null };
 const SubscriptionDetail = (props: SubscriptionDetailProps) => {
   const { handleClose } = useSubscriptionDetail();
 
-  useSubscriptionDetail();
-
   return (
     <>
       <Head>
