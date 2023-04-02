@@ -235,7 +235,7 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
           type="submit"
           form="subscription-form"
           content={props.t.EDIT_SUBSCRIPTION_BUTTON}
-          className={styles.addButton}
+          className=""
         />
       </div>
     </div>
