@@ -27,6 +27,7 @@ type APISubscriptionRequest = {
   payment_frequency: "month" | "year";
   payment_date: string;
   remark: string;
+  subsc_id: string;
 };
 
 export const useEditSubscription = (data: Subscription | null, subscId: string) => {
@@ -73,7 +74,7 @@ export const useEditSubscription = (data: Subscription | null, subscId: string) 
     toggleIsSubmitting(true);
 
     await axios
-      .post(`/subsc?subscId=${subscId}`, req)
+      .post("/subsc", req)
       .then(() => {
         router.push(`/home/${user?.uid}`);
       })
@@ -96,6 +97,7 @@ export const useEditSubscription = (data: Subscription | null, subscId: string) 
       payment_frequency: data.paymentFrequency,
       payment_date: data.paymentDate,
       remark: data.remark,
+      subsc_id: subscId,
     };
 
     updateSubscription(req);
