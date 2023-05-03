@@ -1,11 +1,11 @@
 import { MouseEvent } from "react";
 
+import { useTranslation } from "next-export-i18n";
 import { SubscriptionList } from "subscription";
 
 import Title from "@atoms/title";
 import PaymentScheduleTable from "@organisms/pymentScheduleTable";
 import { compareTwoDate } from "@utils/compareTwoDate";
-import { useTranslation } from "@utils/useTranslation";
 
 import styles from "./styles.module.css";
 
@@ -29,7 +29,7 @@ const PaymentSchedule = (props: PaymentScheduleProps) => {
   return (
     <div className={styles.container}>
       <Title
-        content={t.HOME_PAYMENT_SCHEDULE}
+        content={t("HOME.PAYMENT_SCHEDULE")}
         className={styles.title}
       />
       <PaymentScheduleTable

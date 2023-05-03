@@ -18,7 +18,7 @@ const EmailInput = (props: EmailInputProps) => {
       <LoginInput
         prefix="fas"
         iconName="user"
-        placeholder={t.COMMON_EMAIL}
+        placeholder={t("COMMON.EMAIL")}
         className={props.className}
         label="email"
         {...props.field}

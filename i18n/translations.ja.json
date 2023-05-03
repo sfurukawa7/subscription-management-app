@@ -1,0 +1,91 @@
+{
+    "COMMON": {
+        "EMAIL": "メールアドレス",
+        "PASSWORD": "パスワード",
+        "SERVICE": "サービス名",
+        "PRICE": "金額",
+        "PAYMENT_DATE": "支払日",
+        "NEXT_PAYMENT_DATE": "次の支払日",
+        "PAYMENT_FREQUENCY": "支払頻度",
+        "GENRE": "ジャンル",
+        "REMARK": "備考",
+        "CANCEL": "キャンセル"
+    },
+    "LOGIN": {
+        "HEADER": "サブマネ - ログイン",
+        "TITLE": "ログイン",
+        "RESET_PASSWORD_LINK": "パスワードを忘れた場合",
+        "BUTTON": "続ける",
+        "LINK": "メールアドレスでログイン",
+        "SIGN_UP_LINK": "アカウントを作成",
+        "PASSWORD_RESET": {
+            "BUTTON": "リセットメール送信",
+            "MODAL": {
+                "TITLE": "パスワードリセット",
+                "BODY": "パスワードリセットのメールを送信しました．メールのリンクから再設定を行ってください．",
+                "BUTTON": "OK"
+            }
+        }
+    },
+    "SIGN_UP": {
+        "HEADER": "サブマネ - サインアップ",
+        "TITLE": "アカウント作成",
+        "BUTTON": "作成する",
+        "MODAL": {
+            "TITLE": "作成完了",
+            "BODY": "アカウントの準備ができましたのでOKボタンを押してログイン画面に進んでください!",
+            "BUTTON": "OK"
+        }
+    },
+    "ERROR": {
+        "INVALID_EMAIL": "メールアドレスが無効です",
+        "WRONG_PASSWORD": "パスワードが間違っています",
+        "DEFAULT": "想定外のエラーです",
+        "EMAIL_ALREADY_IN_USE": "このメールアドレスは既に使用されています",
+        "EMAIL_REQUIRED": "メールアドレスを入力してください",
+        "PASSWORD_REQUIRED": "パスワードを入力してください",
+        "PASSWORD_LENGTH": "パスワードは6文字以上である必要があります",
+        "USER_NOT_FOUND": "存在しないユーザーアカウントです",
+        "SERVICE_REQUIRED": "サービス名を入力してください",
+        "PRICE_REQUIRED": "金額を入力してください",
+        "PAYMENT_DATE_REQUIRED": "支払日を入力してください",
+        "FREQUENCY_REQUIRED": "支払頻度を選択してください",
+        "GENRE_REQUIRED": "ジャンルを入力してください",
+        "FAILED_TO_ADD": "サブスクの追加に失敗しました",
+        "FAILED_TO_UPDATE": "サブスクの更新に失敗しました",
+        "FAILED_TO_FETCH": "サブスクの取得に失敗しました",
+        "FAILED_TO_DELETE": "サブスクの削除に失敗しました"
+    },
+    "HOME": {
+        "HEADER": "サブマネ - ホーム",
+        "ADD_SUBSCRIPTION": "新規追加",
+        "PAYMENT_SCHEDULE": "支払予定日",
+        "SUBSCRIPTION": "サブスク一覧",
+        "PAYMENT_DATE": "日付",
+        "SERVICE": "サービス名",
+        "PRICE": "金額",
+        "FREQUENCY": "頻度",
+        "EXAMPLE": "Amazon Prime",
+        "EXAMPLE_DATE": "Jan.14",
+        "EXAMPLE_PRICE": "￥4,800",
+        "EXAMPLE_FREQUENCY": "/月",
+        "CLOSE_BUTTON": "閉じる",
+        "EDIT_BUTTON": "編集",
+        "DELETE_BUTTON": "削除"
+    },
+    "ADD_SUBSCRIPTION": {
+        "HEADER": "サブマネ - サブスク追加",
+        "TITLE": "サブスク追加",
+        "BUTTON": "追加"
+    },
+    "EDIT_SUBSCRIPTION": {
+        "HEADER": "サブマネ - サブスク編集",
+        "TITLE": "サブスク編集",
+        "BUTTON": "更新"
+    },
+    "SUBSCRIPTION_DETAIL": {
+        "HEADER": "サブマネ - サブスク詳細",
+        "TITLE": "サブスク詳細",
+        "BUTTON": "閉じる"
+    }
+}

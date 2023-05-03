@@ -13,15 +13,15 @@ const SignUpCompleteModal = () => {
       <div className={styles.modalOverlay}>
         <div className={styles.modalContent}>
           <Title
-            content={t.SIGNUP_MODAL_TITLE}
+            content={t("SIGNUP.MODAL.TITLE")}
             className={styles.title}
             isBold={true}
           />
           <Description
-            content={t.SIGNUP_MODAL_BODY}
+            content={t("SIGNUP.MODAL.BODY")}
             className={styles.description}
           />
-          <OkayButton content={t.SIGNUP_MODAL_BUTTON} />
+          <OkayButton content={t("SIGNUP.MODAL.BUTTON")} />
         </div>
       </div>
     </>

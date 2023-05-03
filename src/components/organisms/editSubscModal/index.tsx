@@ -18,15 +18,15 @@ const EditSubscModal = (props: EditSubscModalProps) => {
       <div className={styles.modalOverlay}>
         <div className={styles.modalContent}>
           <EditButton
-            content={t.HOME_EDIT_BUTTON}
+            content={t("HOME.EDIT_BUTTON")}
             handleEdit={props.handleEdit}
           />
           <DeleteButton
-            content={t.HOME_DELETE_BUTTON}
+            content={t("HOME.DELETE_BUTTON")}
             handleDelete={props.handleDelete}
           />
           <CloseButton
-            content={t.HOME_CLOSE_BUTTON}
+            content={t("HOME.CLOSE_BUTTON")}
             handleClose={props.handleClose}
           />
         </div>

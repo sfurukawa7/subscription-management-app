@@ -1,0 +1,91 @@
+{
+    "COMMON": {
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "SERVICE": "Service",
+        "PRICE": "Price",
+        "PAYMENT_DATE": "Payment Date",
+        "NEXT_PAYMENT_DATE": "Next Payment Date",
+        "PAYMENT_FREQUENCY": "Payment Frequency",
+        "GENRE": "Genre",
+        "REMARK": "Note",
+        "CANCEL": "Cancel"
+    },
+    "LOGIN": {
+        "HEADER": "Submane - Login",
+        "TITLE": "Login",
+        "RESET_PASSWORD_LINK": "Forgot your password?",
+        "BUTTON": "Login",
+        "LINK": "Continue with email",
+        "SIGNUP_LINK": "Don’t have an account yet? Sign up",
+        "PASSWORD_RESET": {
+            "BUTTON": "Send reset link",
+            "MODAL": {
+                "TITLE": "Reset Password",
+                "BODY": "An e-mail has been sent to your email address. Check the inbox of your email account.",
+                "BUTTON": "OK"
+            }
+        }
+    },
+    "SIGNUP": {
+        "HEADER": "Submane - Sign up",
+        "TITLE": "Sign up",
+        "BUTTON": "Sign up",
+        "MODAL": {
+            "TITLE": "Welcome!",
+            "BODY": "You’re all set up and ready to manage your favorite service!",
+            "BUTTON": "OK"
+        }
+    },
+    "ERROR": {
+        "INVALID_EMAIL": "Invalid email address",
+        "WRONG_PASSWORD": "Your password is incorrect",
+        "EMAIL_REQUIRED": "Email is required",
+        "PASSWORD_REQUIRED": "Password is required",
+        "DEFAULT": "Unexpected error",
+        "EMAIL_ALREADY_IN_USE": "This email is already in use",
+        "PASSWORD_LENGTH": "Password must have at least 6 characters",
+        "USER_NOT_FOUND": "This user is not found",
+        "SERVICE_REQUIRED": "Service name is required",
+        "PRICE_REQUIRED": "Price is required",
+        "PAYMENT_DATE_REQUIRED": "Payment date is required",
+        "FREQUENCY_REQUIRED": "Frequency is required",
+        "GENRE_REQUIRED": "Genre is required",
+        "FAILED_TO_ADD": "Failed to add subscription",
+        "FAILED_TO_UPDATE": "Failed to update subscription",
+        "FAILED_TO_FETCH": "Failed to fetch subscription detail",
+        "FAILED_TO_DELETE": "Failed to delete subscription"
+    },
+    "HOME": {
+        "HEADER": "Submane - Home",
+        "ADD_SUBSCRIPTION": "Add Subscription",
+        "PAYMENT_SCHEDULE": "Payment Schedule",
+        "SUBSCRIPTION": "Subscription",
+        "DATE": "Date",
+        "SERVICE": "Service",
+        "PRICE": "Price",
+        "FREQUENCY": "Frequency",
+        "EXAMPLE": "Amazon Prime",
+        "EXAMPLE_DATE": "Jan.14",
+        "EXAMPLE_PRICE": "￥4,800",
+        "EXAMPLE_FREQUENCY": "/month",
+        "CLOSE_BUTTON": "CLOSE",
+        "EDIT_BUTTON": "EDIT",
+        "DELETE_BUTTON": "DELETE"
+    },
+    "ADD_SUBSCRIPTION": {
+        "HEADER": "Submane - Add Subscription",
+        "TITLE": "Add Subscription",
+        "BUTTON": "Add"
+    },
+    "EDIT_SUBSCRIPTION": {
+        "HEADER": "Submane - Edit Subscription",
+        "TITLE": "Edit Subscription",
+        "BUTTON": "Update"
+    },
+    "SUBSCRIPTION_DETAIL": {
+        "HEADER": "Submane - Subscription Detail",
+        "TITLE": "Subscription Detail",
+        "BUTTON": "Close"
+    }
+}

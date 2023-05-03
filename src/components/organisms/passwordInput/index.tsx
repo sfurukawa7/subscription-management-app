@@ -1,8 +1,8 @@
 import { LoginForms } from "loginForms";
+import { useTranslation } from "next-export-i18n";
 import { ControllerRenderProps } from "react-hook-form";
 
 import LoginInput from "@molecules/loginInput";
-import { useTranslation } from "@utils/useTranslation";
 
 type PasswordInputProps = {
   field: ControllerRenderProps<LoginForms, "password">;
@@ -17,7 +17,7 @@ const PasswordInput = (props: PasswordInputProps) => {
       <LoginInput
         prefix="fas"
         iconName="lock"
-        placeholder={t.COMMON_PASSWORD}
+        placeholder={t("COMMON.PASSWORD")}
         className={props.className}
         label="password"
         {...props.field}

@@ -3,7 +3,7 @@ declare module "subscription" {
     subsc_name: string;
     price: string;
     next_payment_date: string;
-    payment_frequency: string;
+    payment_frequency: "month" | "year";
     subsc_id: string;
   }[];
 

@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>{t.LOGIN_HEADER}</title>
+        <title>{t("LOGIN.HEADER")}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
