@@ -25,7 +25,11 @@ jobs:
         run: npm run build
 
       - name: Deploy # S3にデプロイ
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --delete
         env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: aws s3 cp /build --recursive --region ap-northeast-1 s3://submane.app
+          SOURCE_DIR: "./build"
