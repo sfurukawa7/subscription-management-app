@@ -14,7 +14,7 @@ const SignUp = () => {
   return (
     <>
       <Head>
-        <title>{t.SIGNUP_HEADER}</title>
+        <title>{t("SIGN_UP.HEADER")}</title>
       </Head>
       <main className={styles.main}>
         <SignUpForm />

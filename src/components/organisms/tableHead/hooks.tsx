@@ -1,4 +1,4 @@
-import { useTranslation } from "@utils/useTranslation";
+import { useTranslation } from "next-export-i18n";
 
 export const usePasswordInput = () => {
   const { t } = useTranslation();

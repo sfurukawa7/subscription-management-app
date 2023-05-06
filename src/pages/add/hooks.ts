@@ -1,10 +1,10 @@
 import router from "next/router";
 
+import { useTranslation } from "next-export-i18n";
 import { useForm } from "react-hook-form";
 
 import { getFrequencyOptions } from "@utils/getSelectBoxOptions";
 import axios from "@utils/useApi";
-import { useTranslation } from "@utils/useTranslation";
 
 import { useAuthContext } from "src/context/authContext";
 import { useCommonContext } from "src/context/commonContext";
@@ -65,7 +65,7 @@ export const useAddSubscription = () => {
         router.push(`/home/${user?.uid}`);
       })
       .catch(() => {
-        alert(t.ERROR_FAILED_TO_ADD);
+        alert(t("ERROR.FAILED_TO_ADD"));
       })
       .finally(() => {
         toggleIsSubmitting(false);

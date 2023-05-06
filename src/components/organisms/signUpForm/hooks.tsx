@@ -1,8 +1,8 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useTranslation } from "next-export-i18n";
 import { useForm } from "react-hook-form";
 
 import { auth } from "@utils/configureFirebase";
-import { useTranslation } from "@utils/useTranslation";
 
 import { useCommonContext } from "src/context/commonContext";
 
@@ -33,23 +33,23 @@ export const useSignUpForm = () => {
           case "auth/email-already-in-use":
             setError("email", {
               type: "manual",
-              message: t.ERROR_EMAIL_ALREADY_IN_USE,
+              message: t("ERROR.EMAIL_ALREADY_IN_USE"),
             });
             break;
           case "auth/invalid-email":
             setError("email", {
               type: "manual",
-              message: t.ERROR_INVALID_EMAIL,
+              message: t("ERROR.INVALID_EMAIL"),
             });
             break;
           default:
             setError("email", {
               type: "manual",
-              message: t.ERROR_DEFAULT,
+              message: t("ERROR.DEFAULT"),
             });
             setError("password", {
               type: "manual",
-              message: t.ERROR_DEFAULT,
+              message: t("ERROR.DEFAULT"),
             });
             break;
         }

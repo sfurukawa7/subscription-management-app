@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import { useTranslation } from "@utils/useTranslation";
+import { useTranslation } from "next-export-i18n";
 
 import { useCommonContext } from "src/context/commonContext";
 

@@ -15,7 +15,7 @@ const SignUpForm = () => {
   return (
     <div className={styles.container}>
       <Title
-        content={t.SIGNUP_TITLE}
+        content={t("SIGN_UP.TITLE")}
         className={styles.title}
       />
       <TopLine />
@@ -24,10 +24,10 @@ const SignUpForm = () => {
           name="email"
           control={control}
           rules={{
-            required: t.ERROR_EMAIL_REQUIRED,
+            required: t("ERROR.EMAIL_REQUIRED"),
             pattern: {
               value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-              message: t.ERROR_INVALID_EMAIL,
+              message: t("ERROR.INVALID_EMAIL"),
             },
           }}
           render={({ field }) => (
@@ -47,10 +47,10 @@ const SignUpForm = () => {
           name="password"
           control={control}
           rules={{
-            required: t.ERROR_PASSWORD_REQUIRED,
+            required: t("ERROR.PASSWORD_REQUIRED"),
             minLength: {
               value: 6,
-              message: t.ERROR_PASSWORD_LENGTH,
+              message: t("ERROR.PASSWORD_LENGTH"),
             },
           }}
           render={({ field }) => (
@@ -67,7 +67,7 @@ const SignUpForm = () => {
           />
         )}
         <SignUpButton
-          content={t.SIGNUP_BUTTON}
+          content={t("SIGN_UP.BUTTON")}
           disabled={isSubmitting}
         />
       </form>

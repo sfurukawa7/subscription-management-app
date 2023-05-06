@@ -1,33 +1,23 @@
 import Head from "next/head";
 
-import { GetServerSideProps } from "next";
-import { APIGetSubscriptionList, SubscriptionList } from "subscription";
-
 import MenuBar from "@molecules/menuBar";
 import EditSubscModal from "@organisms/editSubscModal";
 import PaymentSchedule from "@organisms/paymentSchedule";
 import SubscriptionWrap from "@organisms/subscription";
-import axios from "@utils/useApi";
-import { getTranslation, Translation } from "@utils/useTranslation";
-
-import Modal from "src/components/templates/modal";
 
 import { useHome } from "./hooks";
 import styles from "./styles.module.css";
 
-type HomeProps = {
-  t: Translation;
-  data: SubscriptionList;
-};
+import Modal from "src/components/templates/modal";
 
-const Home = (props: HomeProps) => {
-  const { isModalOpen, modalSubscId, handleOpen, handleClose, handleDelete, handleEdit } =
+const Home = () => {
+  const { t, data, isModalOpen, modalSubscId, handleOpen, handleClose, handleDelete, handleEdit } =
     useHome();
 
   return (
     <>
       <Head>
-        <title>{props.t.HOME_HEADER}</title>
+        <title>{t("HOME.HEADER")}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -41,11 +31,11 @@ const Home = (props: HomeProps) => {
         <MenuBar className={styles.menuBar} />
         <div className={styles.body}>
           <PaymentSchedule
-            subscriptionList={props.data}
+            subscriptionList={data}
             handleOpen={handleOpen}
           />
           <SubscriptionWrap
-            subscriptionList={props.data}
+            subscriptionList={data}
             handleOpen={handleOpen}
           />
           <Modal isOpen={isModalOpen}>
@@ -60,36 +50,6 @@ const Home = (props: HomeProps) => {
       </main>
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query, locale }) => {
-  const { uid } = query;
-  const t = getTranslation(locale);
-
-  if (uid) {
-    const data = await axios
-      .get<APIGetSubscriptionList>(`/subsc?user_id=${uid}`)
-      .then((res) => {
-        const fetchedData = res.data;
-
-        return fetchedData.map((v) => ({
-          service: v.subsc_name,
-          price: Number(v.price),
-          nextPaymentDate: v.next_payment_date,
-          paymentFrequency: v.payment_frequency,
-          subscId: v.subsc_id,
-        }));
-      })
-      .catch(() => {
-        console.log(t.ERROR_FAILED_TO_FETCH);
-
-        return [];
-      });
-
-    return { props: { t, data } };
-  } else {
-    return { props: { t, data: [] } };
-  }
 };
 
 export default Home;

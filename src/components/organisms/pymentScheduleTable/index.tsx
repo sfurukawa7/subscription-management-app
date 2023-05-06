@@ -1,8 +1,9 @@
 import { MouseEvent } from "react";
 
+import { useTranslation } from "next-export-i18n";
+
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
-import { useTranslation } from "@utils/useTranslation";
 
 import styles from "./styles.module.css";
 
@@ -25,9 +26,9 @@ const PaymentScheduleTable = (props: PaymentScheduleTableProps) => {
       <div className={styles.scrollDiv}>
         <table className={`${styles.table} ${props.className}`}>
           <TableHead
-            headFirstItem={t.HOME_PAYMENT_DATE}
-            headSecondItem={t.HOME_SERVICE}
-            headThirdItem={t.HOME_PRICE}
+            headFirstItem={t("HOME.PAYMENT_DATE")}
+            headSecondItem={t("HOME.SERVICE")}
+            headThirdItem={t("HOME.PRICE")}
             className={styles.tableHeadRow}
           />
           <TableBody

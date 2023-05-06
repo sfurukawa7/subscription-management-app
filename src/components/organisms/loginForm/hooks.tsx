@@ -3,10 +3,10 @@ import { useState } from "react";
 
 import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import { LoginForms } from "loginForms";
+import { useTranslation } from "next-export-i18n";
 import { useForm } from "react-hook-form";
 
 import { auth } from "@utils/configureFirebase";
-import { useTranslation } from "@utils/useTranslation";
 
 import { useCommonContext } from "src/context/commonContext";
 
@@ -35,19 +35,19 @@ export const useLogin = () => {
           case "auth/invalid-email":
             setError("email", {
               type: "manual",
-              message: t.ERROR_INVALID_EMAIL,
+              message: t("ERROR.INVALID_EMAIL"),
             });
             break;
           case "auth/wrong-password":
             setError("password", {
               type: "manual",
-              message: t.ERROR_WRONG_PASSWORD,
+              message: t("ERROR.WRONG_PASSWORD"),
             });
             break;
           case "auth/user-not-found":
             setError("email", {
               type: "manual",
-              message: t.ERROR_USER_NOT_FOUND,
+              message: t("ERROR.USER_NOT_FOUND"),
             });
             break;
           default:
@@ -87,13 +87,13 @@ export const useLogin = () => {
           case "auth/invalid-email":
             setError("email", {
               type: "manual",
-              message: t.ERROR_INVALID_EMAIL,
+              message: t("ERROR.INVALID_EMAIL"),
             });
             break;
           case "auth/user-not-found":
             setError("email", {
               type: "manual",
-              message: t.ERROR_USER_NOT_FOUND,
+              message: t("ERROR.USER_NOT_FOUND"),
             });
             break;
           default:

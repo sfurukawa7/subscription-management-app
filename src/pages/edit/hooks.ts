@@ -1,11 +1,12 @@
-import router from "next/router";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
+import { useTranslation } from "next-export-i18n";
 import { useForm } from "react-hook-form";
 import { Subscription } from "subscription";
 
 import { getFrequencyOptions } from "@utils/getSelectBoxOptions";
 import axios from "@utils/useApi";
-import { useTranslation } from "@utils/useTranslation";
 
 import { useAuthContext } from "src/context/authContext";
 import { useCommonContext } from "src/context/commonContext";
@@ -30,10 +31,13 @@ type APISubscriptionRequest = {
   subsc_id: string;
 };
 
-export const useEditSubscription = (data: Subscription | null, subscId: string) => {
+export const useEditSubscription = () => {
   const { t } = useTranslation();
   const { isSubmitting, toggleIsSubmitting } = useCommonContext();
   const { user } = useAuthContext();
+  const router = useRouter();
+  const { subscId } = router.query;
+  const [data, setData] = useState<Subscription | null>(null);
 
   const initialData: SubscriptionFormData =
     data != null
@@ -79,7 +83,7 @@ export const useEditSubscription = (data: Subscription | null, subscId: string) 
         router.push(`/home/${user?.uid}`);
       })
       .catch(() => {
-        alert(t.ERROR_FAILED_TO_UPDATE);
+        alert(t("ERROR.FAILED_TO_UPDATE"));
       })
       .finally(() => {
         toggleIsSubmitting(false);
@@ -88,6 +92,7 @@ export const useEditSubscription = (data: Subscription | null, subscId: string) 
 
   const handleUpdate = submit((data) => {
     if (!user) return;
+    if (typeof subscId !== "string") return;
 
     const req: APISubscriptionRequest = {
       user_id: user.uid,
@@ -102,6 +107,26 @@ export const useEditSubscription = (data: Subscription | null, subscId: string) 
 
     updateSubscription(req);
   });
+
+  useEffect(() => {
+    if (subscId) {
+      axios
+        .get(`/subsc/${subscId}`)
+        .then((res) => {
+          const fetchedData = res.data[0];
+
+          setData({
+            service: fetchedData.subsc_name,
+            price: Number(fetchedData.price),
+            nextPaymentDate: fetchedData.next_payment_date,
+            paymentFrequency: fetchedData.payment_frequency,
+            genre: fetchedData.genre,
+            remark: fetchedData.remark,
+          });
+        })
+        .catch(() => {});
+    }
+  }, [subscId]);
 
   return { t, control, errors, frequencyOptions, handleCancel, handleUpdate, isSubmitting };
 };

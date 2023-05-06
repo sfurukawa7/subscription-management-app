@@ -13,15 +13,15 @@ const PasswordResetMailSentModal = () => {
       <div className={styles.modalOverlay}>
         <div className={styles.modalContent}>
           <Title
-            content={t.PASSWORD_RESET_MODAL_TITLE}
+            content={t("LOGIN.PASSWORD_RESET.MODAL.TITLE")}
             className={styles.title}
             isBold={true}
           />
           <Description
-            content={t.PASSWORD_RESET_MODAL_BODY}
+            content={t("LOGIN.PASSWORD_RESET.MODAL.BODY")}
             className={styles.description}
           />
-          <OkayButton content={t.PASSWORD_RESET_MODAL_BUTTON} />
+          <OkayButton content={t("LOGIN.PASSWORD_RESET.MODAL.BUTTON")} />
         </div>
       </div>
     </>

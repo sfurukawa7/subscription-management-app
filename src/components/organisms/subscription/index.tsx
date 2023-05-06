@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { MouseEvent } from "react";
 
+import { useTranslation } from "next-export-i18n";
 import { SubscriptionList } from "subscription";
 
 import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
 import SubscriptionTable from "@organisms/subscriptionTable";
-import { useTranslation } from "@utils/useTranslation";
 
 import styles from "./styles.module.css";
 
@@ -29,10 +29,10 @@ const SubscriptionWrap = (props: SubscriptionWrapProps) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <Title
-          content={t.HOME_SUBSCRIPTION}
+          content={t("HOME.SUBSCRIPTION")}
           className={styles.title}
         />
-        <AddSubscriptionButton content={t.ADD_SUBSCRIPTION} />
+        <AddSubscriptionButton content={t("HOME.ADD_SUBSCRIPTION")} />
       </div>
       <SubscriptionTable
         className={styles.dt}
