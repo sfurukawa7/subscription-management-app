@@ -4,7 +4,6 @@ const nextConfig = {
   trailingSlash: true,
   pageExtensions: ["tsx"],
   output: "export",
-  distDir: "build",
 };
 
 module.exports = nextConfig;
