@@ -1,16 +1,14 @@
-import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Init = () => {
-  return <></>;
-};
+  const router = useRouter();
 
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    redirect: {
-      destination: "/login",
-      permanent: false,
-    },
-  };
+  useEffect(() => {
+    router.push("/login");
+  }, [router]);
+
+  return <></>;
 };
 
 export default Init;
