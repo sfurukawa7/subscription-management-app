@@ -17,7 +17,7 @@
         "RESET_PASSWORD_LINK": "Forgot your password?",
         "BUTTON": "Login",
         "LINK": "Continue with email",
-        "SIGNUP_LINK": "Don’t have an account yet? Sign up",
+        "SIGN_UP_LINK": "Don’t have an account yet? Sign up",
         "PASSWORD_RESET": {
             "BUTTON": "Send reset link",
             "MODAL": {
@@ -27,7 +27,7 @@
             }
         }
     },
-    "SIGNUP": {
+    "SIGN_UP": {
         "HEADER": "Submane - Sign up",
         "TITLE": "Sign up",
         "BUTTON": "Sign up",

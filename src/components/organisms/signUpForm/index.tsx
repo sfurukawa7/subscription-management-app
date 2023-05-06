@@ -15,7 +15,7 @@ const SignUpForm = () => {
   return (
     <div className={styles.container}>
       <Title
-        content={t("SIGNUP.TITLE")}
+        content={t("SIGN_UP.TITLE")}
         className={styles.title}
       />
       <TopLine />
@@ -67,7 +67,7 @@ const SignUpForm = () => {
           />
         )}
         <SignUpButton
-          content={t("SIGNUP.BUTTON")}
+          content={t("SIGN_UP.BUTTON")}
           disabled={isSubmitting}
         />
       </form>

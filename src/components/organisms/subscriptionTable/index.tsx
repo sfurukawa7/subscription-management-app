@@ -27,7 +27,7 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
           <TableHead
             headFirstItem={t("HOME.SERVICE")}
             headSecondItem={t("HOME.PRICE")}
-            headThirdItem={t("HOME.frequency")}
+            headThirdItem={t("HOME.FREQUENCY")}
             className={styles.tableHeadRow}
           />
           <TableBody

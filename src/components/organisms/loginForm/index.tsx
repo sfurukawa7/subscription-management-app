@@ -95,7 +95,7 @@ const LoginForm = () => {
         />
       )}
       <BottomLine />
-      <SignUpLink content={t("LOGIN.SIGNUP_LINK")} />
+      <SignUpLink content={t("LOGIN.SIGN_UP_LINK")} />
     </div>
   );
 };
