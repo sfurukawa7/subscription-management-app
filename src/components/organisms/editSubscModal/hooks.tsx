@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 
+import { useTranslation } from "next-export-i18n";
+
 import { useHome } from "@pages/home/hooks";
-import { useTranslation } from "@utils/useTranslation";
 
 import { useCommonContext } from "src/context/commonContext";
 

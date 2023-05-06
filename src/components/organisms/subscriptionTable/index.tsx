@@ -1,8 +1,9 @@
 import { MouseEvent } from "react";
 
+import { useTranslation } from "next-export-i18n";
+
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
-import { useTranslation } from "@utils/useTranslation";
 
 import styles from "./styles.module.css";
 type SubscriptionTableProps = {
@@ -24,9 +25,9 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
       <div className={styles.scrollDiv}>
         <table className={`${styles.table} ${props.className}`}>
           <TableHead
-            headFirstItem={t.HOME_SERVICE}
-            headSecondItem={t.HOME_PRICE}
-            headThirdItem={t.HOME_frequency}
+            headFirstItem={t("HOME.SERVICE")}
+            headSecondItem={t("HOME.PRICE")}
+            headThirdItem={t("HOME.FREQUENCY")}
             className={styles.tableHeadRow}
           />
           <TableBody

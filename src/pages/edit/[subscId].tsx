@@ -1,9 +1,8 @@
 import Head from "next/head";
 import { BaseSyntheticEvent } from "react";
 
-import { GetServerSideProps } from "next";
+import { useTranslation } from "next-export-i18n";
 import { Control, Controller, FieldErrorsImpl } from "react-hook-form";
-import { Subscription } from "subscription";
 
 import DateInput from "@atoms/dateInput";
 import ErrorMessage from "@atoms/errorMessage";
@@ -15,24 +14,18 @@ import TextOutlineInputArea from "@atoms/textOutlineInputArea";
 import Title from "@atoms/title";
 import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import MenuBar from "@molecules/menuBar";
-import axios from "@utils/useApi";
-import { getTranslation, Translation } from "@utils/useTranslation";
 
 import { SubscriptionFormData, useEditSubscription } from "./hooks";
 import styles from "./styles.module.css";
 
-type EditSubscriptionProps = { t: Translation; data: Subscription | null; subscId: string };
-
-const EditSubscription = (props: EditSubscriptionProps) => {
-  const { control, errors, frequencyOptions, handleCancel, handleUpdate } = useEditSubscription(
-    props.data,
-    props.subscId
-  );
+const EditSubscription = () => {
+  const { t, control, errors, frequencyOptions, handleCancel, handleUpdate } =
+    useEditSubscription();
 
   return (
     <>
       <Head>
-        <title>{props.t.EDIT_SUBSCRIPTION_HEADER}</title>
+        <title>{t("EDIT_SUBSCRIPTION.HEADER")}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
@@ -46,29 +39,23 @@ const EditSubscription = (props: EditSubscriptionProps) => {
         <MenuBar className={styles.menuBar} />
         <div className={styles.container}>
           <Title
-            content={props.t.EDIT_SUBSCRIPTION_TITLE}
+            content={t("EDIT_SUBSCRIPTION.TITLE")}
             className={styles.title}
           />
           <AddSubscriptionBody
-            t={props.t}
             control={control}
             errors={errors}
             handleUpdate={handleUpdate}
             frequencyOptions={frequencyOptions}
           />
         </div>
-
-        <AddSubscriptionFooter
-          t={props.t}
-          handleCancel={handleCancel}
-        />
+        <AddSubscriptionFooter handleCancel={handleCancel} />
       </main>
     </>
   );
 };
 
 type AddSubscriptionBodyProps = {
-  t: Translation;
   control: Control<SubscriptionFormData>;
   errors: Partial<FieldErrorsImpl<SubscriptionFormData>>;
   handleUpdate: (e?: BaseSyntheticEvent | undefined) => Promise<void>;
@@ -76,6 +63,8 @@ type AddSubscriptionBodyProps = {
 };
 
 const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.body}>
       <form
@@ -85,10 +74,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           name="service"
           control={props.control}
           rules={{
-            required: props.t.ERROR_SERVICE_REQUIRED,
+            required: t("ERROR.SERVICE_REQUIRED"),
           }}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_SERVICE}>
+            <AddSubscriptionInput content={t("COMMON.SERVICE")}>
               <TextOutlineInput
                 value={value}
                 onChange={onChange}
@@ -108,10 +97,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           name="price"
           control={props.control}
           rules={{
-            required: props.t.ERROR_PRICE_REQUIRED,
+            required: t("ERROR.PRICE_REQUIRED"),
           }}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_PRICE}>
+            <AddSubscriptionInput content={t("COMMON.PRICE")}>
               <TextOutlineInput
                 value={value}
                 onChange={onChange}
@@ -131,10 +120,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           name="paymentDate"
           control={props.control}
           rules={{
-            required: props.t.ERROR_PAYMENT_DATE_REQUIRED,
+            required: t("ERROR.PAYMENT_DATE_REQUIRED"),
           }}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_PAYMENT_DATE}>
+            <AddSubscriptionInput content={t("COMMON.PAYMENT_DATE")}>
               <DateInput
                 value={value}
                 onChange={onChange}
@@ -153,10 +142,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           name="paymentFrequency"
           control={props.control}
           rules={{
-            required: props.t.ERROR_FREQUENCY_REQUIRED,
+            required: t("ERROR.REQUENCY_REQUIRED"),
           }}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_PAYMENT_FREQUENCY}>
+            <AddSubscriptionInput content={t("COMMON.PAYMENT_FREQUENCY")}>
               <SelectInput
                 value={value}
                 onChange={onChange}
@@ -176,10 +165,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           name="genre"
           control={props.control}
           rules={{
-            required: props.t.ERROR_GENRE_REQUIRED,
+            required: t("ERROR.GENRE_REQUIRED"),
           }}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_GENRE}>
+            <AddSubscriptionInput content={t("COMMON.GENRE")}>
               <TextOutlineInput
                 value={value}
                 onChange={onChange}
@@ -199,7 +188,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           name="remark"
           control={props.control}
           render={({ field: { value, onChange } }) => (
-            <AddSubscriptionInput content={props.t.COMMON_REMARK}>
+            <AddSubscriptionInput content={t("COMMON.REMARK")}>
               <TextOutlineInputArea
                 value={value}
                 onChange={onChange}
@@ -215,17 +204,18 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
 };
 
 type AddSubscriptionFooterProps = {
-  t: Translation;
   handleCancel: () => void;
 };
 
 const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.footer}>
       <div className={styles.footerButton}>
         <GrayRectangleButton
           type="button"
-          content={props.t.COMMON_CANCEL}
+          content={t("COMMON.CANCEL")}
           className={styles.cancelButton}
           handleClick={props.handleCancel}
         />
@@ -234,41 +224,12 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
         <RectangleButton
           type="submit"
           form="subscription-form"
-          content={props.t.EDIT_SUBSCRIPTION_BUTTON}
+          content={t("EDIT_SUBSCRIPTION.BUTTON")}
           className=""
         />
       </div>
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query, locale }) => {
-  const { subscId } = query;
-  const t = getTranslation(locale);
-
-  if (subscId) {
-    const data = await axios
-      .get(`/subsc/${subscId}`)
-      .then((res) => {
-        const fetchedData = res.data[0];
-
-        return {
-          service: fetchedData.subsc_name,
-          price: Number(fetchedData.price),
-          nextPaymentDate: fetchedData.next_payment_date,
-          paymentFrequency: fetchedData.payment_frequency,
-          genre: fetchedData.genre,
-          remark: fetchedData.remark,
-        };
-      })
-      .catch(() => {
-        return null;
-      });
-
-    return { props: { t, data, subscId } };
-  } else {
-    return { props: { t, data: null, subscId } };
-  }
 };
 
 export default EditSubscription;

@@ -26,7 +26,7 @@ const LoginForm = () => {
   return (
     <div className={styles.container}>
       <Title
-        content={t.LOGIN_TITLE}
+        content={t("LOGIN.TITLE")}
         className={styles.title}
       />
       <TopLine />
@@ -35,7 +35,7 @@ const LoginForm = () => {
           name="email"
           control={control}
           rules={{
-            required: t.ERROR_EMAIL_REQUIRED,
+            required: t("ERROR.EMAIL_REQUIRED"),
           }}
           render={({ field }) => (
             <EmailInput
@@ -52,7 +52,7 @@ const LoginForm = () => {
         )}
         {isResettingEmail && (
           <PasswordResetButton
-            content={t.PASSWORD_RESET_BUTTON}
+            content={t("LOGIN.PASSWORD_RESET.BUTTON")}
             disabled={isSubmitting}
             handleClick={handlePasswordReset}
           />
@@ -62,7 +62,7 @@ const LoginForm = () => {
             <Controller
               name="password"
               control={control}
-              rules={{ required: t.ERROR_PASSWORD_REQUIRED }}
+              rules={{ required: t("ERROR.PASSWORD_REQUIRED ") }}
               render={({ field }) => (
                 <PasswordInput
                   field={field}
@@ -77,7 +77,7 @@ const LoginForm = () => {
               />
             )}
             <LoginButton
-              content={t.LOGIN_BUTTON}
+              content={t("LOGIN.BUTTON")}
               disabled={isSubmitting}
             />
           </>
@@ -85,17 +85,17 @@ const LoginForm = () => {
       </form>
       {isResettingEmail ? (
         <LoginLink
-          content={t.LOGIN_LINK}
+          content={t("LOGIN.LINK")}
           handleClick={handleLoginLink}
         />
       ) : (
         <PasswordResetLink
-          content={t.LOGIN_RESET_PASSWORD_LINK}
+          content={t("LOGIN.RESET_PASSWORD_LINK")}
           handleClick={handlePasswordResetLink}
         />
       )}
       <BottomLine />
-      <SignUpLink content={t.LOGIN_SIGNUP_LINK} />
+      <SignUpLink content={t("LOGIN.SIGN_UP_LINK")} />
     </div>
   );
 };
