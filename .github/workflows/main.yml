@@ -1,19 +1,21 @@
-name: deploy-to-S3
+name: Deploy to S3
 on:
   push:
     branches:
       - main
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Node.js dependencies
+        run: npm ci
 
-      - name: Build
+      - name: Build the app
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{secrets.NEXT_PUBLIC_FIREBASE_API_KEY}}
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}}
@@ -25,7 +27,7 @@ jobs:
           NEXT_PUBLIC_AWS_X_API_KEY: ${{secrets.NEXT_PUBLIC_AWS_X_API_KEY}}
         run: npm run build
 
-      - name: Deploy # S3にデプロイ
+      - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --delete
