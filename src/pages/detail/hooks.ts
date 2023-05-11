@@ -35,8 +35,12 @@ export const useSubscriptionDetail = () => {
             remark: fetchedData.remark,
           });
         })
-        .catch(() => {});
+        .catch(() => {
+          alert(t("ERROR.FAILED_TO_FETCH"));
+        });
     }
+    // tを含めると無限ループになるので、eslint-disable-next-lineを使用
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subscId]);
 
   return { t, data, handleClose };
