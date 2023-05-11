@@ -6,7 +6,6 @@ import { APIGetSubscriptionList, SubscriptionList } from "subscription";
 
 import axios from "@utils/useApi";
 
-import { useAuthContext } from "src/context/authContext";
 import { useCommonContext } from "src/context/commonContext";
 
 export const useHome = () => {
@@ -15,8 +14,8 @@ export const useHome = () => {
   const { t } = useTranslation();
   const [modalSubscId, setModalSubscId] = useState<string | null>(null);
   const [data, setData] = useState<SubscriptionList>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { isModalOpen, toggleIsModalOpen } = useCommonContext();
-  const { user } = useAuthContext();
 
   const handleOpen = (subscId: string) => (e: MouseEvent<HTMLButtonElement>) => {
     // 3点リーダーボタンを押したときに、行クリックのイベントが発火しないようにする
@@ -34,7 +33,7 @@ export const useHome = () => {
     await axios
       .delete(`/subsc/${modalSubscId}`)
       .then(() => {
-        router.push(`/home/${user?.uid}`);
+        setIsLoading(true);
       })
       .catch(() => {
         alert(t("ERROR.FAILED_TO_DELETE"));
@@ -50,7 +49,7 @@ export const useHome = () => {
   };
 
   useEffect(() => {
-    if (uid) {
+    if (uid && isLoading) {
       axios
         .get<APIGetSubscriptionList>(`/subsc?user_id=${uid}`)
         .then((res) => {
@@ -64,10 +63,15 @@ export const useHome = () => {
           setData(fetchedData);
         })
         .catch(() => {
-          console.log(t("ERROR.FAILED_TO_FETCH"));
+          alert(t("ERROR.FAILED_TO_FETCH"));
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
-  }, [t, uid]);
+    // tを含めると無限ループになるので、eslint-disable-next-lineを使用
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, setIsLoading, uid]);
 
   return {
     t,
