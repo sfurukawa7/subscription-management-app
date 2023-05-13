@@ -1,5 +1,8 @@
 import router from "next/router";
 
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 import { useTranslation } from "next-export-i18n";
 import { useForm } from "react-hook-form";
 
@@ -8,6 +11,9 @@ import axios from "@utils/useApi";
 
 import { useAuthContext } from "src/context/authContext";
 import { useCommonContext } from "src/context/commonContext";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export type SubscriptionFormData = {
   service: string;
@@ -42,7 +48,7 @@ export const useAddSubscription = () => {
     defaultValues: {
       service: "",
       price: 0,
-      paymentDate: new Date().toISOString().split("T")[0],
+      paymentDate: dayjs().tz("Asia/Tokyo").format("YYYY-MM-DD"),
       paymentFrequency: "month",
       genre: "",
       remark: "",
