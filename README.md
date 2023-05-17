@@ -35,6 +35,11 @@
 2. `cd subscription-management-app`
 3. `npm install`
 
+### 6. `.env.local`の作成
+
+- 開発には環境変数をまとめた`.env.local`が必要となります
+- このファイルはバージョン管理していないため，開発者から共有してもらいリポジトリのルートに置いてください
+
 ## 使い方
 
 - developmentモードで実行: `npm run dev`
