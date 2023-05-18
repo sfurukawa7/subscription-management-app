@@ -48,6 +48,7 @@
         "USER_NOT_FOUND": "This user is not found",
         "SERVICE_REQUIRED": "Service name is required",
         "PRICE_REQUIRED": "Price is required",
+        "INVALID_PRICE": "Invalid price",
         "PAYMENT_DATE_REQUIRED": "Payment date is required",
         "FREQUENCY_REQUIRED": "Frequency is required",
         "GENRE_REQUIRED": "Genre is required",

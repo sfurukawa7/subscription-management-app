@@ -98,6 +98,10 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
           control={props.control}
           rules={{
             required: t("ERROR.PRICE_REQUIRED"),
+            pattern: {
+              value: /^[1-9]+[0-9]*$/,
+              message: t("ERROR.INVALID_PRICE"),
+            },
           }}
           render={({ field: { value, onChange } }) => (
             <AddSubscriptionInput content={t("COMMON.PRICE")}>
