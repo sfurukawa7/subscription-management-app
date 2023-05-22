@@ -6,6 +6,7 @@ type RectangleButtonProps = {
   className: string;
   type: "button" | "submit" | "reset";
   form?: string;
+  disable?: boolean;
 };
 
 const RectangleButton = (props: RectangleButtonProps) => {
@@ -14,7 +15,8 @@ const RectangleButton = (props: RectangleButtonProps) => {
       className={`${styles.rectangleButton} ${props.className}`}
       onClick={props.handleClick}
       type={props.type}
-      form={props.form}>
+      form={props.form}
+      disabled={props.disable}>
       {props.content}
     </button>
   );

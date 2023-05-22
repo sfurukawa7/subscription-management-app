@@ -211,7 +211,8 @@ type AddSubscriptionFooterProps = {
 };
 
 const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); 
+  const { isSubmitting } = useAddSubscription(); 
 
   return (
     <div className={styles.footer}>
@@ -229,6 +230,7 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
           form="subscription-form"
           content={t("ADD_SUBSCRIPTION.BUTTON")}
           className={styles.addButton}
+          disable={ isSubmitting }
         />
       </div>
     </div>
