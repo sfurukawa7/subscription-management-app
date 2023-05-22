@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 type TextOutlineInputProps = Partial<ControllerRenderProps> & {
   placeholder: string;
   label: string;
+  type: string;
 };
 
 const TextOutlineInput = (props: TextOutlineInputProps) => {
@@ -14,6 +15,7 @@ const TextOutlineInput = (props: TextOutlineInputProps) => {
       <input
         {...props}
         id={props.label}
+        type={props.type}
         className={styles.textOutlineInput}
         placeholder={props.placeholder}
       />
