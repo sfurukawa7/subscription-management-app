@@ -48,6 +48,7 @@
         "USER_NOT_FOUND": "存在しないユーザーアカウントです",
         "SERVICE_REQUIRED": "サービス名を入力してください",
         "PRICE_REQUIRED": "金額を入力してください",
+        "INVALID_PRICE": "金額が無効な値です",
         "PAYMENT_DATE_REQUIRED": "支払日を入力してください",
         "FREQUENCY_REQUIRED": "支払頻度を選択してください",
         "GENRE_REQUIRED": "ジャンルを入力してください",

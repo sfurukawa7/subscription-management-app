@@ -83,6 +83,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
                 onChange={onChange}
                 label="service"
                 placeholder=""
+                type="string"
               />
             </AddSubscriptionInput>
           )}
@@ -106,6 +107,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
                 onChange={onChange}
                 label="price"
                 placeholder=""
+                type="number"
               />
             </AddSubscriptionInput>
           )}
@@ -174,6 +176,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
                 onChange={onChange}
                 label="genre"
                 placeholder=""
+                type="string"
               />
             </AddSubscriptionInput>
           )}
