@@ -4,8 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 6rem;
-  min-height: 100vh;
-  background-color: #485edf;
+  min-height: 80vh;
 }
 
 /* Enable hover only on non-touch devices */

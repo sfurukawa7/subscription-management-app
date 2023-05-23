@@ -1,18 +1,26 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 import styles from "./styles.module.css";
 
-const Header = () => {
+import Navigation from  "src/components/molecules/navigation";
+
+type HeaderProps = {
+  showNav?: boolean;
+};
+
+const Header = ( { showNav } : HeaderProps ) => {
   return (
-    <>
       <div className={styles.container}>
-        <FontAwesomeIcon
-          icon={faBars}
-          style={{ fontSize: "xx-large", marginTop: "14px", marginLeft: "20px", color: "white" }}
-        />
+        {/* <Link href="https://submane.app/" className={styles.link}> */}
+          <div className={styles.title}>
+            <a>submane.app</a>
+          </div>
+        {/* </Link> */}
+
+        <div style={{ display: showNav ? "block" : "none" } } className={styles.nav}>
+          <Navigation/>
+        </div>
       </div>
-    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import Head from "next/head";
 
-import MenuBar from "@molecules/menuBar";
 import EditSubscModal from "@organisms/editSubscModal";
 import PaymentSchedule from "@organisms/paymentSchedule";
 import SubscriptionWrap from "@organisms/subscription";
@@ -8,6 +7,7 @@ import SubscriptionWrap from "@organisms/subscription";
 import { useHome } from "./hooks";
 import styles from "./styles.module.css";
 
+import Layout from "src/components/templates/layout";
 import Modal from "src/components/templates/modal";
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
     useHome();
 
   return (
-    <>
+    <Layout showNav={true}>
       <Head>
         <title>{t("HOME.HEADER")}</title>
         <meta
@@ -28,7 +28,6 @@ const Home = () => {
         />
       </Head>
       <main className={styles.main}>
-        <MenuBar className={styles.menuBar} />
         <div className={styles.body}>
           <PaymentSchedule
             subscriptionList={data}
@@ -48,7 +47,7 @@ const Home = () => {
           </Modal>
         </div>
       </main>
-    </>
+    </Layout>
   );
 };
 
