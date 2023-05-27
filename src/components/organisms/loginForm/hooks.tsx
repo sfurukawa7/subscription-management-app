@@ -22,7 +22,7 @@ export const useLogin = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const { isSubmitting, toggleIsSubmitting, toggleIsModalOpen } = useCommonContext();
-  const [isResettingEmail, setIsResettingPassword] = useState<boolean>(false);
+  const [isResettingPassword, setIsResettingPassword] = useState<boolean>(false);
 
   const authorize = async (email: string, password: string) => {
     toggleIsSubmitting(true);
@@ -113,7 +113,7 @@ export const useLogin = () => {
     errors,
     handleFormSubmit,
     isSubmitting,
-    isResettingEmail,
+    isResettingPassword,
     handlePasswordResetLink,
     handleLoginLink,
     handlePasswordReset,
