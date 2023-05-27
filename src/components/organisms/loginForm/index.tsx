@@ -17,7 +17,7 @@ const LoginForm = () => {
     errors,
     handleFormSubmit,
     isSubmitting,
-    isResettingEmail,
+    isResettingPassword,
     handlePasswordResetLink,
     handleLoginLink,
     handlePasswordReset,
@@ -50,14 +50,14 @@ const LoginForm = () => {
             className={styles.emailErrorMessage}
           />
         )}
-        {isResettingEmail && (
+        {isResettingPassword && (
           <PasswordResetButton
             content={t("LOGIN.PASSWORD_RESET.BUTTON")}
             disabled={isSubmitting}
             handleClick={handlePasswordReset}
           />
         )}
-        {!isResettingEmail && (
+        {!isResettingPassword && (
           <>
             <Controller
               name="password"
@@ -83,7 +83,7 @@ const LoginForm = () => {
           </>
         )}
       </form>
-      {isResettingEmail ? (
+      {isResettingPassword ? (
         <LoginLink
           content={t("LOGIN.LINK")}
           handleClick={handleLoginLink}
