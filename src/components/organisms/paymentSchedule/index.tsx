@@ -7,7 +7,7 @@ import Title from "@atoms/title";
 import PaymentScheduleTable from "@organisms/pymentScheduleTable";
 import { compareTwoDate } from "@utils/compareTwoDate";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type PaymentScheduleProps = {
   subscriptionList: SubscriptionList;

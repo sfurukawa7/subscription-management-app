@@ -3,7 +3,6 @@ import PaymentSchedule from "@organisms/paymentSchedule";
 import SubscriptionWrap from "@organisms/subscription";
 
 import { useHome } from "./hooks";
-import styles from "./styles.module.css";
 
 import Layout from "src/components/templates/layout";
 import Modal from "src/components/templates/modal";
@@ -16,8 +15,8 @@ const Home = () => {
     <Layout
       showNav={true}
       title={t("HOME.HEADER")}>
-      <main className={styles.main}>
-        <div className={styles.body}>
+      <main>
+        <div>
           <PaymentSchedule
             subscriptionList={data}
             handleOpen={handleOpen}

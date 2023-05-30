@@ -1,7 +1,7 @@
 import RectangleButton from "@atoms/rectangleButton";
 
 import { useEditSubscModal } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type EditSubscModalProps = {
   handleClose: () => void;
@@ -15,8 +15,8 @@ const EditSubscModal = (props: EditSubscModalProps) => {
 
   return (
     <>
-      <div className={styles.modalOverlay}>
-        <div className={styles.modalContent}>
+      <div className={styles["modal-overlay"]}>
+        <div className={styles["modal-content"]}>
           <EditButton
             content={t("HOME.EDIT_BUTTON")}
             handleEdit={props.handleEdit}
@@ -40,7 +40,7 @@ const DeleteButton = (props: { content: string; handleDelete: () => void }) => {
     <RectangleButton
       content={props.content}
       handleClick={props.handleDelete}
-      className={styles.deleteButton}
+      className={styles["delete-button"]}
       type="button"
     />
   );
@@ -51,7 +51,7 @@ const EditButton = (props: { content: string; handleEdit: () => void }) => {
     <RectangleButton
       content={props.content}
       handleClick={props.handleEdit}
-      className={styles.editButton}
+      className={styles["edit-button"]}
       type="button"
     />
   );
@@ -62,7 +62,7 @@ const CloseButton = (props: { content: string; handleClose: () => void }) => {
     <RectangleButton
       content={props.content}
       handleClick={props.handleClose}
-      className={styles.closeButton}
+      className={styles["close-button"]}
       type="button"
     />
   );

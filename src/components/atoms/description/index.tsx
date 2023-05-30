@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type DescriptionProps = {
   content: string;
@@ -8,7 +8,7 @@ type DescriptionProps = {
 const Description = (props: DescriptionProps) => {
   return (
     <>
-      <span className={`${styles.description} ${props.className}`}>{props.content}</span>
+      <span className={`${styles["description"]} ${props.className}`}>{props.content}</span>
     </>
   );
 };

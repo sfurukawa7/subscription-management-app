@@ -1,11 +1,11 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type ErrorMessageProps = {
   content: string;
   className: string;
 };
 const ErrorMessage = (props: ErrorMessageProps) => {
-  return <p className={`${styles.errorMessage} ${props.className}`}>{props.content}</p>;
+  return <p className={`${styles["error-message"]} ${props.className}`}>{props.content}</p>;
 };
 
 export default ErrorMessage;

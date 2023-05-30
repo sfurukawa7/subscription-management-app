@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 // make type for props
 type MediumTextProps = {
@@ -7,7 +7,7 @@ type MediumTextProps = {
 };
 
 const MediumText = (props: MediumTextProps) => {
-  return <span className={`${styles.mediumText} ${props.className}`}>{props.content}</span>;
+  return <span className={`${styles["medium-text"]} ${props.className}`}>{props.content}</span>;
 };
 
 export default MediumText;

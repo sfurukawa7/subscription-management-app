@@ -4,7 +4,7 @@ import SignUpCompleteModal from "@organisms/signUpCompleteModal";
 import SignUpForm from "@organisms/signUpForm";
 
 import { useSignUp } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 import Modal from "src/components/templates/modal";
 
@@ -16,7 +16,7 @@ const SignUp = () => {
       <Head>
         <title>{t("SIGN_UP.HEADER")}</title>
       </Head>
-      <main className={styles.main}>
+      <main className={styles["main"]}>
         <SignUpForm />
         <Modal isOpen={isModalOpen}>
           <SignUpCompleteModal />

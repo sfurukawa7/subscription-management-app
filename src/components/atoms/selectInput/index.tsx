@@ -1,6 +1,6 @@
 import { ControllerRenderProps } from "react-hook-form";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type SelectInputProps = Partial<ControllerRenderProps> & {
   label: string;
@@ -9,12 +9,12 @@ type SelectInputProps = Partial<ControllerRenderProps> & {
 
 const SelectInput = (props: SelectInputProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles["container"]}>
       <label htmlFor={props.label} />
       <select
         {...props}
         id={props.label}
-        className={styles.selectInput}>
+        className={styles["select-input"]}>
         {props.options.map((i) => {
           return (
             <option

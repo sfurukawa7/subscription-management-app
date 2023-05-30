@@ -8,7 +8,7 @@ import EmailInput from "@organisms/emailInput";
 import PasswordInput from "@organisms/passwordInput";
 
 import { useLogin } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 const LoginForm = () => {
   const {
@@ -24,10 +24,10 @@ const LoginForm = () => {
   } = useLogin();
 
   return (
-    <div className={styles.container}>
+    <div className={styles["container"]}>
       <Title
         content={t("LOGIN.TITLE")}
-        className={styles.title}
+        className={styles["title"]}
       />
       <TopLine />
       <form onSubmit={handleFormSubmit}>
@@ -40,14 +40,14 @@ const LoginForm = () => {
           render={({ field }) => (
             <EmailInput
               field={field}
-              className={styles.emailInput}
+              className={styles["email-input"]}
             />
           )}
         />
         {errors.email && (
           <ErrorMessage
             content={errors.email.message ?? ""}
-            className={styles.emailErrorMessage}
+            className={styles["email-error-message"]}
           />
         )}
         {isResettingPassword && (
@@ -66,14 +66,14 @@ const LoginForm = () => {
               render={({ field }) => (
                 <PasswordInput
                   field={field}
-                  className={styles.passwordInput}
+                  className={styles["password-input"]}
                 />
               )}
             />
             {errors.password && (
               <ErrorMessage
                 content={errors.password.message ?? ""}
-                className={styles.passwordErrorMessage}
+                className={styles["password-error-message"]}
               />
             )}
             <LoginButton
@@ -110,7 +110,7 @@ const PasswordResetButton = (props: {
       <RoundedRectangleButton
         content={props.content}
         handleClick={props.handleClick}
-        className={styles.loginButton}
+        className={styles["login-button"]}
         type="button"
         disabled={props.disabled}
       />
@@ -126,7 +126,7 @@ const LoginButton = (props: { content: string; disabled: boolean }) => {
         handleClick={() => {
           return;
         }}
-        className={styles.loginButton}
+        className={styles["login-button"]}
         type="submit"
         disabled={props.disabled}
       />
@@ -135,11 +135,11 @@ const LoginButton = (props: { content: string; disabled: boolean }) => {
 };
 
 const TopLine = () => {
-  return <div className={styles.topLine} />;
+  return <div className={styles["top-line"]} />;
 };
 
 const BottomLine = () => {
-  return <div className={styles.bottomLine} />;
+  return <div className={styles["bottom-line"]} />;
 };
 
 const LoginLink = (props: { content: string; handleClick: () => void }) => {
@@ -147,7 +147,7 @@ const LoginLink = (props: { content: string; handleClick: () => void }) => {
     <SmallText
       content={props.content}
       onClick={props.handleClick}
-      className={styles.resetPasswordLink}
+      className={styles["reset-password-link"]}
     />
   );
 };
@@ -157,7 +157,7 @@ const PasswordResetLink = (props: { content: string; handleClick: () => void }) 
     <SmallText
       content={props.content}
       onClick={props.handleClick}
-      className={styles.resetPasswordLink}
+      className={styles["reset-password-link"]}
     />
   );
 };
@@ -167,7 +167,7 @@ const SignUpLink = (props: { content: string }) => {
     <SmallText
       content={props.content}
       href="/signup"
-      className={styles.signUpLink}
+      className={styles["signUpLink"]}
     />
   );
 };

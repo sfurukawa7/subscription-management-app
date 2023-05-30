@@ -16,7 +16,7 @@ import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import MenuBar from "@molecules/menuBar";
 
 import { SubscriptionFormData, useEditSubscription } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 const EditSubscription = () => {
   const { t, control, errors, frequencyOptions, handleCancel, handleUpdate } =
@@ -35,12 +35,12 @@ const EditSubscription = () => {
           href="/favicon.ico"
         />
       </Head>
-      <main className={styles.main}>
-        <MenuBar className={styles.menuBar} />
-        <div className={styles.container}>
+      <main className={styles["main"]}>
+        <MenuBar className={styles["menu-bar"]} />
+        <div className={styles["container"]}>
           <Title
             content={t("EDIT_SUBSCRIPTION.TITLE")}
-            className={styles.title}
+            className={styles["title"]}
           />
           <AddSubscriptionBody
             control={control}
@@ -66,7 +66,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.body}>
+    <div className={styles["body"]}>
       <form
         onSubmit={props.handleUpdate}
         id="subscription-form">
@@ -106,6 +106,7 @@ const AddSubscriptionBody = (props: AddSubscriptionBodyProps) => {
                 onChange={onChange}
                 label="price"
                 placeholder=""
+                type="number"
               />
             </AddSubscriptionInput>
           )}
@@ -211,16 +212,16 @@ const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.footer}>
-      <div className={styles.footerButton}>
+    <div className={styles["footer"]}>
+      <div className={styles["footer-button"]}>
         <GrayRectangleButton
           type="button"
           content={t("COMMON.CANCEL")}
-          className={styles.cancelButton}
+          className={styles["cancelButton"]}
           handleClick={props.handleCancel}
         />
       </div>
-      <div className={styles.footerButton}>
+      <div className={styles["footer-button"]}>
         <RectangleButton
           type="submit"
           form="subscription-form"

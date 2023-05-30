@@ -4,7 +4,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useTableRow } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type TableRowProps = {
   className: string;
@@ -21,7 +21,7 @@ const TableRow = (props: TableRowProps) => {
   return (
     <tr
       onClick={handleClick}
-      className={`${styles.tableBody} ${props.className}`}>
+      className={`${styles["table-body"]} ${props.className}`}>
       {Object.keys(props.subscription).map((key, index) => {
         let content;
         if (key == "nextPaymentDate") {
@@ -34,19 +34,19 @@ const TableRow = (props: TableRowProps) => {
 
         return (
           <td
-            className={`${styles.tableBodyRow} ${props.className}`}
+            className={`${styles["table-body-row"]} ${props.className}`}
             key={`td${index}`}>
             <span
               key={`td${index}`}
-              className={`${styles.link} ${props.className}`}>
+              className={`${styles["link"]} ${props.className}`}>
               {content}
             </span>
           </td>
         );
       })}
-      <td className={`${styles.tableBodyRow} ${props.className}`}>
+      <td className={`${styles["table-body-row"]} ${props.className}`}>
         <button
-          className={`${styles.button} ${props.className}`}
+          className={`${styles["button"]} ${props.className}`}
           onClick={props.handleOpen}>
           <FontAwesomeIcon
             icon={faEllipsis}

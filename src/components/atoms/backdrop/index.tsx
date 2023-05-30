@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 const Backdrop = () => {
-  return <div className={styles.modalBackdrop} />;
+  return <div className={styles["modal-backdrop"]} />;
 };
 
 export default Backdrop;

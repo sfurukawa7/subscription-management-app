@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type RectangleButtonProps = {
   content: string;
@@ -12,7 +12,7 @@ type RectangleButtonProps = {
 const RectangleButton = (props: RectangleButtonProps) => {
   return (
     <button
-      className={`${styles.rectangleButton} ${props.className}`}
+      className={`${styles["rectangle-button"]} ${props.className}`}
       onClick={props.handleClick}
       type={props.type}
       form={props.form}

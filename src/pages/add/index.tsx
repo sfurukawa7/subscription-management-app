@@ -16,7 +16,7 @@ import AddSubscriptionInput from "@molecules/AddSubscriptionInput";
 import MenuBar from "@molecules/menuBar";
 
 import { SubscriptionFormData, useAddSubscription } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 const AddSubscription = () => {
   const { t, control, errors, frequencyOptions, handleCancel, handleAdd } = useAddSubscription();
@@ -34,12 +34,12 @@ const AddSubscription = () => {
           href="/favicon.ico"
         />
       </Head>
-      <main className={styles.main}>
-        <MenuBar className={styles.menuBar} />
-        <div className={styles.container}>
+      <main className={styles["main"]}>
+        <MenuBar className={styles["menu-bar"]} />
+        <div className={styles["container"]}>
           <Title
             content={t("ADD_SUBSCRIPTION.TITLE")}
-            className={styles.title}
+            className={styles["title"]}
           />
           <AddSubscriptionBody
             control={control}
@@ -211,26 +211,26 @@ type AddSubscriptionFooterProps = {
 };
 
 const AddSubscriptionFooter = (props: AddSubscriptionFooterProps) => {
-  const { t } = useTranslation(); 
-  const { isSubmitting } = useAddSubscription(); 
+  const { t } = useTranslation();
+  const { isSubmitting } = useAddSubscription();
 
   return (
-    <div className={styles.footer}>
-      <div className={styles.footerButton}>
+    <div className={styles["footer"]}>
+      <div className={styles["footer-button"]}>
         <GrayRectangleButton
           type="button"
           content={t("COMMON.CANCEL")}
-          className={styles.cancelButton}
+          className={styles["cancel-button"]}
           handleClick={props.handleCancel}
         />
       </div>
-      <div className={styles.footerButton}>
+      <div className={styles["footer-button"]}>
         <RectangleButton
           type="submit"
           form="subscription-form"
           content={t("ADD_SUBSCRIPTION.BUTTON")}
-          className={styles.addButton}
-          disable={ isSubmitting }
+          className={styles["add-button"]}
+          disable={isSubmitting}
         />
       </div>
     </div>

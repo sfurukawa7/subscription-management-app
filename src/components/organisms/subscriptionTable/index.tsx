@@ -5,7 +5,7 @@ import { useTranslation } from "next-export-i18n";
 import TableBody from "@organisms/tableBody";
 import TableHead from "@organisms/tableHead";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 type SubscriptionTableProps = {
   className: string;
   subscTableList: {
@@ -21,18 +21,18 @@ const SubscriptionTable = (props: SubscriptionTableProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.scrollDiv}>
-        <table className={`${styles.table} ${props.className}`}>
+    <div className={styles["container"]}>
+      <div className={styles["scroll-div"]}>
+        <table className={`${styles["table"]} ${props.className}`}>
           <TableHead
             headFirstItem={t("HOME.SERVICE")}
             headSecondItem={t("HOME.PRICE")}
             headThirdItem={t("HOME.FREQUENCY")}
-            className={styles.tableHeadRow}
+            className={styles["table-head-row"]}
           />
           <TableBody
             subscriptionList={props.subscTableList}
-            className={styles.tableBodyRow}
+            className={styles["table-body-row"]}
             handleOpen={props.handleOpen}
           />
         </table>

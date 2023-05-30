@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { getFontAwesomeIcon } from "@utils/getFaIcon";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type FormIconProps = { prefix: IconPrefix; iconName: IconName };
 
@@ -12,7 +12,7 @@ const FormIcon = (props: FormIconProps) => {
     <>
       <FontAwesomeIcon
         icon={getFontAwesomeIcon(props.prefix, props.iconName)}
-        className={styles.icon}
+        className={styles["icon"]}
       />
     </>
   );
