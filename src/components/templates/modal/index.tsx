@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-import Backdrop from "@atoms/backdrop";
+import Backdrop from '@atoms/backdrop';
 
 type ModalProps = {
   isOpen: boolean;

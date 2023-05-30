@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import EditSubscModal from "@organisms/editSubscModal";
 import PaymentSchedule from "@organisms/paymentSchedule";
 import SubscriptionWrap from "@organisms/subscription";
@@ -15,18 +13,9 @@ const Home = () => {
     useHome();
 
   return (
-    <Layout showNav={true}>
-      <Head>
-        <title>{t("HOME.HEADER")}</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        />
-        <link
-          rel="icon"
-          href="/favicon.ico"
-        />
-      </Head>
+    <Layout
+      showNav={true}
+      title={t("HOME.HEADER")}>
       <main className={styles.main}>
         <div className={styles.body}>
           <PaymentSchedule
