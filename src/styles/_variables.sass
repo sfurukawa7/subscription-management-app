@@ -1,0 +1,35 @@
+// color
+$background-color: #EBF6DF
+$header-color: #485EDF
+$accent-color: #FF0000
+
+// font-size
+$font-size1: 1rem
+$font-size2: 1.2rem
+$font-size3: 1.44rem
+$font-size4: 1.728rem
+$font-size5: 2.074rem
+$font-size6: 2.488rem
+
+    
+// Define the breakpoints for different screen sizes
+$sm: 576px; // Small devices (landscape phones, less than 576px)
+$md: 768px; // Medium devices (tablets, less than 768px)
+$lg: 992px; // Large devices (desktops, less than 992px)
+$xl: 1200px; // Extra large devices (large desktops, less than 1200px)
+
+// Create a map to store the breakpoints
+$breakpoints: (
+  'sm': 'screen and (max-width: #{$sm})',
+  'md': 'screen and (max-width: #{$md})',
+  'lg': 'screen and (max-width: #{$lg})',
+  'xl': 'screen and (max-width: #{$xl})'
+);
+
+// Define a mixin that accepts a breakpoint size as a parameter
+// and applies the styles within it only to screens that match the specified breakpoint
+@mixin mq($size) {
+  @media #{map-get($breakpoints, $size)} {
+    @content;
+  }
+}

@@ -5,14 +5,16 @@ import styles from "./styles.module.css";
 
 import Footer from "src/components/organisms/footer";
 import Header from "src/components/organisms/header";
+import Sidebar from "src/components/organisms/sidebar";
 
 type LayoutProps = {
   children: ReactNode;
   showNav?: boolean;
+  showSidebar?: boolean;
   title: string;
 };
 
-const Layout = ({ children, showNav, title }: LayoutProps) => {
+const Layout = ({ children, showNav, showSidebar, title }: LayoutProps) => {
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -30,9 +32,14 @@ const Layout = ({ children, showNav, title }: LayoutProps) => {
         {/* // showNavがtrueの時、Navigationが表示される */}
         <Header showNav={showNav} />
       </header>
-      <main className={styles.container}>
-        {children} {/* ページコンテンツはここに表示される */}
-      </main>
+      <div className={styles.container}>
+        <aside className={styles.sidebar}>
+          <Sidebar isVisible={showSidebar}/>
+        </aside>
+        <main className={styles.main}>
+          {children} {/* ページコンテンツはここに表示される */}
+        </main>
+      </div>
       <footer>
         <Footer />
       </footer>

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.container:hover {
+  background: #93a0fd;
+}
+
+.icon {
+  margin-right: 15px;
+  color: #ffffff;
+}
+
+.label {
+  color: #f0f0f0;
+  font-size: 16px;
+}

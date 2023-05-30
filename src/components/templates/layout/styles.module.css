@@ -1,8 +1,21 @@
 .wrapper {
-    background-color: #f8faff;
-    min-height: 100vh;
+  background-color: #f8faff;
+  min-height: 100vh;
 }
 
-.container{
-    padding: 2rem;
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.main {
+  padding: 2rem;
+  flex: 6;
+}
+
+.sidebar {
+  flex: 1;
+  min-height: 100vh;
+  background-color: #485edf;
+  max-width: 256px;
 }
