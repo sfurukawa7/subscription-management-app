@@ -1,6 +1,6 @@
 import BurgerIcon from "@atoms/burgerIcon";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type MenuBarProps = {
   className: string;
@@ -9,7 +9,7 @@ type MenuBarProps = {
 
 const MenuBar = (props: MenuBarProps) => {
   return (
-    <div className={`${styles.menuBar} ${props.className}`}>
+    <div className={`${styles["menu-bar"]} ${props.className}`}>
       <BurgerIcon
         prefix="fas"
         onClick={props.onClick}

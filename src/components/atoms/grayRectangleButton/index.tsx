@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type GrayRectangleButtonProps = {
   content: string;
@@ -10,7 +10,7 @@ type GrayRectangleButtonProps = {
 const GrayRectangleButton = (props: GrayRectangleButtonProps) => {
   return (
     <button
-      className={`${styles.grayRectangleButton} ${props.className}`}
+      className={`${styles["gray-rectangle-button"]} ${props.className}`}
       onClick={() => props.handleClick()}
       type={props.type}>
       {props.content}

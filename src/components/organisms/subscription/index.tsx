@@ -8,7 +8,7 @@ import RoundedRectangleButton from "@atoms/roundedRectangleButton";
 import Title from "@atoms/title";
 import SubscriptionTable from "@organisms/subscriptionTable";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type SubscriptionWrapProps = {
   subscriptionList: SubscriptionList;
@@ -26,16 +26,16 @@ const SubscriptionWrap = (props: SubscriptionWrapProps) => {
   }));
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
+    <div className={styles["container"]}>
+      <div className={styles["header"]}>
         <Title
           content={t("HOME.SUBSCRIPTION")}
-          className={styles.title}
+          className={styles["title"]}
         />
         <AddSubscriptionButton content={t("HOME.ADD_SUBSCRIPTION")} />
       </div>
       <SubscriptionTable
-        className={styles.dt}
+        className={styles["dt"]}
         subscTableList={subscTableList}
         handleOpen={props.handleOpen}
       />
@@ -52,7 +52,7 @@ const AddSubscriptionButton = (props: { content: string }) => {
           handleClick={() => {
             return;
           }}
-          className={styles.addSubscriptionButton}
+          className={styles["add-subscription-button"]}
           type="submit"
           disabled={false}
         />

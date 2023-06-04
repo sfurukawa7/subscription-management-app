@@ -1,6 +1,6 @@
 import { ControllerRenderProps } from "react-hook-form";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type FormInputProps = ControllerRenderProps & { placeholder: string; label: string };
 
@@ -12,7 +12,7 @@ const FormInput = (props: FormInputProps) => {
         {...props}
         type={props.label === "password" ? "password" : "text"}
         id={props.label}
-        className={styles.formInput}
+        className={styles["form-input"]}
         placeholder={props.placeholder}
       />
     </>

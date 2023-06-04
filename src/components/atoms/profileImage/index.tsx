@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type ProfileImageProps = {
   className?: string;
@@ -16,7 +16,7 @@ const ProfileImage = (props: ProfileImageProps) => {
         src={props.dummyImage}
         width={props.width}
         height={props.height}
-        className={`${styles.profileimage} ${props.className}`}
+        className={`${styles["profile-image"]} ${props.className}`}
         alt="profileimage"
       />
     </>

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { getFontAwesomeIcon } from "@utils/getFaIcon";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type BurgerIconProps = { prefix: IconPrefix; onClick?: () => void };
 
@@ -12,7 +12,7 @@ const BurgerIcon = (props: BurgerIconProps) => {
     <>
       <FontAwesomeIcon
         icon={getFontAwesomeIcon(props.prefix, "bars")}
-        className={styles.icon}
+        className={styles["icon"]}
         onClick={() => props.onClick ?? {}}
       />
     </>

@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type RoundedRectangleButtonProps = {
   content: string;
@@ -11,7 +11,7 @@ type RoundedRectangleButtonProps = {
 const RoundedRectangleButton = (props: RoundedRectangleButtonProps) => {
   return (
     <button
-      className={`${styles.roundedRectangleButton} ${props.className}`}
+      className={`${styles["rounded-rectangle-button"]} ${props.className}`}
       onClick={() => props.handleClick()}
       type={props.type}
       disabled={props.disabled}>

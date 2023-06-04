@@ -4,7 +4,7 @@ import { ControllerRenderProps } from "react-hook-form";
 import FormIcon from "@atoms/formIcon";
 import FormInput from "@atoms/formInput";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type LoginInputProps = ControllerRenderProps & {
   prefix: IconPrefix;
@@ -16,7 +16,7 @@ type LoginInputProps = ControllerRenderProps & {
 
 const LoginInput = (props: LoginInputProps) => {
   return (
-    <div className={`${styles.loginInput} ${props.className}`}>
+    <div className={`${styles["login-input"]} ${props.className}`}>
       <FormInput
         {...props}
         placeholder={props.placeholder}

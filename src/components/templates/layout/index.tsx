@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 import Footer from "src/components/organisms/footer";
 import Header from "src/components/organisms/header";
@@ -14,7 +14,7 @@ type LayoutProps = {
 
 const Layout = ({ children, showNav, title }: LayoutProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles["wrapper"]}>
       <Head>
         <title>{title}</title>
         <meta
@@ -30,7 +30,7 @@ const Layout = ({ children, showNav, title }: LayoutProps) => {
         {/* // showNavがtrueの時、Navigationが表示される */}
         <Header showNav={showNav} />
       </header>
-      <main className={styles.container}>
+      <main className={styles["container"]}>
         {children} {/* ページコンテンツはここに表示される */}
       </main>
       <footer>

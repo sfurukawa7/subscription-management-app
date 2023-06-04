@@ -1,12 +1,12 @@
 import MediumText from "@atoms/mediumText";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type AddSubscriptionInputProps = { content: string; children: React.ReactNode };
 
 const AddSubscriptionInput = (props: AddSubscriptionInputProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles["container"]}>
       <MediumText
         content={props.content}
         className={""}

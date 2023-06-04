@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 type TableHeadProps = {
   headFirstItem: string;
@@ -10,13 +10,17 @@ type TableHeadProps = {
 const TableHead = (props: TableHeadProps) => {
   return (
     <>
-      <thead className={`${styles.tableHead} ${props.className}`}>
-        <tr className={`${styles.tableHeadtr} ${props.className}`}>
-          <th className={`${styles.tableHeadRow} ${props.className}`}>{props.headFirstItem}</th>
-          <th className={`${styles.tableHeadRow} ${props.className}`}>{props.headSecondItem}</th>
+      <thead className={`${styles["table-head"]} ${props.className}`}>
+        <tr className={`${styles["table-head-tr"]} ${props.className}`}>
+          <th className={`${styles["table-head-row"]} ${props.className}`}>
+            {props.headFirstItem}
+          </th>
+          <th className={`${styles["table-head-row"]} ${props.className}`}>
+            {props.headSecondItem}
+          </th>
           <th
             colSpan={2}
-            className={`${styles.tableHeadRow} ${props.className}`}>
+            className={`${styles["table-head-row"]} ${props.className}`}>
             {props.headThirdItem}
           </th>
         </tr>

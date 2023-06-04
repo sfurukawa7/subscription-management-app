@@ -8,8 +8,7 @@ import Title from "@atoms/title";
 import MenuBar from "@molecules/menuBar";
 
 import { useSubscriptionDetail } from "./hooks";
-import styles from "./styles.module.css";
-
+import styles from "./styles.module.sass";
 
 const SubscriptionDetail = () => {
   const { t, data, handleClose } = useSubscriptionDetail();
@@ -27,12 +26,12 @@ const SubscriptionDetail = () => {
           href="/favicon.ico"
         />
       </Head>
-      <main className={styles.main}>
-        <MenuBar className={styles.menuBar} />
-        <div className={styles.container}>
+      <main className={styles["main"]}>
+        <MenuBar className={styles["menu-bar"]} />
+        <div className={styles["container"]}>
           <Title
             content={t("SUBSCRIPTION_DETAIL.TITLE")}
-            className={styles.title}
+            className={styles["title"]}
           />
           {data && <SubscriptionDetailBody data={data} />}
         </div>
@@ -50,7 +49,7 @@ const SubscriptionDetailBody = (props: SubscriptionDetailBodyProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.body}>
+    <div className={styles["body"]}>
       <DetailCell
         title={t("COMMON.SERVICE")}
         content={props.data.service}
@@ -81,9 +80,9 @@ const SubscriptionDetailBody = (props: SubscriptionDetailBodyProps) => {
 
 const DetailCell = (props: { title: string; content: string }) => {
   return (
-    <div className={styles.detailCell}>
-      <div className={styles.detailCellTitle}>{props.title}</div>
-      <div className={styles.detailCellContent}>{props.content}</div>
+    <div className={styles["detail-cell"]}>
+      <div className={styles["detail-cell-title"]}>{props.title}</div>
+      <div className={styles["detail-cell-content"]}>{props.content}</div>
     </div>
   );
 };
@@ -96,12 +95,12 @@ const SubscriptionDetailFooter = (props: SubscriptionDetailFooterProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.footer}>
-      <div className={styles.footerButton}>
+    <div className={styles["footer"]}>
+      <div className={styles["footer-button"]}>
         <RectangleButton
           type="button"
           content={t("SUBSCRIPTION_DETAIL.BUTTON")}
-          className={styles.addButton}
+          className={styles["add-button"]}
           handleClick={props.handleClose}
         />
       </div>

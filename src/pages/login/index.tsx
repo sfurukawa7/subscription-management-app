@@ -2,7 +2,7 @@ import LoginForm from "@organisms/loginForm";
 import PasswordResetMailSentModal from "@organisms/passwordResetMailSentModal";
 
 import { useLogin } from "./hooks";
-import styles from "./styles.module.css";
+import styles from "./styles.module.sass";
 
 import Layout from "src/components/templates/layout";
 import Modal from "src/components/templates/modal";
@@ -12,7 +12,7 @@ const Login = () => {
 
   return (
     <Layout title={t("LOGIN.HEADER")}>
-      <main className={styles.main}>
+      <main className={styles["main"]}>
         <LoginForm />
         <Modal isOpen={isModalOpen}>
           <PasswordResetMailSentModal />
