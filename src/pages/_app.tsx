@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.sass";
 import { Noto_Sans_JP } from "@next/font/google";
 import type { AppProps } from "next/app";
 
